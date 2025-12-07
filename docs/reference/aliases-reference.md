@@ -1,5 +1,10 @@
 # Claude Aliases & Commands Reference
 
+!!! warning "Historical Reference"
+    This is a historical document moved from the project root for reference purposes.
+    Some links may be broken or point to old file locations.
+    For current documentation, see the main navigation sections.
+
 **Last Updated**: 2025-12-07
 
 This document lists all Claude-related aliases and commands configured in your `.zshrc`.

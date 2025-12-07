@@ -405,9 +405,9 @@ source tests/test-runtime.zsh
 
 ## Related Documentation
 
-- [tests/README.md](../tests/README.md) - Detailed test suite documentation
-- [COMMANDS.md](COMMANDS.md) - Command reference
-- [Main README](../README.md) - Project overview
+- [Command Reference](../commands/reference.md) - Command documentation
+- [Architecture](architecture.md) - Development architecture
+- [Contributing](contributing.md) - How to contribute
 
 ---
 
