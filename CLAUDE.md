@@ -680,6 +680,8 @@ print_header "Section Header"
 - ✅ Updated PR template with dev branch reminders
 - ✅ Clean documentation build (0.67s, only 1 expected warning)
 - ✅ Project file organization optimized
+- ✅ GitHub Release created with comprehensive release notes
+- 📦 Release URL: https://github.com/Data-Wise/zsh-claude-workflow/releases/tag/v1.2
 
 ### v1.1 (2025-12-07)
 - ✅ MkDocs documentation site with Material theme
@@ -832,6 +834,29 @@ mkdocs build
 mkdocs gh-deploy
 ```
 
+### GitHub Releases
+
+**Creating Releases:**
+```bash
+# Create a new release
+env -u GITHUB_TOKEN gh release create v1.x \
+  --title "v1.x - Release Title" \
+  --notes "Release notes here" \
+  --target main
+```
+
+**When to Release:**
+- Major feature additions
+- Breaking changes
+- Version milestones (v1.0, v2.0, etc.)
+
+**Release History:**
+- v1.2 (2025-12-07) - Dev Workflow & Documentation Cleanup
+- v1.1 (2025-12-07) - Documentation Site & GitHub Integration
+- v1.0 (2025-12-07) - Initial Release
+
+**View Releases:** https://github.com/Data-Wise/zsh-claude-workflow/releases
+
 ### Documentation Structure
 
 The documentation is organized into:
@@ -851,6 +876,7 @@ The documentation is organized into:
 **Documentation**: Complete (Web + MkDocs)
 **Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
 **Branch Workflow**: dev (development) → main (production)
+**Releases**: https://github.com/Data-Wise/zsh-claude-workflow/releases
 
 ---
 
