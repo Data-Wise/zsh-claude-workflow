@@ -12,27 +12,31 @@
         <meta name="author" content="Data-Wise">
       
       
-        <link rel="canonical" href="https://data-wise.github.io/zsh-claude-workflow/COMMANDS/">
+        <link rel="canonical" href="https://data-wise.github.io/zsh-claude-workflow/development/branch-protection/">
       
       
+        <link rel="prev" href="../testing/">
+      
+      
+        <link rel="next" href="../../reference/aliases-reference/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Command Reference - zsh-claude-workflow</title>
+        <title>Branch Protection - zsh-claude-workflow</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#command-reference" class="md-skip">
+        <a href="#branch-protection-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="zsh-claude-workflow" class="md-header__button md-logo" aria-label="zsh-claude-workflow" data-md-component="logo">
+    <a href="../.." title="zsh-claude-workflow" class="md-header__button md-logo" aria-label="zsh-claude-workflow" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Command Reference
+              Branch Protection
             
           </span>
         </div>
@@ -227,7 +231,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -248,7 +252,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../getting-started/installation/" class="md-tabs__link">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -268,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../commands/overview/" class="md-tabs__link">
+        <a href="../../commands/overview/" class="md-tabs__link">
           
   
   
@@ -288,7 +292,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../guide/project-types/" class="md-tabs__link">
+        <a href="../../guide/project-types/" class="md-tabs__link">
           
   
   
@@ -308,7 +312,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../migration/antidote/" class="md-tabs__link">
+        <a href="../../migration/antidote/" class="md-tabs__link">
           
   
   
@@ -328,7 +332,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../optimization/plugins/" class="md-tabs__link">
+        <a href="../../optimization/plugins/" class="md-tabs__link">
           
   
   
@@ -344,11 +348,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../development/contributing/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../contributing/" class="md-tabs__link">
           
   
   
@@ -368,7 +374,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../reference/aliases-reference/" class="md-tabs__link">
+        <a href="../../reference/aliases-reference/" class="md-tabs__link">
           
   
   
@@ -402,7 +408,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="zsh-claude-workflow" class="md-nav__button md-logo" aria-label="zsh-claude-workflow" data-md-component="logo">
+    <a href="../.." title="zsh-claude-workflow" class="md-nav__button md-logo" aria-label="zsh-claude-workflow" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -432,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -513,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -541,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -630,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/overview/" class="md-nav__link">
+      <a href="../../commands/overview/" class="md-nav__link">
         
   
   
@@ -658,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/reference/" class="md-nav__link">
+      <a href="../../commands/reference/" class="md-nav__link">
         
   
   
@@ -747,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/project-types/" class="md-nav__link">
+      <a href="../../guide/project-types/" class="md-nav__link">
         
   
   
@@ -775,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/templates/" class="md-nav__link">
+      <a href="../../guide/templates/" class="md-nav__link">
         
   
   
@@ -803,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/context-management/" class="md-nav__link">
+      <a href="../../guide/context-management/" class="md-nav__link">
         
   
   
@@ -892,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration/antidote/" class="md-nav__link">
+      <a href="../../migration/antidote/" class="md-nav__link">
         
   
   
@@ -981,7 +987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../optimization/plugins/" class="md-nav__link">
+      <a href="../../optimization/plugins/" class="md-nav__link">
         
   
   
@@ -1013,28 +1019,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
-        
-          
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   
@@ -1052,7 +1061,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1070,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/contributing/" class="md-nav__link">
+      <a href="../contributing/" class="md-nav__link">
         
   
   
@@ -1098,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -1126,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/testing/" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   
@@ -1142,6 +1151,259 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Branch Protection
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Branch Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-branch-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Branch Protection?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-main-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For main Branch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For main Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protection Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-dev-branch-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For dev Branch (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-after-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow After Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow After Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotfix-to-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hotfix to Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Status
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Current Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#to-configure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To Configure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1215,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/aliases-reference/" class="md-nav__link">
+      <a href="../../reference/aliases-reference/" class="md-nav__link">
         
   
   
@@ -1243,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/optimization-applied/" class="md-nav__link">
+      <a href="../../reference/optimization-applied/" class="md-nav__link">
         
   
   
@@ -1271,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/organization-notes/" class="md-nav__link">
+      <a href="../../reference/organization-notes/" class="md-nav__link">
         
   
   
@@ -1299,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/test-summary/" class="md-nav__link">
+      <a href="../../reference/test-summary/" class="md-nav__link">
         
   
   
@@ -1354,22 +1616,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#project-detection" class="md-nav__link">
+  <a href="#why-branch-protection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Detection
+        Why Branch Protection?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Project Detection">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommended Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#proj-type" class="md-nav__link">
+  <a href="#for-main-branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        proj-type
+        For main Branch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="For main Branch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protection Rules
       
     </span>
   </a>
@@ -1377,10 +1662,76 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#proj-info" class="md-nav__link">
+  <a href="#additional-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        proj-info
+        Additional Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-dev-branch-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For dev Branch (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-after-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow After Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow After Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normal-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotfix-to-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hotfix to Production
       
     </span>
   </a>
@@ -1393,55 +1744,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude-context-management" class="md-nav__link">
+  <a href="#current-status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Context Management
+        Current Status
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Claude Context Management">
+    <nav class="md-nav" aria-label="Current Status">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#claude-ctx" class="md-nav__link">
+  <a href="#to-configure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        claude-ctx
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-init" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        claude-init
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-show" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        claude-show
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proj-claude" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        proj-claude
+        To Configure
       
     </span>
   </a>
@@ -1454,10 +1772,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aliases" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Aliases
+        Verification
       
     </span>
   </a>
@@ -1465,171 +1783,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflows" class="md-nav__link">
+  <a href="#related-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflows
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflows">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-a-new-r-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setting up a new R package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#working-with-existing-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Working with existing project
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migrating-project-from-local-to-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migrating project from local to cloud
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-with-existing-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integration with Existing Workflow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tips
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#command-not-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Command not found
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project-type-not-detected" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project type not detected
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claudemd-template-not-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLAUDE.md template not found
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#custom-project-directories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom project directories
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-templates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom templates
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
+        Related Documentation
       
     </span>
   </a>
@@ -1656,273 +1813,111 @@
   
 
 
-<h1 id="command-reference">Command Reference</h1>
-<p>Complete reference for all zsh-claude-workflow commands.</p>
-<hr />
-<h2 id="project-detection">Project Detection</h2>
-<h3 id="proj-type"><code>proj-type</code></h3>
-<p>Detect and display the current project type.</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>proj-type<span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div></p>
-<p><strong>Output:</strong>
-- Project name
-- Project type (R Package, Quarto, Research, etc.)
-- Storage location (local, google-drive, etc.)
-- Storage tier (active, stable, archive, etc.)
-- Claude instruction status
-- Git status</p>
-<p><strong>Examples:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check current directory</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>proj-type
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Check specific directory</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>proj-type<span class="w"> </span>~/R-packages/active/rmediation
-</code></pre></div></p>
-<hr />
-<h3 id="proj-info"><code>proj-info</code></h3>
-<p>Display comprehensive project information with context.</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>proj-info<span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div></p>
-<p><strong>Output:</strong>
-- Full project context
-- Claude instruction files
-- Git status and branch info
-- Type-specific information (R package stats, etc.)
-- Project structure tree</p>
-<p><strong>Examples:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Show info for current project</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>proj-info
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Show info for specific project</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>proj-info<span class="w"> </span>~/quarto-projects/extensions/unm-revealjs
-</code></pre></div></p>
-<hr />
-<h2 id="claude-context-management">Claude Context Management</h2>
-<h3 id="claude-ctx"><code>claude-ctx</code></h3>
-<p>Gather and display all Claude context files in the current project.</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>claude-ctx<span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div></p>
-<p><strong>Output:</strong>
-- List of CLAUDE.md files
-- Claude settings files
-- Content of primary CLAUDE.md</p>
-<p><strong>Examples:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Show Claude context for current project</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>claude-ctx
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Show for specific project</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>claude-ctx<span class="w"> </span>~/R-packages/active/medfit
-</code></pre></div></p>
-<hr />
-<h3 id="claude-init"><code>claude-init</code></h3>
-<p>Create a new CLAUDE.md file from template based on project type.</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>claude-init<span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div></p>
-<p><strong>Behavior:</strong>
-- Auto-detects project type
-- Selects appropriate template
-- Fills in project name and description
-- Creates CLAUDE.md in project root</p>
-<p><strong>Supported project types:</strong>
-- R Package → Uses <code>CLAUDE-rpkg.md</code> template
-- Quarto Project → Uses <code>CLAUDE-quarto.md</code> template
-- Research Project → Uses <code>CLAUDE-research.md</code> template</p>
-<p><strong>Examples:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Create CLAUDE.md in current directory</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>claude-init
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Create for specific project</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>claude-init<span class="w"> </span>~/R-packages/active/probmed
-</code></pre></div></p>
-<hr />
-<h3 id="claude-show"><code>claude-show</code></h3>
-<p>Display the content of CLAUDE.md for the current project.</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>claude-show<span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div></p>
-<p><strong>Behavior:</strong>
-- Finds primary CLAUDE.md file
-- Uses bat for syntax highlighting (if available)
-- Falls back to cat if bat not installed</p>
-<p><strong>Priority:</strong>
-1. <code>CLAUDE.md</code> in project root
-2. <code>.claude/CLAUDE.md</code>
-3. First CLAUDE*.md file found</p>
-<p><strong>Examples:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Show CLAUDE.md</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>claude-show
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Show for specific project</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>claude-show<span class="w"> </span>~/R-packages/active/rmediation
-</code></pre></div></p>
-<hr />
-<h3 id="proj-claude"><code>proj-claude</code></h3>
-<p>Open Claude Code with automatic project context.</p>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>proj-claude<span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
-</code></pre></div></p>
-<p><strong>Behavior:</strong>
-- Checks for CLAUDE.md (warns if missing)
-- Shows context summary
-- Opens Claude Code in chat mode</p>
-<p><strong>Examples:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Open Claude Code for current project</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>proj-claude
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Open for specific project</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/mediationverse
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>proj-claude
-</code></pre></div></p>
-<hr />
-<h2 id="aliases">Aliases</h2>
-<p>For convenience, shorter aliases are available:</p>
-<table>
-<thead>
-<tr>
-<th>Alias</th>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ptype</code></td>
-<td><code>proj-type</code></td>
-<td>Quick project type check</td>
-</tr>
-<tr>
-<td><code>pinfo</code></td>
-<td><code>proj-info</code></td>
-<td>Quick project info</td>
-</tr>
-<tr>
-<td><code>cctx</code></td>
-<td><code>claude-ctx</code></td>
-<td>Quick context view</td>
-</tr>
-<tr>
-<td><code>cinit</code></td>
-<td><code>claude-init</code></td>
-<td>Quick CLAUDE.md creation</td>
-</tr>
-<tr>
-<td><code>cshow</code></td>
-<td><code>claude-show</code></td>
-<td>Quick CLAUDE.md display</td>
-</tr>
-<tr>
-<td><code>pclaude</code></td>
-<td><code>proj-claude</code></td>
-<td>Quick Claude Code launch</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="workflows">Workflows</h2>
-<h3 id="setting-up-a-new-r-package">Setting up a new R package</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Navigate to package</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpackage
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Check project type</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>ptype
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># Create CLAUDE.md</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>cinit
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># Edit CLAUDE.md</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>vim<span class="w"> </span>CLAUDE.md
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># View context</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>cctx
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c1"># Open Claude Code</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>pclaude
-</code></pre></div>
-<h3 id="working-with-existing-project">Working with existing project</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Navigate to project</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Check what we have</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>ptype
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># View full info</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>pinfo
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Show Claude instructions</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>cshow
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Start working with Claude</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>pclaude
-</code></pre></div>
-<h3 id="migrating-project-from-local-to-cloud">Migrating project from local to cloud</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Before moving</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/mypackage
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>pinfo
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Note the CLAUDE.md exists</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>cshow
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># After moving to Google Drive</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># CLAUDE.md stays with the project!</span>
-</code></pre></div>
-<hr />
-<h2 id="integration-with-existing-workflow">Integration with Existing Workflow</h2>
-<p>These commands work seamlessly with your existing R package development workflow:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># R package development</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>ptype<span class="w">              </span><span class="c1"># Check project status</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>rdev<span class="w">               </span><span class="c1"># Run R package checks (existing alias)</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>rpkgcommit<span class="w"> </span><span class="s2">&quot;msg&quot;</span><span class="w">   </span><span class="c1"># Commit with validation (existing alias)</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>pclaude<span class="w">            </span><span class="c1"># Get Claude&#39;s help</span>
-</code></pre></div>
-<hr />
-<h2 id="tips">Tips</h2>
-<ol>
-<li><strong>Use ptype frequently</strong> - Quick way to orient yourself in any directory</li>
-<li><strong>Create CLAUDE.md early</strong> - Better Claude Code integration from the start</li>
-<li><strong>Update CLAUDE.md</strong> - Keep instructions current as project evolves</li>
-<li><strong>Leverage templates</strong> - Customize the templates in <code>templates/</code> directory</li>
-<li><strong>Combine with z</strong> - <code>z rmediation &amp;&amp; pinfo</code> for quick project jumping and info</li>
-</ol>
-<hr />
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="command-not-found">Command not found</h3>
-<p>Make sure you've run the installation:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>~/code/zsh-claude-workflow
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>./install.sh
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
-</code></pre></div></p>
-<h3 id="project-type-not-detected">Project type not detected</h3>
-<p>Supported types:
-- R Package: requires <code>DESCRIPTION</code> with <code>Package:</code> field
-- Quarto: requires <code>_quarto.yml</code> or <code>.qmd</code> files
-- Research: requires <code>main.tex</code> or <code>literature/</code> directory</p>
-<h3 id="claudemd-template-not-found">CLAUDE.md template not found</h3>
-<p>Check that templates exist:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ls<span class="w"> </span>~/code/zsh-claude-workflow/templates/
-</code></pre></div></p>
-<p>Should see: <code>CLAUDE-rpkg.md</code>, <code>CLAUDE-quarto.md</code>, <code>CLAUDE-research.md</code></p>
-<hr />
-<h2 id="advanced-usage">Advanced Usage</h2>
-<h3 id="custom-project-directories">Custom project directories</h3>
-<p>Edit <code>~/code/zsh-claude-workflow/config/defaults.conf</code> to add your project locations.</p>
-<h3 id="custom-templates">Custom templates</h3>
-<p>Create your own templates in <code>templates/</code> directory. Use placeholders:
-- <code>{{PROJECT_NAME}}</code> - Project name
-- <code>{{PACKAGE_NAME}}</code> - Package name (for R packages)
-- <code>{{PROJECT_DESCRIPTION}}</code> - Project description
-- <code>{{PACKAGE_DESCRIPTION}}</code> - Package description
-- <code>{{DATE}}</code> - Current date</p>
-<hr />
-<h2 id="see-also">See Also</h2>
+<h1 id="branch-protection-setup">Branch Protection Setup</h1>
+<p>This guide explains how to configure GitHub branch protection for the <code>main</code> branch to maintain stability.</p>
+<h2 id="why-branch-protection">Why Branch Protection?</h2>
 <ul>
-<li>Main README: <code>~/code/zsh-claude-workflow/README.md</code></li>
-<li>Your R package workflow: <code>~/.claude/skills/r-package-development.md</code></li>
-<li>Your zsh environment: <code>~/.claude/skills/zsh-environment.md</code></li>
+<li><strong>main</strong> branch auto-deploys to GitHub Pages</li>
+<li>Keep main always stable and deployable</li>
+<li>Prevent accidental direct commits to main</li>
+<li>Ensure all changes go through dev branch first</li>
+</ul>
+<h2 id="recommended-settings">Recommended Settings</h2>
+<h3 id="for-main-branch">For <code>main</code> Branch</h3>
+<p>Go to: <strong>Settings</strong> → <strong>Branches</strong> → <strong>Add branch protection rule</strong></p>
+<p><strong>Branch name pattern</strong>: <code>main</code></p>
+<h4 id="protection-rules">Protection Rules</h4>
+<p>✅ <strong>Require a pull request before merging</strong>
+  - Required approvals: 1 (or 0 for solo maintainer)
+  - Dismiss stale pull request approvals when new commits are pushed
+  - ❌ Do NOT require review from Code Owners (optional)</p>
+<p>✅ <strong>Require status checks to pass before merging</strong>
+  - ❌ Require branches to be up to date before merging (optional)
+  - Status checks: Add if you have CI/CD workflows</p>
+<p>✅ <strong>Require conversation resolution before merging</strong></p>
+<p>✅ <strong>Include administrators</strong>
+  - Even admins must follow the rules</p>
+<p>❌ <strong>Do not allow bypassing the above settings</strong></p>
+<h4 id="additional-settings">Additional Settings</h4>
+<p>✅ <strong>Require linear history</strong>
+  - Keeps git history clean</p>
+<p>✅ <strong>Allow force pushes</strong> → <strong>Specify who can force push</strong>
+  - Add yourself only if needed for emergency fixes</p>
+<p>✅ <strong>Allow deletions</strong> → ❌ (keep unchecked)
+  - Prevents accidental branch deletion</p>
+<h2 id="for-dev-branch-optional">For <code>dev</code> Branch (Optional)</h2>
+<p><strong>Branch name pattern</strong>: <code>dev</code></p>
+<p>Lighter protection:
+- ❌ No PR required (you can commit directly)
+- ✅ Require status checks if you have CI/CD
+- ❌ No approval required</p>
+<h2 id="workflow-after-setup">Workflow After Setup</h2>
+<h3 id="normal-development">Normal Development</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Work on dev branch</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>dev
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Make changes</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Test locally</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add new feature&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>dev
+</code></pre></div>
+<h3 id="creating-a-release">Creating a Release</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># On GitHub: Create PR from dev -&gt; main</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Title: &quot;Release v1.2.0&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Review changes</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Merge PR</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># This triggers GitHub Pages deployment automatically</span>
+</code></pre></div>
+<h3 id="hotfix-to-production">Hotfix to Production</h3>
+<p>If you need to fix something urgent in production:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create branch from main</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/urgent-fix
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Fix and test</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: urgent production issue&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>hotfix/urgent-fix
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Create PR to main (requires approval if configured)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># After merge, also merge main back to dev to sync</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>git<span class="w"> </span>merge<span class="w"> </span>main
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>dev
+</code></pre></div>
+<h2 id="current-status">Current Status</h2>
+<ul>
+<li>⚠️ <strong>main</strong> branch protection: <strong>Not yet configured</strong></li>
+<li>⚠️ <strong>dev</strong> branch protection: <strong>Not needed</strong> (direct commits OK)</li>
+</ul>
+<h3 id="to-configure">To Configure</h3>
+<ol>
+<li>Go to: https://github.com/Data-Wise/zsh-claude-workflow/settings/branches</li>
+<li>Click <strong>Add branch protection rule</strong></li>
+<li>Follow settings above for <code>main</code> branch</li>
+<li>Save changes</li>
+</ol>
+<h2 id="verification">Verification</h2>
+<p>After setup, test by trying to push directly to main:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test.txt
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>add<span class="w"> </span>test.txt
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test direct push&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+<p>You should see an error like:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>remote: error: GH006: Protected branch update failed
+</code></pre></div></p>
+<p>This confirms protection is working! ✅</p>
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches">GitHub Branch Protection Docs</a></li>
+<li><a href="../contributing/">Contributing Guide</a></li>
+<li><a href="../architecture/">Development Architecture</a></li>
 </ul>
 
 
@@ -1995,10 +1990,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
