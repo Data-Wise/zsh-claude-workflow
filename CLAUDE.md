@@ -670,6 +670,17 @@ print_header "Section Header"
 
 ## Version History
 
+### v1.2 (2025-12-07) - Current Release
+- ✅ Established dev branch workflow for development
+- ✅ Documentation cleanup: removed 5 duplicate files (-1,661 lines)
+- ✅ Fixed all broken links in documentation
+- ✅ Added historical reference section with disclaimers
+- ✅ Branch protection guide for GitHub settings
+- ✅ Enhanced CONTRIBUTING.md with branch strategy
+- ✅ Updated PR template with dev branch reminders
+- ✅ Clean documentation build (0.67s, only 1 expected warning)
+- ✅ Project file organization optimized
+
 ### v1.1 (2025-12-07)
 - ✅ MkDocs documentation site with Material theme
 - ✅ GitHub Pages auto-deployment via GitHub Actions
@@ -829,14 +840,17 @@ The documentation is organized into:
 - **User Guide** - Project types, templates, context management
 - **Migration** - Antidote migration guide
 - **Optimization** - Plugin optimization
-- **Development** - Contributing, architecture, testing
+- **Development** - Contributing, architecture, testing, branch protection
+- **Reference** - Historical documentation (with disclaimers)
 
 ---
 
 **Last Updated**: 2025-12-07
+**Current Version**: v1.2
 **Project Status**: Production Ready
 **Documentation**: Complete (Web + MkDocs)
 **Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
+**Branch Workflow**: dev (development) → main (production)
 
 ---
 
