@@ -239,7 +239,7 @@ cinit                   # Create CLAUDE.md if missing
 
 ### Templates
 ```
-~/code/zsh-claude-workflow/templates/
+Project templates directory
 ├── CLAUDE-rpkg.md     # R package template
 ├── CLAUDE-quarto.md   # Quarto template
 └── CLAUDE-research.md # Research template
@@ -314,10 +314,10 @@ ptype
 
 ## Related Documentation
 
-- [Main README](README.md) - Project overview
-- [Command Reference](docs/COMMANDS.md) - Detailed command docs
-- [Quick Start Guide](QUICKSTART.md) - Get started quickly
-- [Templates](templates/) - CLAUDE.md templates
+For current documentation, see the main navigation:
+- Command Reference - Detailed command documentation
+- Getting Started - Quick start guide
+- User Guide - Templates and project types
 
 ---
 

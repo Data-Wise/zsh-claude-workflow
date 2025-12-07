@@ -172,10 +172,9 @@ source ~/.zshrc
 
 ## Documentation
 
-For more details, see:
-- [Plugin Optimization Guide](docs/optimization/PLUGIN_OPTIMIZATION.md)
-- [Plugin Comparison](docs/optimization/PLUGIN_COMPARISON.md)
-- [Antidote Migration](docs/migration/ANTIDOTE_MIGRATION.md)
+For current documentation, see the main navigation:
+- Optimization → Plugin Optimization
+- Migration → Antidote Migration
 
 ---
 
