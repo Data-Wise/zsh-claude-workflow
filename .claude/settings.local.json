@@ -25,7 +25,7 @@
       "Bash(ls:*)",
       "Bash(mkdocs serve:*)",
       "Bash(cat:*)",
-      "Bash(git merge dev --no-ff -m \"$(cat <<''EOF''\nMerge dev branch: Documentation improvements and dev workflow\n\nThis release includes:\n\n📚 Documentation Cleanup:\n- Removed 5 duplicate documentation files\n- Fixed all broken links in active documentation\n- Added historical reference disclaimers\n- Clean build with only 1 expected warning\n- Build time optimized to 0.67s\n\n🌿 Development Workflow:\n- Established dev branch for active development\n- Updated CONTRIBUTING.md with branch strategy\n- Enhanced PR template with branch reminders\n- Added comprehensive branch protection guide\n\n📖 New Documentation:\n- Branch Protection Setup guide\n- Reference section with historical docs\n- Improved navigation structure\n\nResult: -1,640 lines, cleaner codebase, better workflow\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

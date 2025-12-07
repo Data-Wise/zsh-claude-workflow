@@ -1,3 +1,8 @@
+<!--
+IMPORTANT: Please target this PR to the 'dev' branch (not 'main')
+Only maintainers merge 'dev' -> 'main' for releases
+-->
+
 ## Description
 <!-- Describe your changes in detail -->
 
@@ -20,6 +25,7 @@
 ## Checklist
 <!-- Put an `x` in the boxes that apply -->
 
+- [ ] This PR targets the `dev` branch (not `main`)
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas

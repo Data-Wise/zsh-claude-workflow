@@ -309,6 +309,48 @@ rm -rf /tmp/test-pkg
 
 ## Development Workflow
 
+### Branch Strategy
+
+We use a two-branch workflow to maintain stability:
+
+**Branches**:
+- `main` - Production branch (protected)
+  - Always stable and deployable
+  - Auto-deploys to GitHub Pages
+  - Only accepts PRs from `dev` branch
+
+- `dev` - Development branch (default)
+  - Active development happens here
+  - Feature branches merge here first
+  - Gets merged to `main` when stable
+
+- `feature/*` - Feature branches (optional)
+  - For larger features: `feature/new-command`
+  - Branch from `dev`, merge back to `dev`
+
+**Workflow**:
+```bash
+# Start new work
+git checkout dev
+git pull origin dev
+git checkout -b feature/my-feature
+
+# Make changes, test, commit
+# ...
+
+# Push and create PR to dev
+git push origin feature/my-feature
+# Create PR targeting 'dev' branch
+
+# After PR is merged to dev and tested
+# Maintainer merges dev -> main for release
+```
+
+**Important**:
+- Always create PRs targeting `dev` (not `main`)
+- `main` branch is protected and only for releases
+- GitHub Pages deployment happens from `main`
+
 ### Adding a New Command
 
 1. **Create command script**:

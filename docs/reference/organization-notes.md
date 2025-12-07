@@ -1,5 +1,10 @@
 # Project Organization Summary
 
+!!! warning "Historical Reference"
+    This is a historical document moved from the project root for reference purposes.
+    Some links may be broken or point to old file locations.
+    For current documentation, see the main navigation sections.
+
 **Date**: 2025-12-07
 **Status**: Complete ✅
 
