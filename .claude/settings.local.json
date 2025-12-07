@@ -25,7 +25,11 @@
       "Bash(ls:*)",
       "Bash(mkdocs serve:*)",
       "Bash(cat:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(gh release create:*)",
+      "Bash(env -u GITHUB_TOKEN gh release create:*)",
+      "Bash(env -u GITHUB_TOKEN gh release view:*)"
     ],
     "deny": [],
     "ask": []
