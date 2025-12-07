@@ -85,6 +85,7 @@ nav:
     - Contributing: development/contributing.md
     - Architecture: development/architecture.md
     - Testing: development/testing.md
+    - Branch Protection: development/branch-protection.md
   - Reference:
     - Aliases Reference: reference/aliases-reference.md
     - Optimization Applied: reference/optimization-applied.md

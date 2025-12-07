@@ -24,7 +24,8 @@
       "Bash(./tests/test-structure.zsh)",
       "Bash(ls:*)",
       "Bash(mkdocs serve:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
