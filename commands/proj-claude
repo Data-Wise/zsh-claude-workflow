@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+# proj-claude - Open Claude Code with project context
+
+# Get the directory where this script is located
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/claude-context.sh"
+
+# Main function
+main() {
+    local dir="${1:-$PWD}"
+    local project_type=$(get_project_type "$dir")
+    local project_name=$(get_project_name "$dir")
+    local icon=$(get_project_icon "$project_type")
+
+    print_header "$icon Opening Claude Code for $project_name"
+
+    # Check if we have Claude instructions
+    if ! has_claude_instructions "$dir"; then
+        print_warning "No CLAUDE.md found"
+        echo ""
+        print_info "Create one first with: ${fg[yellow]}claude-init${reset_color}"
+        echo ""
+        read -q "REPLY?Open Claude Code anyway? (y/n) "
+        echo ""
+        if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
+            return 0
+        fi
+    fi
+
+    # Show context summary
+    echo ""
+    get_claude_context_summary "$dir"
+    echo ""
+
+    # Open Claude Code
+    print_info "Opening Claude Code..."
+
+    # Check for claude command
+    if command -v claude >/dev/null 2>&1; then
+        claude chat
+    else
+        print_error "Claude Code not found"
+        print_info "Install from: https://claude.com/claude-code"
+        return 1
+    fi
+}
+
+# Run main
+main "$@"

@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+# proj-type - Detect and display project type
+
+# Get the directory where this script is located
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+
+# Main function
+main() {
+    local dir="${1:-$PWD}"
+
+    # Get project information
+    local project_type=$(get_project_type "$dir")
+    local project_name=$(get_project_name "$dir")
+    local type_label=$(get_project_type_label "$project_type")
+    local icon=$(get_project_icon "$project_type")
+    local storage_location=$(get_storage_location "$dir")
+    local storage_tier=$(get_storage_tier "$dir")
+
+    # Display results
+    echo ""
+    echo "${fg[cyan]}$icon $project_name${reset_color}"
+    echo "${fg[blue]}━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset_color}"
+    echo "Type:     $type_label"
+    echo "Location: $storage_location"
+    echo "Tier:     $storage_tier"
+
+    if has_claude_instructions "$dir"; then
+        echo "Claude:   ✓ Has instructions"
+    else
+        echo "Claude:   - No instructions (run ${fg[yellow]}claude-init${reset_color})"
+    fi
+
+    if is_git_repo; then
+        local branch=$(git branch --show-current 2>/dev/null)
+        echo "Git:      ✓ $branch"
+    else
+        echo "Git:      - Not a repository"
+    fi
+
+    echo ""
+}
+
+# Run main
+main "$@"

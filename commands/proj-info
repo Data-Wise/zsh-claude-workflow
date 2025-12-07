@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+# proj-info - Display comprehensive project information
+
+# Get the directory where this script is located
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/claude-context.sh"
+
+# Main function
+main() {
+    local dir="${1:-$PWD}"
+
+    # Generate full context report
+    generate_context_report "$dir"
+
+    # Show project structure
+    get_project_structure "$dir" 2
+}
+
+# Run main
+main "$@"

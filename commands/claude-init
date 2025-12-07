@@ -1,0 +1,89 @@
+#!/usr/bin/env zsh
+# claude-init - Create CLAUDE.md from template
+
+# Get the directory where this script is located
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+TEMPLATE_DIR="${SCRIPT_DIR}/../templates"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+
+# Main function
+main() {
+    local dir="${1:-$PWD}"
+    local output_file="$dir/CLAUDE.md"
+
+    # Check if CLAUDE.md already exists
+    if [[ -f "$output_file" ]]; then
+        print_error "CLAUDE.md already exists in this directory"
+        echo ""
+        print_info "Use ${fg[yellow]}claude-show${reset_color} to view it"
+        echo "Or delete it first to recreate"
+        return 1
+    fi
+
+    # Detect project type
+    local project_type=$(get_project_type "$dir")
+    local project_name=$(get_project_name "$dir")
+    local project_desc=$(get_project_description "$dir")
+    local icon=$(get_project_icon "$project_type")
+
+    print_header "$icon Creating CLAUDE.md for $project_name"
+
+    # Select template based on project type
+    local template=""
+    case "$project_type" in
+        rpkg)
+            template="$TEMPLATE_DIR/CLAUDE-rpkg.md"
+            ;;
+        quarto|quarto-ext)
+            template="$TEMPLATE_DIR/CLAUDE-quarto.md"
+            ;;
+        research)
+            template="$TEMPLATE_DIR/CLAUDE-research.md"
+            ;;
+        *)
+            print_error "Unknown project type: $project_type"
+            print_info "Supported types: R package, Quarto project, Research project"
+            return 1
+            ;;
+    esac
+
+    if [[ ! -f "$template" ]]; then
+        print_error "Template not found: $template"
+        return 1
+    fi
+
+    # Read template and substitute variables
+    local content=$(<"$template")
+    local date=$(date +%Y-%m-%d)
+
+    # Replace placeholders
+    content="${content//\{\{PACKAGE_NAME\}\}/$project_name}"
+    content="${content//\{\{PROJECT_NAME\}\}/$project_name}"
+    content="${content//\{\{PACKAGE_DESCRIPTION\}\}/$project_desc}"
+    content="${content//\{\{PROJECT_DESCRIPTION\}\}/$project_desc}"
+    content="${content//\{\{DATE\}\}/$date}"
+
+    # Write to file
+    echo "$content" > "$output_file"
+
+    if [[ $? -eq 0 ]]; then
+        print_success "Created CLAUDE.md"
+        echo ""
+        print_info "Edit the file to customize for your project:"
+        echo "  ${fg[yellow]}${EDITOR:-vim} CLAUDE.md${reset_color}"
+        echo ""
+        print_info "Or view it with:"
+        echo "  ${fg[yellow]}claude-show${reset_color}"
+        echo ""
+    else
+        print_error "Failed to create CLAUDE.md"
+        return 1
+    fi
+}
+
+# Run main
+main "$@"

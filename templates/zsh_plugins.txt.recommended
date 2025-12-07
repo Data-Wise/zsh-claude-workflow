@@ -1,0 +1,90 @@
+# ============================================
+# ANTIDOTE PLUGIN CONFIGURATION (OPTIMIZED)
+# ============================================
+# Format: github-user/repo [options]
+# Options: kind:defer (lazy load), kind:fpath (completions only)
+
+# ============================================
+# THEME
+# ============================================
+romkatv/powerlevel10k
+
+# ============================================
+# OH MY ZSH CORE
+# ============================================
+# Load OMZ library (required for OMZ plugins)
+ohmyzsh/ohmyzsh path:lib
+
+# ============================================
+# GIT (Load early - frequently used)
+# ============================================
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/github kind:defer  # Lazy load - only when needed
+
+# ============================================
+# DEVELOPMENT TOOLS (Lazy load for speed)
+# ============================================
+ohmyzsh/ohmyzsh path:plugins/docker kind:defer
+# Note: vscode plugin removed - using Claude Code primarily
+
+# ============================================
+# COMMAND ENHANCEMENTS
+# ============================================
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/extract
+
+# Clipboard operations (keep - frequently used)
+ohmyzsh/ohmyzsh path:plugins/copybuffer
+ohmyzsh/ohmyzsh path:plugins/copypath
+ohmyzsh/ohmyzsh path:plugins/copyfile
+
+# ============================================
+# DIRECTORY NAVIGATION
+# ============================================
+ohmyzsh/ohmyzsh path:plugins/dirhistory
+ohmyzsh/ohmyzsh path:plugins/z
+
+# ============================================
+# PRODUCTIVITY
+# ============================================
+ohmyzsh/ohmyzsh path:plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/history
+ohmyzsh/ohmyzsh path:plugins/web-search kind:defer
+
+# ============================================
+# FUZZY FINDING (NEW - highly recommended)
+# ============================================
+# FZF integration for better fuzzy finding
+# Requires: brew install fzf
+# Provides: Ctrl+R (history), Ctrl+T (files), Alt+C (dirs)
+ohmyzsh/ohmyzsh path:plugins/fzf
+
+# ============================================
+# ALIASES & REMINDERS
+# ============================================
+# Note: common-aliases removed to avoid conflicts with custom aliases
+djui/alias-tips                              # Reminds you of existing aliases
+MichaelAquilina/zsh-you-should-use           # Suggests aliases when you type full commands
+
+# ============================================
+# FISH-LIKE FEATURES
+# ============================================
+# Load these last for best performance
+zsh-users/zsh-autosuggestions                # Fish-like autosuggestions
+zsh-users/zsh-syntax-highlighting            # Syntax highlighting
+zsh-users/zsh-completions                    # Additional completions
+
+# ============================================
+# EXTRAS (Optional - uncomment to enable)
+# ============================================
+# ohmyzsh/ohmyzsh path:plugins/tmux kind:defer           # Tmux integration
+# ohmyzsh/ohmyzsh path:plugins/brew kind:defer           # Homebrew aliases
+# zdharma-continuum/fast-syntax-highlighting             # Faster alternative to zsh-syntax-highlighting
+# marlonrichert/zsh-autocomplete                         # Real-time completions (experimental)
+# olets/zsh-abbr                                         # Fish-like abbreviations (text expansion)
+
+# ============================================
+# CUSTOM PLUGINS (Add your own here)
+# ============================================
+# Example: your-github-username/your-custom-plugin

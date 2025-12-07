@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+# claude-show - Display CLAUDE.md content
+
+# Get the directory where this script is located
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/claude-context.sh"
+
+# Main function
+main() {
+    local dir="${1:-$PWD}"
+
+    show_claude_md "$dir"
+}
+
+# Run main
+main "$@"

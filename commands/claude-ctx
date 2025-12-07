@@ -1,0 +1,57 @@
+#!/usr/bin/env zsh
+# claude-ctx - Gather and display Claude context
+
+# Get the directory where this script is located
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/claude-context.sh"
+
+# Main function
+main() {
+    local dir="${1:-$PWD}"
+
+    # Show basic project info
+    local project_type=$(get_project_type "$dir")
+    local project_name=$(get_project_name "$dir")
+    local icon=$(get_project_icon "$project_type")
+
+    print_header "$icon $project_name - Claude Context"
+
+    # Find and list Claude files
+    local claude_files=(${(f)"$(find_claude_files "$dir")"})
+    local settings_file=$(find_claude_settings "$dir")
+
+    if [[ ${#claude_files[@]} -eq 0 ]] && [[ -z "$settings_file" ]]; then
+        print_warning "No Claude instructions found in this project"
+        echo ""
+        print_info "Run ${fg[yellow]}claude-init${reset_color} to create CLAUDE.md"
+        echo ""
+        return 1
+    fi
+
+    # List files
+    if [[ ${#claude_files[@]} -gt 0 ]]; then
+        echo "${fg[green]}Found ${#claude_files[@]} Claude instruction file(s):${reset_color}"
+        for file in "${claude_files[@]}"; do
+            local rel_path=$(get_relative_path "$file" "$dir")
+            echo "  ${fg[blue]}•${reset_color} $rel_path"
+        done
+        echo ""
+    fi
+
+    if [[ -n "$settings_file" ]]; then
+        local rel_path=$(get_relative_path "$settings_file" "$dir")
+        echo "${fg[green]}Claude settings:${reset_color} $rel_path"
+        echo ""
+    fi
+
+    # Show primary CLAUDE.md content
+    show_claude_md "$dir"
+}
+
+# Run main
+main "$@"
