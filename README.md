@@ -1,6 +1,13 @@
 # zsh-claude Workflow System
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Documentation](https://img.shields.io/badge/docs-mkdocs-blue.svg)](https://data-wise.github.io/zsh-claude-workflow/)
+[![Shell: Zsh](https://img.shields.io/badge/shell-zsh-green.svg)](https://www.zsh.org/)
+[![Platform: macOS](https://img.shields.io/badge/platform-macOS-lightgrey.svg)](https://www.apple.com/macos/)
+
 A smart context manager and workflow automation system for Claude Code integration with optimized plugin management.
+
+📚 **[Read the full documentation →](https://data-wise.github.io/zsh-claude-workflow/)**
 
 ## Features
 
@@ -107,6 +114,28 @@ This system enhances your existing zsh setup:
 - Respects your hybrid local/cloud storage structure
 - Compatible with Oh My Zsh and modern CLI tools
 
+## Documentation
+
+Full documentation is available at: **https://data-wise.github.io/zsh-claude-workflow/**
+
+Topics covered:
+- [Installation Guide](https://data-wise.github.io/zsh-claude-workflow/getting-started/installation/)
+- [Quick Start](https://data-wise.github.io/zsh-claude-workflow/getting-started/quickstart/)
+- [Command Reference](https://data-wise.github.io/zsh-claude-workflow/commands/reference/)
+- [Project Types](https://data-wise.github.io/zsh-claude-workflow/guide/project-types/)
+- [Templates](https://data-wise.github.io/zsh-claude-workflow/guide/templates/)
+- [Context Management](https://data-wise.github.io/zsh-claude-workflow/guide/context-management/)
+
+## Contributing
+
+Contributions are welcome! Please see our [Contributing Guide](https://data-wise.github.io/zsh-claude-workflow/development/contributing/).
+
 ## License
 
-MIT
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Links
+
+- **Documentation**: https://data-wise.github.io/zsh-claude-workflow/
+- **Repository**: https://github.com/Data-Wise/zsh-claude-workflow
+- **Issues**: https://github.com/Data-Wise/zsh-claude-workflow/issues

@@ -4,7 +4,14 @@
       "Bash(./commands/proj-claude:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh auth login:*)",
+      "Bash(echo:*)",
+      "Bash(unset:*)",
+      "Bash(gh auth:*)",
+      "Bash(env -u GITHUB_TOKEN gh repo create:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
