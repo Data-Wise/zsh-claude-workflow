@@ -8,7 +8,7 @@
 # Get available workflows for a project type
 get_available_workflows() {
     local project_type="${1:-unknown}"
-    local workflows_dir="${SCRIPT_DIR:-$(dirname ${0:A})/../workflows}"
+    local workflows_dir="${SCRIPT_DIR:-$(dirname ${0:A})}/../workflows"
     local workflow_type_dir="$workflows_dir/$project_type"
 
     if [[ ! -d "$workflow_type_dir" ]]; then
@@ -17,7 +17,8 @@ get_available_workflows() {
 
     # List all .yml files in the workflow type directory
     local workflows=()
-    for workflow_file in "$workflow_type_dir"/*.yml(N); do
+    setopt local_options null_glob
+    for workflow_file in $workflow_type_dir/*.yml; do
         if [[ -f "$workflow_file" ]]; then
             workflows+=($(basename "$workflow_file" .yml))
         fi
@@ -35,7 +36,7 @@ get_available_workflows() {
 find_workflow_file() {
     local project_type="$1"
     local workflow_name="$2"
-    local workflows_dir="${SCRIPT_DIR:-$(dirname ${0:A})/../workflows}"
+    local workflows_dir="${SCRIPT_DIR:-$(dirname ${0:A})}/../workflows"
 
     # Check project-specific workflow first
     local project_workflow=".claude/workflows/${workflow_name}.yml"
@@ -89,19 +90,19 @@ parse_workflow_yaml() {
             if [[ "$line" =~ ^[[:space:]]{2}-[[:space:]]name:[[:space:]](.+)$ ]]; then
                 ((step_count++))
                 local step_name="${match[1]}"
-                echo "STEP_${step_count}_NAME=$step_name"
+                echo "STEP_${step_count}_NAME=\"$step_name\""
 
             # Command
             elif [[ "$line" =~ ^[[:space:]]{4}command:[[:space:]](.+)$ ]]; then
-                echo "STEP_${step_count}_COMMAND=${match[1]}"
+                echo "STEP_${step_count}_COMMAND=\"${match[1]}\""
 
             # Description
             elif [[ "$line" =~ ^[[:space:]]{4}description:[[:space:]](.+)$ ]]; then
-                echo "STEP_${step_count}_DESCRIPTION=${match[1]}"
+                echo "STEP_${step_count}_DESCRIPTION=\"${match[1]}\""
 
             # Type (optional)
             elif [[ "$line" =~ ^[[:space:]]{4}type:[[:space:]](.+)$ ]]; then
-                echo "STEP_${step_count}_TYPE=${match[1]}"
+                echo "STEP_${step_count}_TYPE=\"${match[1]}\""
             fi
         fi
 

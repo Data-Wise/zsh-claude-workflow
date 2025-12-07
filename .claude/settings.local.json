@@ -30,7 +30,16 @@
       "Bash(gh release create:*)",
       "Bash(env -u GITHUB_TOKEN gh release create:*)",
       "Bash(env -u GITHUB_TOKEN gh release view:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(./commands/workflow-run:*)",
+      "Bash(~/code/zsh-claude-workflow/commands/workflow-run list:*)",
+      "Bash(SCRIPT_DIR=~/code/zsh-claude-workflow/commands zsh:*)",
+      "Bash(zsh -c '\nSCRIPT_DIR=\"\"${0:A:h}\"\"\necho \"\"From inline script, SCRIPT_DIR would be: $SCRIPT_DIR\"\"\n')",
+      "Bash(/Users/dt/code/zsh-claude-workflow/commands/workflow-run list:*)",
+      "Bash(zsh -c '\nSCRIPT_DIR=/Users/dt/code/zsh-claude-workflow/commands\nsource /Users/dt/code/zsh-claude-workflow/lib/workflow-dispatcher.sh\nresult=$(find_workflow_file \"\"rpkg\"\" \"\"dev\"\" 2>/dev/null)\necho \"\"Result: |$result|\"\"\necho \"\"Length: ${#result}\"\"\n')",
+      "Bash(/Users/dt/code/zsh-claude-workflow/commands/workflow-run:*)",
+      "Bash(/Users/dt/code/zsh-claude-workflow/commands/skill-activate available)",
+      "Bash(/Users/dt/code/zsh-claude-workflow/commands/skill-activate:*)"
     ],
     "deny": [],
     "ask": []
