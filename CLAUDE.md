@@ -25,6 +25,8 @@ Provide seamless integration between zsh workflows and Claude Code by:
 | **Template System** | Generate project-specific CLAUDE.md | ✅ Complete |
 | **Plugin Management** | Antidote integration + optimization | ✅ Complete |
 | **Storage Awareness** | Detect local/cloud storage tiers | ✅ Complete |
+| **Documentation Site** | MkDocs with Material theme + GitHub Pages | ✅ Complete |
+| **GitHub Integration** | Issue/PR templates, workflows, metadata | ✅ Complete |
 
 ---
 
@@ -38,6 +40,11 @@ cd ~/code/zsh-claude-workflow
 
 # Install/update
 ./install.sh                          # Install or update
+
+# Documentation
+mkdocs serve                          # Preview docs locally (http://127.0.0.1:8000)
+mkdocs build                          # Build static site
+mkdocs gh-deploy                      # Manual deploy to GitHub Pages
 
 # Test in actual use
 cd ~/R-packages/active/rmediation
@@ -75,11 +82,43 @@ zsh-claude-workflow/
 ├── config/
 │   └── defaults.conf      # Default configuration
 │
-└── docs/                   # Documentation
-    ├── README.md          # Documentation index
-    ├── COMMANDS.md        # Command reference
-    ├── migration/         # Antidote migration guides
-    └── optimization/      # Plugin optimization guides
+├── docs/                   # MkDocs documentation site
+│   ├── index.md           # Landing page
+│   ├── getting-started/   # Installation and quick start
+│   │   ├── installation.md
+│   │   └── quickstart.md
+│   ├── commands/          # Command documentation
+│   │   ├── overview.md
+│   │   └── reference.md
+│   ├── guide/             # User guides
+│   │   ├── project-types.md
+│   │   ├── templates.md
+│   │   └── context-management.md
+│   ├── migration/         # Migration guides
+│   │   └── antidote.md
+│   ├── optimization/      # Optimization guides
+│   │   └── plugins.md
+│   └── development/       # Developer documentation
+│       ├── contributing.md
+│       ├── architecture.md
+│       └── testing.md
+│
+├── .github/               # GitHub configuration
+│   ├── workflows/
+│   │   └── docs.yml       # Auto-deploy docs to GitHub Pages
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── FUNDING.yml
+│
+├── mkdocs.yml             # MkDocs configuration
+├── requirements.txt       # Python dependencies (MkDocs)
+├── .gitignore            # Git ignore rules
+├── LICENSE               # MIT license
+├── CONTRIBUTING.md       # Contributing guide
+├── README.md             # Project readme with badges
+└── install.sh            # Installation script
 ```
 
 ### Core Components
@@ -589,6 +628,15 @@ print_header "Section Header"
 
 ## Version History
 
+### v1.1 (2025-12-07)
+- ✅ MkDocs documentation site with Material theme
+- ✅ GitHub Pages auto-deployment via GitHub Actions
+- ✅ Enhanced README with badges and documentation links
+- ✅ GitHub repository templates (issues, PRs)
+- ✅ MIT License and .gitignore
+- ✅ Contributing guide and funding configuration
+- ✅ Fixed proj-claude command to detect Claude CLI correctly
+
 ### v1.0 (2025-12-07)
 - ✅ Project detection system
 - ✅ Claude context gathering
@@ -651,14 +699,23 @@ lib/claude-context.sh      # Context gathering
 commands/proj-type         # Most used - show project type
 commands/claude-ctx        # Show Claude context
 commands/claude-init       # Create CLAUDE.md
+commands/proj-claude       # Open Claude Code
 
 # Templates
 templates/CLAUDE-rpkg.md   # R package template
 templates/zsh_plugins.txt.recommended  # Plugin template
 
-# Documentation
-docs/README.md             # Documentation index
-docs/COMMANDS.md           # Command reference
+# Documentation (MkDocs)
+mkdocs.yml                 # MkDocs configuration
+docs/index.md              # Documentation landing page
+docs/getting-started/      # Installation and quick start
+docs/commands/reference.md # Command reference
+docs/guide/                # User guides (types, templates, context)
+docs/development/          # Contributing and architecture
+
+# GitHub Configuration
+.github/workflows/docs.yml # Auto-deploy documentation
+README.md                  # Project readme with badges
 ```
 
 ### Quick Commands
@@ -670,7 +727,9 @@ docs/COMMANDS.md           # Command reference
 bat lib/project-detector.sh            # View detection logic
 
 # Documentation
-bat docs/README.md                     # Browse docs
+mkdocs serve                           # Preview docs locally
+mkdocs build                           # Build documentation site
+bat docs/index.md                      # View landing page
 tree ~/code/zsh-claude-workflow        # View structure
 
 # Testing
@@ -680,9 +739,62 @@ cd ~/quarto-projects/*/  && claude-ctx
 
 ---
 
+## Documentation Site
+
+### MkDocs Configuration
+
+The project uses **Material for MkDocs** for documentation:
+
+**Configuration File:** `mkdocs.yml`
+- Material theme with dark/light mode
+- Navigation with tabs and sections
+- Search functionality
+- Code highlighting with copy buttons
+- Responsive design
+
+**Local Development:**
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Preview locally
+mkdocs serve
+# Opens at http://127.0.0.1:8000
+
+# Build static site
+mkdocs build
+# Outputs to site/ directory
+```
+
+### GitHub Pages Deployment
+
+**Automatic Deployment:**
+- Workflow: `.github/workflows/docs.yml`
+- Triggers on push to `main` branch
+- Builds and deploys to GitHub Pages automatically
+- Live site: https://data-wise.github.io/zsh-claude-workflow/
+
+**Manual Deployment:**
+```bash
+mkdocs gh-deploy
+```
+
+### Documentation Structure
+
+The documentation is organized into:
+- **Getting Started** - Installation and quick start
+- **Commands** - Command overview and reference
+- **User Guide** - Project types, templates, context management
+- **Migration** - Antidote migration guide
+- **Optimization** - Plugin optimization
+- **Development** - Contributing, architecture, testing
+
+---
+
 **Last Updated**: 2025-12-07
 **Project Status**: Production Ready
-**Documentation**: Complete
+**Documentation**: Complete (Web + MkDocs)
+**Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
 
 ---
 
