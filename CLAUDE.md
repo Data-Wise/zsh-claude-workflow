@@ -76,7 +76,11 @@ zsh-claude-workflow/
 ├── lib/                    # Core libraries (sourced by commands)
 │   ├── core.sh            # Shared utilities, color functions
 │   ├── project-detector.sh # Project type detection logic
-│   └── claude-context.sh   # Context gathering functions
+│   ├── claude-context.sh   # Context gathering functions
+│   ├── workflow-dispatcher.sh 🆕  # Universal workflow dispatcher
+│   ├── rpkg-integration.sh 🆕     # R package workflow integration
+│   ├── skill-manager.sh 🆕        # Claude skill management
+│   └── claude-r-dev-bridge.sh 🆕  # claude-r-dev integration
 │
 ├── commands/               # User-facing executable scripts
 │   ├── proj-type          # Detect and display project type
@@ -84,7 +88,27 @@ zsh-claude-workflow/
 │   ├── claude-ctx         # Show Claude instruction files
 │   ├── claude-init        # Create CLAUDE.md from template
 │   ├── claude-show        # Display CLAUDE.md content
-│   └── proj-claude        # Open Claude Code with context
+│   ├── proj-claude        # 🆕 Enhanced: Open Claude Code with context
+│   ├── workflow-run 🆕    # Universal workflow dispatcher
+│   ├── rpkg-setup 🆕      # Smart R package initialization
+│   └── skill-activate 🆕  # Manage Claude skills
+│
+├── workflows/ 🆕          # YAML workflow definitions
+│   ├── rpkg/              # R package workflows
+│   │   ├── dev.yml       # Development cycle
+│   │   ├── test.yml      # Testing workflow
+│   │   └── pre-commit.yml # Pre-commit checks
+│   └── quarto/            # Quarto workflows
+│       ├── preview.yml   # Preview workflow
+│       └── render.yml    # Render workflow
+│
+├── skills/ 🆕             # Claude skill templates
+│   └── templates/
+│       ├── r-package-skill.md
+│       └── quarto-skill.md
+│
+├── plans/ 🆕              # Future feature brainstorms
+│   └── file-project-management-optimization.md
 │
 ├── templates/              # Templates for CLAUDE.md and configs
 │   ├── CLAUDE-rpkg.md
@@ -715,6 +739,10 @@ print_header "Section Header"
   - `skill-activate auto` - Auto-activate recommended skills
   - Enhanced `proj-claude` with guided setup
 - 📦 Commands: 9 total (3 new), Libraries: 7 total (4 new)
+- 📋 **Future Roadmap:** Created comprehensive brainstorm for v1.4-v1.6 features
+  - See `plans/file-project-management-optimization.md` for detailed planning
+  - 21 new command ideas spanning smart navigation, multi-project ops, and productivity
+  - 11 new library modules, 3-phase implementation plan
 
 ### v1.2 (2025-12-07)
 - ✅ Established dev branch workflow for development
@@ -747,6 +775,28 @@ print_header "Section Header"
 - ✅ 6 commands, 3 libraries, 4 templates
 
 ### Planned Features
+
+📋 **Comprehensive Roadmap:** See `plans/file-project-management-optimization.md` for detailed brainstorm
+
+**v1.4 - Smart Project Navigation (Planned)**
+- Smart project switching with context loading (`pj` command)
+- Intelligent file navigation with bookmarks
+- File organization automation
+- Advanced search and filtering
+
+**v1.5 - Multi-Project Operations (Planned)**
+- Bulk operations across project sets
+- Project environment management
+- Smart file templates with detection
+- File watching and auto-actions
+
+**v1.6 - Storage & Productivity (Planned)**
+- Cloud/local sync optimization
+- Session management and restoration
+- Recent files navigation
+- Smart opener with file type detection
+
+**Original Ideas:**
 - Multi-storage navigator
 - Ecosystem manager for package suites
 - Session management
@@ -917,7 +967,7 @@ The documentation is organized into:
 ---
 
 **Last Updated**: 2025-12-07
-**Current Version**: v1.2
+**Current Version**: v1.3
 **Project Status**: Production Ready
 **Documentation**: Complete (Web + MkDocs)
 **Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
