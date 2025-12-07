@@ -8,7 +8,7 @@ Complete documentation for zsh-claude-workflow system.
 
 ### Getting Started
 - [Main README](../README.md) - Project overview and features
-- [Quick Start Guide](../QUICKSTART.md) - Get up and running in 5 minutes
+- [Quick Start Guide](getting-started/quickstart.md) - Get up and running in 5 minutes
 - [Command Reference](COMMANDS.md) - Detailed command documentation
 - [Testing Guide](TESTING.md) - Test your configuration
 
@@ -43,7 +43,7 @@ docs/
 **Documentation**:
 - [Main README](../README.md) - Overview of context features
 - [Command Reference](COMMANDS.md) - proj-type, claude-ctx, etc.
-- [Quick Start](../QUICKSTART.md) - Try it now
+- [Quick Start](getting-started/quickstart.md) - Try it now
 
 **Key Commands**:
 ```bash
@@ -90,7 +90,7 @@ cd ~/code/zsh-claude-workflow
 ./install.sh
 source ~/.zshrc
 ```
-**Docs**: [Quick Start Guide](../QUICKSTART.md)
+**Docs**: [Quick Start Guide](getting-started/quickstart.md)
 
 ---
 
@@ -147,7 +147,7 @@ ptype
    - Installation
    - Quick examples
 
-2. **[QUICKSTART.md](../QUICKSTART.md)** - Hands-on guide
+2. **[Quick Start](getting-started/quickstart.md)** - Hands-on guide
    - Test it out
    - Common workflows
    - Examples
@@ -179,7 +179,7 @@ ptype
 
 ### New to zsh-claude-workflow?
 1. Read [README.md](../README.md) (5 min)
-2. Run [Quick Start](../QUICKSTART.md) (5 min)
+2. Run [Quick Start](getting-started/quickstart.md) (5 min)
 3. Try commands in your R packages
 
 ### Want to optimize?

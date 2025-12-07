@@ -85,6 +85,11 @@ nav:
     - Contributing: development/contributing.md
     - Architecture: development/architecture.md
     - Testing: development/testing.md
+  - Reference:
+    - Aliases Reference: reference/aliases-reference.md
+    - Optimization Applied: reference/optimization-applied.md
+    - Organization Notes: reference/organization-notes.md
+    - Test Summary: reference/test-summary.md
 
 extra:
   social:

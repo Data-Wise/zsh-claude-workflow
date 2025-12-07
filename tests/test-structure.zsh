@@ -243,7 +243,7 @@ test_documentation() {
 
     local docs=(
         "README.md:Main README"
-        "QUICKSTART.md:Quick start guide"
+        "docs/getting-started/quickstart.md:Quick start guide"
         "CLAUDE.md:Project CLAUDE.md"
         "docs/README.md:Docs index"
         "docs/COMMANDS.md:Command reference"

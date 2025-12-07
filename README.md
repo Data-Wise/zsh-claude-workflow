@@ -98,10 +98,10 @@ proj-claude
 │   ├── COMMANDS.md               # Command reference
 │   ├── migration/                # Migration guides
 │   │   └── ANTIDOTE_MIGRATION.md
-│   └── optimization/             # Optimization guides
-│       ├── PLUGIN_OPTIMIZATION.md
-│       └── PLUGIN_COMPARISON.md
-├── QUICKSTART.md                  # Quick start guide
+│   ├── optimization/             # Optimization guides
+│   │   ├── PLUGIN_OPTIMIZATION.md
+│   │   └── PLUGIN_COMPARISON.md
+│   └── reference/                # Historical/reference docs
 ├── README.md                      # This file
 └── install.sh                     # Installation script
 ```

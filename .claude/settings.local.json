@@ -14,7 +14,17 @@
       "Bash(git push:*)",
       "Bash(mkdocs build:*)",
       "Bash(gh run list:*)",
-      "Bash(env -u GITHUB_TOKEN gh run list:*)"
+      "Bash(env -u GITHUB_TOKEN gh run list:*)",
+      "Bash(tree:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(./commands/proj-type:*)",
+      "Bash(./commands/claude-ctx:*)",
+      "Bash(./tests/test-structure.zsh)",
+      "Bash(ls:*)",
+      "Bash(mkdocs serve:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

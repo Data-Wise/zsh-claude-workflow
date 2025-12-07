@@ -411,8 +411,8 @@ esac
 
 When adding features:
 1. Update `README.md` (if user-facing)
-2. Update `docs/COMMANDS.md` (command reference)
-3. Update `QUICKSTART.md` (if major feature)
+2. Update `docs/commands/reference.md` (command reference)
+3. Update `docs/getting-started/quickstart.md` (if major feature)
 4. Keep this `CLAUDE.md` current
 
 ---
