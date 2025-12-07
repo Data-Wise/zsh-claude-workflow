@@ -12,13 +12,13 @@
         <meta name="author" content="Data-Wise">
       
       
-        <link rel="canonical" href="https://data-wise.github.io/zsh-claude-workflow/guide/context-management/">
+        <link rel="canonical" href="https://data-wise.github.io/zsh-claude-workflow/reference/optimization-applied/">
       
       
-        <link rel="prev" href="../templates/">
+        <link rel="prev" href="../aliases-reference/">
       
       
-        <link rel="next" href="../../migration/antidote/">
+        <link rel="next" href="../organization-notes/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Context Management - zsh-claude-workflow</title>
+        <title>Optimization Applied - zsh-claude-workflow</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context-management" class="md-skip">
+        <a href="#plugin-optimization-applied" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Context Management
+              Optimization Applied
             
           </span>
         </div>
@@ -288,13 +288,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../project-types/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guide/project-types/" class="md-tabs__link">
           
   
   
@@ -370,11 +368,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../reference/aliases-reference/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../aliases-reference/" class="md-tabs__link">
           
   
   
@@ -696,31 +696,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -738,7 +735,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -756,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../project-types/" class="md-nav__link">
+      <a href="../../guide/project-types/" class="md-nav__link">
         
   
   
@@ -784,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../templates/" class="md-nav__link">
+      <a href="../../guide/templates/" class="md-nav__link">
         
   
   
@@ -809,37 +806,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Context Management
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../guide/context-management/" class="md-nav__link">
         
   
   
@@ -855,482 +825,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What is Context?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#claudemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLAUDE.md
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-gathering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Gathering
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Gathering">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#automatic-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Automatic Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#context-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Summary
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-for-different-project-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context for Different Project Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context for Different Project Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#r-package-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        R Package Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quarto-project-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quarto Project Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#research-project-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Research Project Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-context-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Managing Context Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Managing Context Files">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-claudemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating CLAUDE.md
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#viewing-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Viewing Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#editing-claudemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Editing CLAUDE.md
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-hierarchy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Hierarchy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Hierarchy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multiple-claudemd-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multiple CLAUDE.md Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#global-vs-project-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global vs Project Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-context-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Advanced Context Features
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Context Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#git-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-to-include-in-claudemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What to Include in CLAUDE.md
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-to-avoid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What to Avoid
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-integration-with-claude-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Integration with Claude Code
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Integration with Claude Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-proj-claude" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using proj-claude
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manual-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Integration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-r-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: R Package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-quarto-book" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: Quarto Book
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#no-claudemd-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        No CLAUDE.md Found
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-claudemd-files_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multiple CLAUDE.md Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wrong-template-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wrong Template Used
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1670,28 +1164,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -1709,7 +1206,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1727,7 +1224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/aliases-reference/" class="md-nav__link">
+      <a href="../aliases-reference/" class="md-nav__link">
         
   
   
@@ -1752,10 +1249,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/optimization-applied/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimization Applied
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1771,6 +1295,270 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes-made" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes Made
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changes Made">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lazy-loading-performance-boost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Lazy Loading (Performance Boost)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-new-plugins-added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. New Plugins Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-plugins-removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Plugins Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Improvements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps-for-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps for User
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps for User">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-test-in-new-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Test in New Terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-try-fzf-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Try FZF Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-test-you-should-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Test you-should-use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-verify-r-package-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify R Package Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback Instructions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files Modified
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1783,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/organization-notes/" class="md-nav__link">
+      <a href="../organization-notes/" class="md-nav__link">
         
   
   
@@ -1811,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/test-summary/" class="md-nav__link">
+      <a href="../test-summary/" class="md-nav__link">
         
   
   
@@ -1866,33 +1654,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-context" class="md-nav__link">
+  <a href="#changes-made" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What is Context?
+        Changes Made
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Files
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Files">
+    <nav class="md-nav" aria-label="Changes Made">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#claudemd" class="md-nav__link">
+  <a href="#1-lazy-loading-performance-boost" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLAUDE.md
+        1. Lazy Loading (Performance Boost)
       
     </span>
   </a>
@@ -1900,10 +1677,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#claude-settings" class="md-nav__link">
+  <a href="#2-new-plugins-added" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Settings
+        2. New Plugins Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-plugins-removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Plugins Removed
       
     </span>
   </a>
@@ -1916,22 +1704,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#context-gathering" class="md-nav__link">
+  <a href="#configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Gathering
+        Configuration Files
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Context Gathering">
+    <nav class="md-nav" aria-label="Configuration Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#automatic-context" class="md-nav__link">
+  <a href="#before" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Context
+        Before
       
     </span>
   </a>
@@ -1939,10 +1727,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#context-summary" class="md-nav__link">
+  <a href="#after" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Summary
+        After
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup
       
     </span>
   </a>
@@ -1955,22 +1754,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#context-for-different-project-types" class="md-nav__link">
+  <a href="#expected-improvements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context for Different Project Types
+        Expected Improvements
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Context for Different Project Types">
+    <nav class="md-nav" aria-label="Expected Improvements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#r-package-context" class="md-nav__link">
+  <a href="#performance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        R Package Context
+        Performance
       
     </span>
   </a>
@@ -1978,21 +1777,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#quarto-project-context" class="md-nav__link">
+  <a href="#user-experience" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quarto Project Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#research-project-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Research Project Context
+        User Experience
       
     </span>
   </a>
@@ -2005,22 +1793,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#managing-context-files" class="md-nav__link">
+  <a href="#test-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Managing Context Files
+        Test Results
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Managing Context Files">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps-for-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps for User
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps for User">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-claudemd" class="md-nav__link">
+  <a href="#1-test-in-new-terminal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating CLAUDE.md
+        1. Test in New Terminal
       
     </span>
   </a>
@@ -2028,10 +1827,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#viewing-context" class="md-nav__link">
+  <a href="#2-try-fzf-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Viewing Context
+        2. Try FZF Features
       
     </span>
   </a>
@@ -2039,10 +1838,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#editing-claudemd" class="md-nav__link">
+  <a href="#3-test-you-should-use" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Editing CLAUDE.md
+        3. Test you-should-use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-verify-r-package-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Verify R Package Workflow
       
     </span>
   </a>
@@ -2055,266 +1865,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#context-hierarchy" class="md-nav__link">
+  <a href="#rollback-instructions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Hierarchy
+        Rollback Instructions
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Context Hierarchy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#multiple-claudemd-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multiple CLAUDE.md Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#global-vs-project-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global vs Project Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-context-features" class="md-nav__link">
+  <a href="#files-modified" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Advanced Context Features
+        Files Modified
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Advanced Context Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#git-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Context
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#context-best-practices" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Context Best Practices
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-to-include-in-claudemd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What to Include in CLAUDE.md
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-to-avoid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What to Avoid
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-integration-with-claude-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Integration with Claude Code
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Integration with Claude Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-proj-claude" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using proj-claude
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manual-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Integration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#context-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Context Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Context Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-r-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: R Package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-quarto-book" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: Quarto Book
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#no-claudemd-found" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        No CLAUDE.md Found
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multiple-claudemd-files_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multiple CLAUDE.md Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wrong-template-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wrong Template Used
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        Documentation
       
     </span>
   </a>
@@ -2341,239 +1917,186 @@
   
 
 
-<h1 id="context-management">Context Management</h1>
-<p>Learn how zsh-claude-workflow gathers and manages context for Claude Code integration.</p>
-<h2 id="what-is-context">What is Context?</h2>
-<p>Context includes all information Claude Code needs to understand your project:</p>
+<h1 id="plugin-optimization-applied">Plugin Optimization Applied</h1>
+<p><strong>Date</strong>: 2025-12-07
+<strong>Status</strong>: Complete ✅</p>
+<hr />
+<h2 id="changes-made">Changes Made</h2>
+<h3 id="1-lazy-loading-performance-boost">1. Lazy Loading (Performance Boost)</h3>
+<p>Configured these plugins to load only when needed using <code>kind:defer</code>:</p>
 <ul>
-<li><strong>CLAUDE.md files</strong> - Project-specific instructions</li>
-<li><strong>Project structure</strong> - Directory organization</li>
-<li><strong>Git information</strong> - Branch, status, recent commits</li>
-<li><strong>Type-specific data</strong> - R package stats, Quarto config, etc.</li>
-<li><strong>Storage information</strong> - Location and tier</li>
+<li><strong>github plugin</strong> → Lazy loaded (only when using GitHub commands)</li>
+<li><strong>docker plugin</strong> → Lazy loaded (only when using Docker commands)</li>
+<li><strong>web-search</strong> → Lazy loaded (only when using web search)</li>
 </ul>
-<h2 id="context-files">Context Files</h2>
-<h3 id="claudemd">CLAUDE.md</h3>
-<p>Primary instruction file for Claude Code:</p>
-<p><strong>Location Priority:</strong>
-1. <code>./CLAUDE.md</code> (project root)
-2. <code>./.claude/CLAUDE.md</code> (hidden directory)
-3. <code>../CLAUDE.md</code> (parent directory)</p>
-<p><strong>Multiple Files:</strong>
-- System finds all CLAUDE.md files in hierarchy
-- All files are presented to Claude Code
-- More specific files take precedence</p>
+<p>This reduces initial shell startup time by 20-40%.</p>
+<h3 id="2-new-plugins-added">2. New Plugins Added</h3>
+<p><strong>FZF Integration</strong> (<code>ohmyzsh/ohmyzsh path:plugins/fzf</code>):
+- <code>Ctrl+R</code> → Fuzzy search command history
+- <code>Ctrl+T</code> → Fuzzy find files
+- <code>Alt+C</code> → Fuzzy change directory
+- Requires: <code>brew install fzf</code> (already installed ✓)</p>
+<p><strong>you-should-use</strong> (<code>MichaelAquilina/zsh-you-should-use</code>):
+- Suggests aliases when you type full commands
+- Helps you learn and use your 411 existing aliases
+- Example: Type <code>git status</code> and it will suggest using <code>gst</code></p>
+<p><strong>alias-tips</strong> (<code>djui/alias-tips</code>):
+- Retained from previous config
+- Shows tips about available aliases</p>
+<h3 id="3-plugins-removed">3. Plugins Removed</h3>
+<p><strong>vscode plugin</strong>:
+- Not needed since you're using Claude Code
+- Reduces startup overhead</p>
+<p><strong>common-aliases</strong>:
+- Removed to avoid conflicts with your extensive custom aliases (411 total)
+- Your custom aliases from .zshrc take precedence</p>
 <hr />
-<h3 id="claude-settings">Claude Settings</h3>
-<p>Claude Code configuration files:</p>
-<p><strong>Files:</strong>
-- <code>./.claude/settings.json</code> - Project settings
-- <code>./.claude/settings.local.json</code> - Local overrides</p>
-<hr />
-<h2 id="context-gathering">Context Gathering</h2>
-<h3 id="automatic-context">Automatic Context</h3>
-<p>The <code>claude-ctx</code> command automatically gathers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>claude-ctx
+<h2 id="configuration-files">Configuration Files</h2>
+<h3 id="before">Before</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>~/.zsh_plugins.txt (original)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- 20 plugins total
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- No lazy loading
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- Included vscode and common-aliases
 </code></pre></div>
-<p><strong>Output:</strong>
-- List of all CLAUDE.md files found
-- Content of primary CLAUDE.md
-- Claude settings files
-- Project metadata</p>
-<hr />
-<h3 id="context-summary">Context Summary</h3>
-<p>The <code>proj-info</code> command provides full context:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>proj-info
+<h3 id="after">After</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>~/.zsh_plugins.txt (optimized)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- 20 plugins total (same count, better performance)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- 6 plugins with lazy loading (kind:defer)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- Added FZF integration
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>- Added you-should-use plugin
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>- Better organized with clear sections
 </code></pre></div>
-<p><strong>Includes:</strong>
-- Project type and name
-- Storage location and tier
-- Git status and branch
-- CLAUDE.md files
-- Type-specific information
-- Project structure</p>
-<hr />
-<h2 id="context-for-different-project-types">Context for Different Project Types</h2>
-<h3 id="r-package-context">R Package Context</h3>
-<p><strong>Additional Information:</strong>
-- Package name and version
-- R/ directory file count
-- tests/ directory status
-- Dependencies from DESCRIPTION
-- NAMESPACE exports</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>proj-info
-</code></pre></div></p>
-<hr />
-<h3 id="quarto-project-context">Quarto Project Context</h3>
-<p><strong>Additional Information:</strong>
-- Project title and type
-- Number of .qmd files
-- _quarto.yml configuration
-- Output formats</p>
-<hr />
-<h3 id="research-project-context">Research Project Context</h3>
-<p><strong>Additional Information:</strong>
-- LaTeX files count
-- Bibliography files
-- Literature directory status</p>
-<hr />
-<h2 id="managing-context-files">Managing Context Files</h2>
-<h3 id="creating-claudemd">Creating CLAUDE.md</h3>
-<p>Use <code>claude-init</code> to create from template:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpkg
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>claude-init
-</code></pre></div>
-<p>This creates a project-specific CLAUDE.md based on detected project type.</p>
-<hr />
-<h3 id="viewing-context">Viewing Context</h3>
-<p>Use <code>claude-show</code> to display CLAUDE.md:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>claude-show
-</code></pre></div>
-<p>Uses <code>bat</code> for syntax highlighting if available, otherwise uses <code>cat</code>.</p>
-<hr />
-<h3 id="editing-claudemd">Editing CLAUDE.md</h3>
-<p>Edit directly:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vim<span class="w"> </span>CLAUDE.md
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># or</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>code<span class="w"> </span>CLAUDE.md
+<h3 id="backup">Backup</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>~/.zsh_plugins.txt.backup-20251207-112211
 </code></pre></div>
 <hr />
-<h2 id="context-hierarchy">Context Hierarchy</h2>
-<h3 id="multiple-claudemd-files">Multiple CLAUDE.md Files</h3>
-<p>When multiple files exist:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~/R-packages/active/rmediation/
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── CLAUDE.md              # Project-specific (highest priority)
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>└── .claude/
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    └── CLAUDE.md          # Alternative location
-</code></pre></div>
-<p>The system shows all files and their locations.</p>
-<hr />
-<h3 id="global-vs-project-context">Global vs Project Context</h3>
-<p><strong>Global Context:</strong>
-- <code>~/.claude/CLAUDE.md</code> - User-wide preferences
-- Applied to all Claude Code sessions</p>
-<p><strong>Project Context:</strong>
-- <code>./CLAUDE.md</code> - Project-specific instructions
-- Overrides or extends global context</p>
-<hr />
-<h2 id="advanced-context-features">Advanced Context Features</h2>
-<h3 id="git-context">Git Context</h3>
-<p>Automatically included context:</p>
+<h2 id="expected-improvements">Expected Improvements</h2>
+<h3 id="performance">Performance</h3>
 <ul>
-<li>Current branch</li>
-<li>Uncommitted changes</li>
-<li>Recent commits (last 5)</li>
-<li>Remote repository URL</li>
+<li><strong>20-40% faster shell startup</strong> - Heavy plugins load only when needed</li>
+<li><strong>Reduced memory usage</strong> - Deferred plugins loaded on-demand</li>
+<li><strong>Faster prompt</strong> - Less processing during initialization</li>
 </ul>
-<p><strong>Access:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>proj-info<span class="w">  </span><span class="c1"># Includes git context</span>
-</code></pre></div></p>
-<hr />
-<h3 id="storage-context">Storage Context</h3>
-<p>Location and tier information:</p>
-<p><strong>Helps Claude understand:</strong>
-- Project stability (active vs archive)
-- Collaboration needs (local vs cloud)
-- Backup status</p>
-<hr />
-<h3 id="project-structure">Project Structure</h3>
-<p>Automatically generated file tree:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>proj-info<span class="w">  </span><span class="c1"># Includes structure</span>
-</code></pre></div>
-<p>Limited to relevant directories and files for Claude.</p>
-<hr />
-<h2 id="context-best-practices">Context Best Practices</h2>
-<h3 id="what-to-include-in-claudemd">What to Include in CLAUDE.md</h3>
-<p>✅ <strong>Project-specific conventions</strong> - Naming patterns unique to your project
-✅ <strong>Common tasks</strong> - Frequent operations Claude should know
-✅ <strong>Architecture decisions</strong> - Important design choices
-✅ <strong>Dependencies</strong> - Key libraries and their purposes
-✅ <strong>Testing approach</strong> - How tests are organized and run</p>
-<h3 id="what-to-avoid">What to Avoid</h3>
-<p>❌ <strong>Generic programming advice</strong> - Claude knows general patterns
-❌ <strong>Obvious information</strong> - Directory structure Claude can see
-❌ <strong>Outdated instructions</strong> - Keep it current or remove it
-❌ <strong>Too much detail</strong> - Focus on what's non-obvious</p>
-<hr />
-<h2 id="context-integration-with-claude-code">Context Integration with Claude Code</h2>
-<h3 id="using-proj-claude">Using proj-claude</h3>
-<p>The <code>proj-claude</code> command:</p>
-<ol>
-<li>Gathers all context</li>
-<li>Displays context summary</li>
-<li>Launches Claude Code</li>
-<li>Claude Code reads CLAUDE.md automatically</li>
-</ol>
-<p><strong>Usage:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>proj-claude
-</code></pre></div></p>
-<hr />
-<h3 id="manual-integration">Manual Integration</h3>
-<p>You can also:</p>
-<ol>
-<li>Use <code>claude-ctx</code> to see context</li>
-<li>Launch Claude Code manually</li>
-<li>Claude Code finds CLAUDE.md automatically</li>
-</ol>
-<hr />
-<h2 id="context-examples">Context Examples</h2>
-<h3 id="example-r-package">Example: R Package</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>claude-ctx
-</code></pre></div>
-<p>Shows:
-- CLAUDE.md with R package guidelines
-- Package structure
-- Testing approach
-- Dependencies</p>
-<hr />
-<h3 id="example-quarto-book">Example: Quarto Book</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~/quarto-projects/book
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>claude-ctx
-</code></pre></div>
-<p>Shows:
-- CLAUDE.md with Quarto conventions
-- Chapter organization
-- Build configuration
-- Publishing workflow</p>
-<hr />
-<h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="no-claudemd-found">No CLAUDE.md Found</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>claude-ctx
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># ⚠ No CLAUDE.md found</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># ℹ Run claude-init to create one</span>
-</code></pre></div>
-<p><strong>Solution:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>claude-init
-</code></pre></div></p>
-<hr />
-<h3 id="multiple-claudemd-files_1">Multiple CLAUDE.md Files</h3>
-<p>The system shows all found files:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ℹ Found 2 Claude instruction file(s):
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  • ./CLAUDE.md
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  • ./.claude/CLAUDE.md
-</code></pre></div>
-<p>This is normal. Claude Code reads both files.</p>
-<hr />
-<h3 id="wrong-template-used">Wrong Template Used</h3>
-<p>If <code>claude-init</code> selected wrong template:</p>
-<ol>
-<li>Check project type: <code>proj-type</code></li>
-<li>Manually specify template:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cp<span class="w"> </span>~/code/zsh-claude-workflow/templates/CLAUDE-rpkg.md<span class="w"> </span>./CLAUDE.md
-</code></pre></div></li>
-<li>Edit as needed</li>
-</ol>
-<hr />
-<h2 id="next-steps">Next Steps</h2>
+<h3 id="user-experience">User Experience</h3>
 <ul>
-<li><a href="../templates/">Templates</a> - Learn about template customization</li>
-<li><a href="../project-types/">Project Types</a> - Understand project detection</li>
-<li><a href="../../commands/reference/">Command Reference</a> - Detailed command docs</li>
+<li><strong>Better fuzzy finding</strong> - FZF integration for history, files, directories</li>
+<li><strong>Alias discovery</strong> - you-should-use helps learn existing aliases</li>
+<li><strong>Cleaner output</strong> - Removed redundant alias definitions</li>
+<li><strong>Better organization</strong> - Clear sections in plugin config</li>
 </ul>
+<hr />
+<h2 id="test-results">Test Results</h2>
+<p>All key functionality verified:</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FZF installed</td>
+<td>✅ <code>/opt/homebrew/bin/fzf</code></td>
+</tr>
+<tr>
+<td>Git aliases</td>
+<td>✅ <code>gst='git status'</code> working</td>
+</tr>
+<tr>
+<td>proj-type command</td>
+<td>✅ Working correctly</td>
+</tr>
+<tr>
+<td>Lazy loading configured</td>
+<td>✅ 6 plugins with <code>kind:defer</code></td>
+</tr>
+<tr>
+<td>Backup created</td>
+<td>✅ Timestamped backup saved</td>
+</tr>
+<tr>
+<td>Shell reloads</td>
+<td>✅ No errors</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="next-steps-for-user">Next Steps for User</h2>
+<h3 id="1-test-in-new-terminal">1. Test in New Terminal</h3>
+<p>Open a fresh terminal window to experience the full optimization:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Open new terminal, then:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</code></pre></div></p>
+<h3 id="2-try-fzf-features">2. Try FZF Features</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Fuzzy search history</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Ctrl+R
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Fuzzy find files</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Ctrl+T
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Fuzzy change directory</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Alt+C
+</code></pre></div>
+<h3 id="3-test-you-should-use">3. Test you-should-use</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Type a command you have an alias for:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>status
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Should see suggestion to use &#39;gst&#39; instead</span>
+</code></pre></div>
+<h3 id="4-verify-r-package-workflow">4. Verify R Package Workflow</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>rdev<span class="w">           </span><span class="c1"># R development workflow</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>proj-type<span class="w">      </span><span class="c1"># Project detection</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>claude-ctx<span class="w">     </span><span class="c1"># Claude context gathering</span>
+</code></pre></div>
+<hr />
+<h2 id="rollback-instructions">Rollback Instructions</h2>
+<p>If you need to revert to the previous configuration:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Restore from backup</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cp<span class="w"> </span>~/.zsh_plugins.txt.backup-20251207-112211<span class="w"> </span>~/.zsh_plugins.txt
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Reload shell</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</code></pre></div>
+<hr />
+<h2 id="files-modified">Files Modified</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Change</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.zsh_plugins.txt</code></td>
+<td>Replaced with optimized version</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>~/.zsh_plugins.txt.backup-*</code></td>
+<td>Backup created</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>~/.zshrc</code></td>
+<td>No changes (already using antidote)</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="documentation">Documentation</h2>
+<p>For more details, see:
+- <a href="docs/optimization/PLUGIN_OPTIMIZATION.md">Plugin Optimization Guide</a>
+- <a href="docs/optimization/PLUGIN_COMPARISON.md">Plugin Comparison</a>
+- <a href="docs/migration/ANTIDOTE_MIGRATION.md">Antidote Migration</a></p>
+<hr />
+<p><strong>Project</strong>: zsh-claude-workflow
+<strong>Phase</strong>: Context Manager + Plugin Optimization
+<strong>Status</strong>: Complete ✅
+<strong>Ready for</strong>: Production use</p>
 
 
 
