@@ -1,0 +1,13 @@
+name: Quarto Preview Workflow
+type: quarto
+description: Open editor and start preview
+
+steps:
+  - name: Start Preview
+    command: qprev
+    type: shell
+    description: Start Quarto preview in background
+
+shortcuts:
+  - name: preview
+    description: Alias for qwork function

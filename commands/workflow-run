@@ -1,0 +1,164 @@
+#!/usr/bin/env zsh
+# workflow-run - Universal workflow dispatcher
+
+# Get script directory
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/workflow-dispatcher.sh"
+source "$LIB_DIR/rpkg-integration.sh"
+
+# ============================================
+# USAGE
+# ============================================
+
+show_usage() {
+    cat << EOF
+Usage: workflow-run [workflow-name] [options]
+
+Universal workflow dispatcher for zsh-claude-workflow.
+
+WORKFLOW NAMES:
+  dev           Run development workflow for current project type
+  test          Run testing workflow
+  deploy        Run deployment workflow
+  list          List available workflows for current project
+  info <name>   Show workflow details
+
+OPTIONS:
+  -h, --help             Show this help message
+  -c, --continue         Continue on errors (don't stop at first failure)
+  -i, --info             Show workflow info without running
+  --dry-run              Show what would be executed without running
+
+EXAMPLES:
+  workflow-run dev                    # Run development workflow
+  workflow-run test                   # Run test workflow
+  workflow-run list                   # List available workflows
+  workflow-run info dev               # Show dev workflow details
+  workflow-run dev --continue         # Run dev workflow, continue on errors
+
+EOF
+}
+
+# ============================================
+# MAIN FUNCTION
+# ============================================
+
+main() {
+    local workflow_name=""
+    local continue_on_error="false"
+    local show_info="false"
+    local dry_run="false"
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h|--help)
+                show_usage
+                return 0
+                ;;
+            -c|--continue)
+                continue_on_error="true"
+                shift
+                ;;
+            -i|--info)
+                show_info="true"
+                shift
+                ;;
+            --dry-run)
+                dry_run="true"
+                shift
+                ;;
+            list)
+                # List workflows
+                local project_type=$(get_project_type "$PWD")
+                list_workflows "$project_type"
+                return $?
+                ;;
+            info)
+                # Show workflow info
+                if [[ -z "$2" ]]; then
+                    print_error "Workflow name required"
+                    echo ""
+                    show_usage
+                    return 1
+                fi
+
+                local project_type=$(get_project_type "$PWD")
+                local workflow_file=$(find_workflow_file "$project_type" "$2")
+
+                if [[ -z "$workflow_file" ]]; then
+                    print_error "Workflow not found: $2"
+                    return 1
+                fi
+
+                show_workflow_info "$workflow_file"
+                return $?
+                ;;
+            -*)
+                print_error "Unknown option: $1"
+                echo ""
+                show_usage
+                return 1
+                ;;
+            *)
+                workflow_name="$1"
+                shift
+                ;;
+        esac
+    done
+
+    # Check if workflow name provided
+    if [[ -z "$workflow_name" ]]; then
+        print_error "Workflow name required"
+        echo ""
+        show_usage
+        return 1
+    fi
+
+    # Detect project type
+    local project_type=$(get_project_type "$PWD")
+
+    if [[ "$project_type" == "unknown" ]]; then
+        print_error "Unable to detect project type"
+        print_info "Run 'proj-type' to see detected type"
+        return 1
+    fi
+
+    # Find workflow file
+    local workflow_file=$(find_workflow_file "$project_type" "$workflow_name")
+
+    if [[ -z "$workflow_file" ]]; then
+        print_error "Workflow not found: $workflow_name"
+        echo ""
+        print_info "Available workflows for $project_type:"
+        list_workflows "$project_type"
+        return 1
+    fi
+
+    # Show info if requested
+    if [[ "$show_info" == "true" ]]; then
+        show_workflow_info "$workflow_file"
+        return 0
+    fi
+
+    # Dry run
+    if [[ "$dry_run" == "true" ]]; then
+        print_info "Dry run mode - showing workflow steps without executing"
+        echo ""
+        show_workflow_info "$workflow_file"
+        return 0
+    fi
+
+    # Run workflow
+    run_workflow "$workflow_file" "$continue_on_error"
+
+    return $?
+}
+
+# Run main
+main "$@"

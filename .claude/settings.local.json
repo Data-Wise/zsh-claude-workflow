@@ -29,7 +29,8 @@
       "Bash(git merge:*)",
       "Bash(gh release create:*)",
       "Bash(env -u GITHUB_TOKEN gh release create:*)",
-      "Bash(env -u GITHUB_TOKEN gh release view:*)"
+      "Bash(env -u GITHUB_TOKEN gh release view:*)",
+      "Bash(chmod:*)"
     ],
     "deny": [],
     "ask": []

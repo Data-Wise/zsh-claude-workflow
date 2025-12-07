@@ -1,0 +1,14 @@
+name: R Package Testing
+type: rpkg
+description: Run package tests with coverage
+
+steps:
+  - name: Test
+    command: rtest
+    type: shell
+    description: Run all tests
+
+  - name: Coverage
+    command: rcov
+    type: shell
+    description: Generate test coverage report

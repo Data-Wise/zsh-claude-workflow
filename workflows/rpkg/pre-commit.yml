@@ -1,0 +1,28 @@
+name: R Package Pre-commit Checks
+type: rpkg
+description: Comprehensive checks before committing
+
+steps:
+  - name: Document
+    command: rdoc
+    type: shell
+    description: Update documentation
+
+  - name: Test
+    command: rtest
+    type: shell
+    description: Run all tests
+
+  - name: Style
+    command: styler::style_pkg(quiet = TRUE)
+    type: r-script
+    description: Auto-format code with styler
+
+  - name: Spell Check
+    command: rspell
+    type: shell
+    description: Check spelling in documentation
+
+shortcuts:
+  - name: precommit
+    description: Alias for rpkgcommit function

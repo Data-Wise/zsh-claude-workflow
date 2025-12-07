@@ -1,0 +1,14 @@
+name: Quarto Render Workflow
+type: quarto
+description: Render Quarto project
+
+steps:
+  - name: Render
+    command: qr
+    type: shell
+    description: Render all Quarto files
+
+  - name: Check
+    command: qc
+    type: shell
+    description: Check Quarto project for issues

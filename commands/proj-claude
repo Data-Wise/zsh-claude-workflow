@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# proj-claude - Open Claude Code with project context
+# proj-claude - Open Claude Code with project context (Enhanced)
 
 # Get the directory where this script is located
 SCRIPT_DIR="${0:A:h}"
@@ -9,43 +9,176 @@ LIB_DIR="${SCRIPT_DIR}/../lib"
 source "$LIB_DIR/core.sh"
 source "$LIB_DIR/project-detector.sh"
 source "$LIB_DIR/claude-context.sh"
+source "$LIB_DIR/skill-manager.sh"
+source "$LIB_DIR/claude-r-dev-bridge.sh"
+
+# Usage
+show_usage() {
+    cat << EOF
+Usage: proj-claude [directory] [options]
+
+Open Claude Code with full project context and auto-activated skills.
+
+OPTIONS:
+  --no-skills           Don't auto-activate skills
+  --no-setup            Skip setup suggestions
+  -h, --help            Show this help message
+
+EXAMPLES:
+  proj-claude                      # Open for current directory
+  proj-claude ~/R-packages/mypackage
+  proj-claude --no-skills          # Skip skill activation
+
+EOF
+}
 
 # Main function
 main() {
-    local dir="${1:-$PWD}"
+    local dir="$PWD"
+    local auto_skills="true"
+    local show_setup="true"
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h|--help)
+                show_usage
+                return 0
+                ;;
+            --no-skills)
+                auto_skills="false"
+                shift
+                ;;
+            --no-setup)
+                show_setup="false"
+                shift
+                ;;
+            -*)
+                print_error "Unknown option: $1"
+                echo ""
+                show_usage
+                return 1
+                ;;
+            *)
+                dir="$1"
+                shift
+                ;;
+        esac
+    done
+
     local project_type=$(get_project_type "$dir")
     local project_name=$(get_project_name "$dir")
     local icon=$(get_project_icon "$project_type")
 
     print_header "$icon Opening Claude Code for $project_name"
+    echo ""
 
-    # Check if we have Claude instructions
-    if ! has_claude_instructions "$dir"; then
+    # Step 1: Check for Claude context
+    local has_context=$(has_claude_instructions "$dir")
+
+    if ! $has_context; then
         print_warning "No CLAUDE.md found"
         echo ""
-        print_info "Create one first with: ${fg[yellow]}claude-init${reset_color}"
+
+        # Suggest initialization based on project type
+        if [[ "$project_type" == "rpkg" ]]; then
+            print_info "💡 For R packages, use: ${fg[yellow]}rpkg-setup${reset_color} or ${fg[yellow]}claude-init${reset_color}"
+        else
+            print_info "Create one first with: ${fg[yellow]}claude-init${reset_color}"
+        fi
+
         echo ""
         read -q "REPLY?Open Claude Code anyway? (y/n) "
         echo ""
+
         if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
             return 0
         fi
     fi
 
-    # Show context summary
+    # Step 2: Show context summary
+    echo ""
+    print_info "📋 Project Context:"
     echo ""
     get_claude_context_summary "$dir"
     echo ""
 
-    # Open Claude Code
-    print_info "Opening Claude Code..."
+    # Step 3: Check for claude-r-dev (for R packages)
+    if [[ "$project_type" == "rpkg" ]] && [[ "$show_setup" == "true" ]]; then
+        if has_claude_r_dev_config "$dir"; then
+            local profiles=$(get_installed_profiles "$dir")
+
+            if [[ -n "$profiles" ]]; then
+                print_success "✓ claude-r-dev configured (profiles: $profiles)"
+                echo ""
+            else
+                print_success "✓ claude-r-dev configured"
+                echo ""
+            fi
+        else
+            if has_claude_r_dev; then
+                print_info "💡 Tip: Install claude-r-dev for enhanced R package workflows"
+                print_info "   Run: ${fg[yellow]}rpkg-setup$(basename "$dir")${reset_color}"
+                echo ""
+            fi
+        fi
+    fi
+
+    # Step 4: Auto-activate skills
+    if [[ "$auto_skills" == "true" ]]; then
+        local active_skills=$(list_project_skills "$dir")
+
+        if [[ -z "$active_skills" ]]; then
+            # No skills active - suggest activation
+            local recommended=$(get_recommended_skills "$project_type")
+
+            if [[ -n "$recommended" ]]; then
+                print_info "💡 Recommended skills for $project_type:"
+
+                for skill in ${=recommended}; do
+                    echo "  - $skill"
+                done
+
+                echo ""
+                read -q "REPLY?Auto-activate these skills? (y/n) "
+                echo ""
+
+                if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+                    cd "$dir"
+                    activate_skills_batch ${=recommended}
+                    cd - > /dev/null
+                    echo ""
+                fi
+            fi
+        else
+            print_success "✓ Active skills: $active_skills"
+            echo ""
+        fi
+    fi
+
+    # Step 5: Show available workflows
+    if [[ "$show_setup" == "true" ]]; then
+        local workflows=$(get_available_workflows "$project_type" 2>/dev/null)
+
+        if [[ -n "$workflows" ]]; then
+            print_info "📝 Available workflows: ${fg[yellow]}$workflows${reset_color}"
+            print_info "   Run with: ${fg[yellow]}workflow-run <name>${reset_color}"
+            echo ""
+        fi
+    fi
+
+    # Step 6: Open Claude Code
+    print_info "🚀 Opening Claude Code..."
+    echo ""
 
     # Check for claude command
     if command -v claude >/dev/null 2>&1; then
+        cd "$dir"
         claude chat
     else
         print_error "Claude Code not found"
-        print_info "Install from: https://claude.com/claude-code"
+        print_info "Install with: ${fg[yellow]}npm install -g @anthropic-ai/claude-code${reset_color}"
+        print_info "Or visit: https://claude.com/claude-code"
         return 1
     fi
 }

@@ -1,0 +1,201 @@
+#!/usr/bin/env zsh
+# skill-activate - Manage Claude skills for projects
+
+# Get script directory
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/skill-manager.sh"
+
+# ============================================
+# USAGE
+# ============================================
+
+show_usage() {
+    cat << EOF
+Usage: skill-activate [command] [options]
+
+Manage Claude skills for the current project.
+
+COMMANDS:
+  <skill-name>          Activate a skill for current project
+  list                  List active skills
+  deactivate <name>     Deactivate a skill
+  show <name>           Show skill details
+  auto                  Auto-activate recommended skills
+  available             List available user-level skills
+
+OPTIONS:
+  -f, --force           Force activation (override existing)
+  -h, --help            Show this help message
+
+EXAMPLES:
+  skill-activate r-package-development    # Activate R package skill
+  skill-activate list                     # Show active skills
+  skill-activate auto                     # Auto-activate recommended skills
+  skill-activate deactivate simulation    # Deactivate simulation skill
+  skill-activate show r-package-development  # Show skill details
+  skill-activate available                # List all available skills
+
+SKILLS:
+  Skills are activated via symlinks from ~/.claude/skills/ to the project's
+  .claude/skills/ directory. This allows:
+  - Shared skills across all projects (user-level)
+  - Project-specific skill overrides
+  - Easy activation/deactivation
+
+EOF
+}
+
+# ============================================
+# COMMAND HANDLERS
+# ============================================
+
+cmd_list() {
+    show_active_skills "$PWD"
+}
+
+cmd_deactivate() {
+    local skill_name="$1"
+
+    if [[ -z "$skill_name" ]]; then
+        print_error "Skill name required"
+        echo "Usage: skill-activate deactivate <skill-name>"
+        return 1
+    fi
+
+    deactivate_skill "$skill_name" "$PWD"
+}
+
+cmd_show() {
+    local skill_name="$1"
+
+    if [[ -z "$skill_name" ]]; then
+        print_error "Skill name required"
+        echo "Usage: skill-activate show <skill-name>"
+        return 1
+    fi
+
+    show_skill_info "$skill_name" "$PWD"
+}
+
+cmd_auto() {
+    local project_type=$(get_project_type "$PWD")
+
+    if [[ "$project_type" == "unknown" ]]; then
+        print_error "Unable to detect project type"
+        return 1
+    fi
+
+    print_info "Auto-activating skills for project type: $project_type"
+    echo ""
+
+    auto_activate_skills "$project_type" "$PWD" "false"
+}
+
+cmd_available() {
+    local user_skills=$(list_user_skills)
+
+    if [[ -z "$user_skills" ]]; then
+        print_info "No user-level skills found"
+        print_info "Create skills in: $(get_user_skills_dir)"
+        return 0
+    fi
+
+    print_header "Available User-Level Skills"
+    echo ""
+
+    for skill in ${=user_skills}; do
+        local skill_file="$(get_user_skills_dir)/${skill}.md"
+
+        # Get first line of description (after first header)
+        local desc=$(grep -m 1 "^#" "$skill_file" 2>/dev/null | sed 's/^# //')
+
+        if [[ -n "$desc" ]]; then
+            echo "  ${fg[green]}$skill${reset_color}"
+            echo "    $desc"
+        else
+            echo "  ${fg[green]}$skill${reset_color}"
+        fi
+    done
+
+    echo ""
+}
+
+# ============================================
+# MAIN FUNCTION
+# ============================================
+
+main() {
+    local command=""
+    local force="false"
+
+    # Parse arguments
+    if [[ $# -eq 0 ]]; then
+        # No arguments - show active skills
+        cmd_list
+        return $?
+    fi
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h|--help)
+                show_usage
+                return 0
+                ;;
+            -f|--force)
+                force="true"
+                shift
+                ;;
+            list)
+                cmd_list
+                return $?
+                ;;
+            deactivate)
+                shift
+                cmd_deactivate "$@"
+                return $?
+                ;;
+            show)
+                shift
+                cmd_show "$@"
+                return $?
+                ;;
+            auto)
+                cmd_auto
+                return $?
+                ;;
+            available)
+                cmd_available
+                return $?
+                ;;
+            -*)
+                print_error "Unknown option: $1"
+                echo ""
+                show_usage
+                return 1
+                ;;
+            *)
+                # Assume it's a skill name to activate
+                command="$1"
+                shift
+                ;;
+        esac
+    done
+
+    # If we got here, activate the skill
+    if [[ -n "$command" ]]; then
+        activate_skill "$command" "$PWD" "$force"
+        return $?
+    fi
+
+    # Fallback - show usage
+    show_usage
+    return 0
+}
+
+# Run main
+main "$@"

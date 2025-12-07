@@ -25,6 +25,10 @@ Provide seamless integration between zsh workflows and Claude Code by:
 | **Template System** | Generate project-specific CLAUDE.md | ✅ Complete |
 | **Plugin Management** | Antidote integration + optimization | ✅ Complete |
 | **Storage Awareness** | Detect local/cloud storage tiers | ✅ Complete |
+| **Workflow System** 🆕 | YAML-based workflows with command dispatcher | ✅ v1.3 |
+| **Skill Management** 🆕 | Activate/manage Claude skills per project | ✅ v1.3 |
+| **R Package Setup** 🆕 | One-command R package initialization | ✅ v1.3 |
+| **claude-r-dev Bridge** 🆕 | Integration with claude-r-dev profiles | ✅ v1.3 |
 | **Documentation Site** | MkDocs with Material theme + GitHub Pages | ✅ Complete |
 | **GitHub Integration** | Issue/PR templates, workflows, metadata | ✅ Complete |
 
@@ -38,6 +42,12 @@ cd ~/code/zsh-claude-workflow
 ./commands/proj-type .                # Test project detection
 ./commands/claude-ctx .               # Test context gathering
 
+# NEW v1.3: Workflow and skill commands
+./commands/workflow-run list          # List available workflows
+./commands/workflow-run dev           # Run development workflow
+./commands/skill-activate available   # List available skills
+./commands/rpkg-setup test-pkg --type standard  # Test R package setup
+
 # Install/update
 ./install.sh                          # Install or update
 
@@ -50,6 +60,9 @@ mkdocs gh-deploy                      # Manual deploy to GitHub Pages
 cd ~/R-packages/active/rmediation
 proj-type                             # Should detect as R package
 claude-ctx                            # Should find CLAUDE.md
+workflow-run list                     # 🆕 List available workflows
+skill-activate list                   # 🆕 Show active skills
+proj-claude                           # 🆕 Enhanced with auto-activation
 ```
 
 ---
@@ -670,7 +683,40 @@ print_header "Section Header"
 
 ## Version History
 
-### v1.2 (2025-12-07) - Current Release
+### v1.3 (2025-12-07) - Current Release
+- ✅ **Phase 1 Foundation: Workflow Integration System**
+- ✅ Created 4 new libraries:
+  - `workflow-dispatcher.sh` - Universal workflow dispatch with YAML support
+  - `rpkg-integration.sh` - R package workflow integration
+  - `skill-manager.sh` - Claude skill management (symlink-based)
+  - `claude-r-dev-bridge.sh` - Integration with claude-r-dev project
+- ✅ Created 3 new commands:
+  - `workflow-run` - Universal workflow dispatcher
+  - `rpkg-setup` - Smart R package initialization with claude-r-dev
+  - `skill-activate` - Manage Claude skills for projects
+- ✅ Enhanced `proj-claude` command:
+  - Auto-activation of recommended skills
+  - Integration with claude-r-dev
+  - Workflow suggestions
+  - Better context detection
+- ✅ Created workflow system:
+  - YAML-based workflow definitions
+  - R package workflows (dev, test, pre-commit)
+  - Quarto workflows (preview, render)
+  - Project-level workflow overrides supported
+- ✅ Created skill templates:
+  - R package skill template
+  - Quarto project skill template
+  - Symlink-based activation for easy management
+- ✅ Full integration with existing .zshrc functions (rdev, rpkg, qwork, etc.)
+- 🎯 **New Capabilities:**
+  - `workflow-run dev` - Run development workflow for any project type
+  - `rpkg-setup mypackage --type statistical` - One-command R package setup
+  - `skill-activate auto` - Auto-activate recommended skills
+  - Enhanced `proj-claude` with guided setup
+- 📦 Commands: 9 total (3 new), Libraries: 7 total (4 new)
+
+### v1.2 (2025-12-07)
 - ✅ Established dev branch workflow for development
 - ✅ Documentation cleanup: removed 5 duplicate files (-1,661 lines)
 - ✅ Fixed all broken links in documentation

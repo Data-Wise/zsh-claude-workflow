@@ -1,0 +1,25 @@
+name: R Package Development Cycle
+type: rpkg
+description: Full development cycle for R packages (document, test, check)
+
+steps:
+  - name: Document
+    command: rdoc
+    type: shell
+    description: Generate documentation from roxygen comments
+
+  - name: Test
+    command: rtest
+    type: shell
+    description: Run all tests with testthat
+
+  - name: Check
+    command: rcheck
+    type: shell
+    description: R CMD check for CRAN compliance
+
+shortcuts:
+  - name: dev
+    description: Alias for this workflow (rdev)
+  - name: quick
+    description: Skip R CMD check (rdoc + rtest only)

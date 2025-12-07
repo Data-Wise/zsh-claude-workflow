@@ -1,0 +1,337 @@
+#!/usr/bin/env zsh
+# rpkg-setup - Smart R package initialization with claude-r-dev integration
+
+# Get script directory
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/rpkg-integration.sh"
+source "$LIB_DIR/claude-r-dev-bridge.sh"
+source "$LIB_DIR/skill-manager.sh"
+
+# ============================================
+# USAGE
+# ============================================
+
+show_usage() {
+    cat << EOF
+Usage: rpkg-setup <package-name> [options]
+
+Smart R package initialization with integrated workflows.
+
+OPTIONS:
+  -t, --type TYPE        Package type: standard, statistical, data-analysis, shiny
+                         (default: standard)
+
+  --tier TIER           Storage tier: active, stable, scratch
+                         (default: active)
+
+  --claude-r-dev        Install claude-r-dev configuration
+  --no-claude-r-dev     Skip claude-r-dev installation
+                         (default: auto-detect and install if available)
+
+  --profiles PROFILES   Comma-separated claude-r-dev profiles
+                         (default: auto-selected based on type)
+
+  --skills              Activate recommended Claude skills
+  --no-skills           Don't activate skills
+                         (default: activate if available)
+
+  -h, --help            Show this help message
+
+EXAMPLES:
+  # Create standard R package in active tier
+  rpkg-setup mypackage
+
+  # Create statistical methods package
+  rpkg-setup causalmed --type statistical
+
+  # Create in stable tier with custom profiles
+  rpkg-setup dataviz --type data-analysis --tier stable --profiles base,data-analysis
+
+  # Create without claude-r-dev
+  rpkg-setup simple --no-claude-r-dev
+
+PACKAGE TYPES:
+  standard          Standard R package (default)
+  statistical       Statistical methods and causal inference
+  data-analysis     Data analysis and visualization
+  shiny             Shiny application package
+
+STORAGE TIERS:
+  active            Active development (local, fast git operations)
+  stable            Finished packages (local)
+  scratch           Experimental packages (local)
+
+EOF
+}
+
+# ============================================
+# MAIN FUNCTION
+# ============================================
+
+main() {
+    local package_name=""
+    local pkg_type="standard"
+    local tier="active"
+    local install_claude_r_dev="auto"
+    local profiles=""
+    local activate_skills="auto"
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h|--help)
+                show_usage
+                return 0
+                ;;
+            -t|--type)
+                pkg_type="$2"
+                shift 2
+                ;;
+            --tier)
+                tier="$2"
+                shift 2
+                ;;
+            --claude-r-dev)
+                install_claude_r_dev="true"
+                shift
+                ;;
+            --no-claude-r-dev)
+                install_claude_r_dev="false"
+                shift
+                ;;
+            --profiles)
+                profiles="$2"
+                shift 2
+                ;;
+            --skills)
+                activate_skills="true"
+                shift
+                ;;
+            --no-skills)
+                activate_skills="false"
+                shift
+                ;;
+            -*)
+                print_error "Unknown option: $1"
+                echo ""
+                show_usage
+                return 1
+                ;;
+            *)
+                package_name="$1"
+                shift
+                ;;
+        esac
+    done
+
+    # Validate package name
+    if [[ -z "$package_name" ]]; then
+        print_error "Package name required"
+        echo ""
+        show_usage
+        return 1
+    fi
+
+    # Validate package type
+    case "$pkg_type" in
+        standard|statistical|data-analysis|shiny)
+            ;;
+        *)
+            print_error "Invalid package type: $pkg_type"
+            echo "Valid types: standard, statistical, data-analysis, shiny"
+            return 1
+            ;;
+    esac
+
+    # Validate tier
+    case "$tier" in
+        active|stable|scratch)
+            ;;
+        *)
+            print_error "Invalid tier: $tier"
+            echo "Valid tiers: active, stable, scratch"
+            return 1
+            ;;
+    esac
+
+    # Auto-detect claude-r-dev installation
+    if [[ "$install_claude_r_dev" == "auto" ]]; then
+        if has_claude_r_dev; then
+            install_claude_r_dev="true"
+        else
+            install_claude_r_dev="false"
+        fi
+    fi
+
+    # Auto-select profiles if not specified
+    if [[ -z "$profiles" ]] && [[ "$install_claude_r_dev" == "true" ]]; then
+        profiles=$(get_recommended_profile "$pkg_type")
+    fi
+
+    # ============================================
+    # SETUP WORKFLOW
+    # ============================================
+
+    print_header "R Package Setup: $package_name"
+    echo ""
+
+    echo "${fg[cyan]}Configuration:${reset_color}"
+    echo "  Package type: ${fg[yellow]}$pkg_type${reset_color}"
+    echo "  Storage tier: ${fg[yellow]}$tier${reset_color}"
+
+    if [[ "$install_claude_r_dev" == "true" ]]; then
+        echo "  claude-r-dev: ${fg[green]}enabled${reset_color} (profiles: $profiles)"
+    else
+        echo "  claude-r-dev: ${fg[red]}disabled${reset_color}"
+    fi
+
+    if [[ "$activate_skills" != "false" ]]; then
+        echo "  Skills: ${fg[green]}will activate recommended${reset_color}"
+    fi
+
+    echo ""
+
+    # Confirm
+    read "confirm?Proceed with setup? (y/N) "
+
+    if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
+        print_info "Setup cancelled"
+        return 0
+    fi
+
+    echo ""
+
+    # Step 1: Create package
+    print_header "Step 1/5: Creating Package"
+    echo ""
+
+    initialize_rpkg_full "$package_name" "$pkg_type" "$tier"
+
+    if [[ $? -ne 0 ]]; then
+        print_error "Package creation failed"
+        return 1
+    fi
+
+    # Determine package directory
+    local tier_path=$(get_tier_path "$tier")
+    local package_dir="$tier_path/$package_name"
+
+    # Step 2: Install claude-r-dev (if enabled)
+    if [[ "$install_claude_r_dev" == "true" ]]; then
+        echo ""
+        print_header "Step 2/5: Installing claude-r-dev"
+        echo ""
+
+        install_claude_r_dev_to_package "$package_dir" "$profiles" "false"
+
+        if [[ $? -ne 0 ]]; then
+            print_warning "claude-r-dev installation failed"
+            print_info "You can install it later with:"
+            print_info "  cd $package_dir && <path-to-claude-r-dev>/scripts/install.sh --profiles $profiles"
+        fi
+    else
+        print_info "Step 2/5: Skipping claude-r-dev installation"
+    fi
+
+    # Step 3: Activate skills (if enabled)
+    if [[ "$activate_skills" != "false" ]]; then
+        echo ""
+        print_header "Step 3/5: Activating Skills"
+        echo ""
+
+        cd "$package_dir"
+
+        # Get recommended skills
+        local recommended=$(get_recommended_skills "rpkg")
+
+        if [[ -n "$recommended" ]]; then
+            activate_skills_batch ${=recommended}
+        else
+            print_info "No recommended skills for this package type"
+        fi
+
+        cd - > /dev/null
+    else
+        print_info "Step 3/5: Skipping skill activation"
+    fi
+
+    # Step 4: Initialize git (if not already done)
+    echo ""
+    print_header "Step 4/5: Git Repository"
+    echo ""
+
+    cd "$package_dir"
+
+    if [[ ! -d ".git" ]]; then
+        print_info "Initializing git repository..."
+        git init
+
+        print_info "Creating initial commit..."
+        git add .
+        git commit -m "Initial commit: Create $package_name package
+
+Package type: $pkg_type
+Storage tier: $tier
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+
+        print_success "✓ Git repository initialized"
+    else
+        print_success "✓ Git repository already initialized"
+    fi
+
+    cd - > /dev/null
+
+    # Step 5: Summary
+    echo ""
+    print_header "Step 5/5: Setup Complete!"
+    echo ""
+
+    print_success "✓ Package created: ${fg[green]}$package_name${reset_color}"
+    echo ""
+
+    echo "${fg[cyan]}Location:${reset_color} $package_dir"
+    echo "${fg[cyan]}Type:${reset_color} $pkg_type"
+    echo "${fg[cyan]}Tier:${reset_color} $tier"
+
+    if [[ "$install_claude_r_dev" == "true" ]]; then
+        echo "${fg[cyan]}Profiles:${reset_color} $profiles"
+    fi
+
+    echo ""
+
+    # Next steps
+    print_info "Next Steps:"
+    echo ""
+    echo "  1. Navigate to package:"
+    echo "     ${fg[yellow]}cd $package_dir${reset_color}"
+    echo ""
+    echo "  2. Edit DESCRIPTION file with your details"
+    echo ""
+    echo "  3. Create your first function:"
+    echo "     ${fg[yellow]}rnewfun calculate_something${reset_color}"
+    echo ""
+    echo "  4. Run development cycle:"
+    echo "     ${fg[yellow]}rdev${reset_color}"
+    echo ""
+    echo "  5. Open with Claude Code:"
+    echo "     ${fg[yellow]}proj-claude${reset_color}"
+    echo ""
+
+    # Quick navigation tip
+    print_info "💡 Tip: After visiting once, jump to package with:"
+    echo "   ${fg[yellow]}z $package_name${reset_color}"
+    echo ""
+
+    return 0
+}
+
+# Run main
+main "$@"
