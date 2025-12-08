@@ -100,7 +100,8 @@
       "Bash(./commands/skill-activate:*)",
       "Bash(curl:*)",
       "Bash(gmw:*)",
-      "Bash(claude --version)"
+      "Bash(claude --version)",
+      "Bash(tee:*)"
     ],
     "deny": [],
     "ask": []
