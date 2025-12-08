@@ -90,7 +90,17 @@
       "Bash(source ~/.config/zsh/.zshrc)",
       "WebSearch",
       "Bash(time zsh:*)",
-      "Bash(du:*)"
+      "Bash(du:*)",
+      "Bash(zsh:*)",
+      "Bash(command:*)",
+      "Bash(gemini:*)",
+      "WebFetch(domain:www.philschmid.de)",
+      "WebFetch(domain:geminicli.com)",
+      "Bash(./commands/rpkg-setup:*)",
+      "Bash(./commands/skill-activate:*)",
+      "Bash(curl:*)",
+      "Bash(gmw:*)",
+      "Bash(claude --version)"
     ],
     "deny": [],
     "ask": []
