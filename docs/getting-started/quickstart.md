@@ -77,6 +77,8 @@ proj-claude
 
 ## Quick Command Reference
 
+### Core Commands
+
 | Command | Alias | Description |
 |---------|-------|-------------|
 | `proj-type` | `ptype` | Show project type and status |
@@ -86,10 +88,32 @@ proj-claude
 | `claude-show` | `cshow` | Display CLAUDE.md |
 | `proj-claude` | `pclaude` | Open Claude Code with context |
 
+### v1.3 Commands (Workflows & Skills)
+
+| Command | Description |
+|---------|-------------|
+| `workflow-run` | Run automated workflows (dev, test, deploy) |
+| `rpkg-setup` | Smart R package initialization |
+| `skill-activate` | Manage Claude skills for projects |
+
 ## Common Workflows
 
-### Setting Up a New R Package
+### Setting Up a New R Package (v1.3)
 
+**New way (all-in-one):**
+```bash
+# Create complete R package setup with workflows
+rpkg-setup mypackage --type statistical
+
+# Auto-activate recommended skills
+cd ~/R-packages/active/mypackage
+skill-activate auto
+
+# Run development workflow
+workflow-run dev
+```
+
+**Traditional way:**
 ```bash
 cd ~/R-packages/active/newpackage
 ptype              # Check project type
@@ -156,6 +180,12 @@ cd ~/R-packages/active/probmed && cctx
 
 # Test on Quarto projects
 cd ~/quarto-projects/extensions/unm-revealjs && ptype
+
+# Test v1.3 features
+cd ~/R-packages/active/rmediation
+workflow-run list           # List available workflows
+skill-activate available    # Show available skills
+workflow-run dev --dry-run  # Preview workflow
 
 # Test creating CLAUDE.md
 cd /tmp && mkdir test-project && cd test-project

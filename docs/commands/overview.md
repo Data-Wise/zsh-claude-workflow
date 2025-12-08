@@ -1,6 +1,6 @@
 # Commands Overview
 
-zsh-claude-workflow provides six main commands for project detection and Claude Code integration.
+zsh-claude-workflow provides nine main commands for project detection, Claude Code integration, and workflow automation.
 
 ## Command Categories
 
@@ -23,6 +23,16 @@ Commands for managing Claude Code context:
 | `claude-init` | `cinit` | Create CLAUDE.md from template |
 | `claude-show` | `cshow` | Display CLAUDE.md content |
 | `proj-claude` | `pclaude` | Open Claude Code with context |
+
+### 🚀 Workflow & Skills Management (v1.3)
+
+Commands for automation and skill management:
+
+| Command | Alias | Purpose |
+|---------|-------|---------|
+| `workflow-run` | - | Run automated workflows (dev, test, deploy) |
+| `rpkg-setup` | - | Smart R package initialization |
+| `skill-activate` | - | Manage Claude skills for projects |
 
 ## Quick Examples
 
@@ -50,6 +60,19 @@ claude-show
 
 # Launch Claude Code
 proj-claude
+```
+
+### Workflow & Skills (v1.3)
+
+```bash
+# Run development workflow
+workflow-run dev
+
+# Create R package with workflows
+rpkg-setup mypackage --type statistical
+
+# Activate Claude skills
+skill-activate auto
 ```
 
 ## Command Design Philosophy

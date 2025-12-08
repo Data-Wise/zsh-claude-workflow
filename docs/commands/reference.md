@@ -175,6 +175,168 @@ proj-claude
 
 ---
 
+## Workflow & Skills Management (v1.3)
+
+### `workflow-run`
+
+Universal workflow dispatcher for running automated workflows.
+
+**Usage:**
+```bash
+workflow-run [workflow-name] [options]
+```
+
+**Workflow Names:**
+- `dev` - Run development workflow for current project type
+- `test` - Run testing workflow
+- `deploy` - Run deployment workflow
+- `list` - List available workflows for current project
+- `info <name>` - Show workflow details
+
+**Options:**
+- `-h, --help` - Show help message
+- `-c, --continue` - Continue on errors (don't stop at first failure)
+- `-i, --info` - Show workflow info without running
+- `--dry-run` - Show what would be executed without running
+
+**Examples:**
+```bash
+# Run development workflow
+workflow-run dev
+
+# Run tests
+workflow-run test
+
+# List available workflows
+workflow-run list
+
+# Show workflow details
+workflow-run info dev
+
+# Run with continue-on-error
+workflow-run dev --continue
+
+# Dry run (preview)
+workflow-run test --dry-run
+```
+
+**Available Workflows:**
+- R Packages: `dev`, `test`, `pre-commit`, `build`, `check`
+- Quarto Projects: `preview`, `render`, `publish`
+- Custom: Create `.workflows/` directory in project
+
+---
+
+### `rpkg-setup`
+
+Smart R package initialization with integrated workflows and claude-r-dev support.
+
+**Usage:**
+```bash
+rpkg-setup <package-name> [options]
+```
+
+**Options:**
+- `-t, --type TYPE` - Package type: `standard`, `statistical`, `data-analysis`, `shiny` (default: `standard`)
+- `--tier TIER` - Storage tier: `active`, `stable`, `scratch` (default: `active`)
+- `--claude-r-dev` - Install claude-r-dev configuration
+- `--no-claude-r-dev` - Skip claude-r-dev installation (default: auto-detect)
+- `--profiles PROFILES` - Comma-separated claude-r-dev profiles (default: auto-selected)
+- `--skills` - Activate recommended Claude skills
+- `--no-skills` - Don't activate skills (default: activate if available)
+- `-h, --help` - Show help message
+
+**Examples:**
+```bash
+# Create standard R package
+rpkg-setup mypackage
+
+# Create statistical methods package
+rpkg-setup causalmed --type statistical
+
+# Create in stable tier
+rpkg-setup dataviz --type data-analysis --tier stable
+
+# Create with custom profiles
+rpkg-setup analysis --profiles base,data-analysis
+
+# Create without claude-r-dev
+rpkg-setup simple --no-claude-r-dev
+```
+
+**Package Types:**
+- `standard` - Standard R package (default)
+- `statistical` - Statistical methods and causal inference
+- `data-analysis` - Data analysis and visualization
+- `shiny` - Shiny web applications
+
+**What It Does:**
+1. Creates R package structure in appropriate tier directory
+2. Installs claude-r-dev configuration (if available)
+3. Activates recommended Claude skills
+4. Creates CLAUDE.md from template
+5. Initializes git repository
+6. Sets up development workflows
+
+---
+
+### `skill-activate`
+
+Manage Claude skills for the current project.
+
+**Usage:**
+```bash
+skill-activate [command] [options]
+```
+
+**Commands:**
+- `<skill-name>` - Activate a skill for current project
+- `list` - List active skills for current project
+- `deactivate <name>` - Deactivate a skill
+- `show <name>` - Show skill details
+- `auto` - Auto-activate recommended skills for project type
+- `available` - List all available user-level skills
+
+**Options:**
+- `-f, --force` - Force activation (override existing)
+- `-h, --help` - Show help message
+
+**Examples:**
+```bash
+# Activate R package development skill
+skill-activate r-package-development
+
+# Auto-activate recommended skills
+skill-activate auto
+
+# List active skills
+skill-activate list
+
+# Show available skills
+skill-activate available
+
+# Show skill details
+skill-activate show r-package-development
+
+# Deactivate a skill
+skill-activate deactivate simulation
+```
+
+**How Skills Work:**
+- Skills are stored in `~/.claude/skills/` (user-level)
+- Activated via symlinks to `.claude/skills/` in project
+- Allows shared skills across all projects
+- Supports project-specific overrides
+- Easy activation/deactivation without copying files
+
+**Common Skills:**
+- `r-package-development` - R package development best practices
+- `statistical-simulation` - Statistical simulation workflows
+- `quarto-publishing` - Quarto document publishing
+- `manuscript-writing` - Academic manuscript writing
+
+---
+
 ## Aliases
 
 For convenience, shorter aliases are available:
