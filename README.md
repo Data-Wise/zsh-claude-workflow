@@ -18,12 +18,17 @@ A smart context manager and workflow automation system for Claude Code integrati
 - **Smart project info** with project-specific intelligence
 - **Storage awareness** (local, Google Drive, OneDrive, Dropbox)
 
-### ⚡ Plugin Management (Bonus)
+### ⚡ Plugin Management & Optimization (Bonus)
 - **Antidote integration** - Modern, fast plugin manager
-- **Optimized configuration** - 20-40% faster shell startup
+- **ZDOTDIR setup** - Professional XDG-compliant configuration
+- **use-omz + OMZ lib** - Optimal Oh My Zsh integration (2025 best practices)
+- **Optimized configuration** - 40-50% faster shell startup (~0.37s)
 - **20+ plugins** - Git, FZF, autosuggestions, syntax highlighting
 - **Lazy loading** - Heavy plugins load only when needed
+- **Clean home directory** - 92% fewer zsh dotfiles (13+ → 1)
 - **Easy management** - Simple text file configuration
+
+**NEW: [ZDOTDIR Optimization Guide →](docs/optimization/zdotdir-setup.md)**
 
 ### 🚀 Future Phases
 - Multi-storage navigation (local + Google Drive + OneDrive)

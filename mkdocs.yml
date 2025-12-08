@@ -80,6 +80,7 @@ nav:
   - Migration:
     - Antidote Migration: migration/antidote.md
   - Optimization:
+    - ZDOTDIR Setup (2025): optimization/zdotdir-setup.md
     - Plugin Optimization: optimization/plugins.md
   - Development:
     - Contributing: development/contributing.md

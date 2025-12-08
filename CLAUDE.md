@@ -977,3 +977,66 @@ The documentation is organized into:
 ---
 
 This CLAUDE.md is maintained as part of the zsh-claude-workflow project and should be updated when making significant changes to the codebase or architecture.
+
+
+---
+
+## ZDOTDIR Setup (2025 Optimization)
+
+**IMPORTANT:** As of v1.3+, this project recommends using ZDOTDIR for optimal zsh configuration.
+
+### What Changed
+
+**Traditional Setup:**
+```
+~/
+├── .zshrc
+├── .zsh_plugins.txt
+├── .p10k.zsh
+└── [10+ other zsh dotfiles]
+```
+
+**ZDOTDIR Setup (Recommended):**
+```
+~/
+├── .zshenv                 # ONLY zsh file in home
+└── .config/zsh/            # ALL zsh configuration (ZDOTDIR)
+    ├── .zshrc
+    ├── .zsh_plugins.txt
+    ├── .p10k.zsh
+    ├── conf.d/             # Modular configs
+    ├── functions/          # Lazy-loaded functions
+    └── completions/        # Custom completions
+```
+
+### Benefits
+
+- ✅ Clean home directory (92% fewer zsh files)
+- ✅ XDG-compliant modern configuration
+- ✅ Better organization
+- ✅ Easier backups and management
+- ✅ 40-50% faster shell startup
+
+### Quick Setup
+
+See **[ZDOTDIR Optimization Guide](docs/optimization/zdotdir-setup.md)** for complete setup instructions.
+
+### Key Points
+
+1. **use-omz + lib** is the recommended OMZ integration:
+   ```bash
+   getantidote/use-omz              # First!
+   ohmyzsh/ohmyzsh path:lib         # Second!
+   ```
+
+2. **Homebrew must initialize before antidote** - Add to `~/.zshenv`
+
+3. **Don't manually run compinit** - use-omz handles it
+
+4. **Update command changed**:
+   - OLD: `omz update`
+   - NEW: `antidote update`
+
+See full documentation in [docs/optimization/](docs/optimization/) for details.
+
+
