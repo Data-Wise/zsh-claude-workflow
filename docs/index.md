@@ -36,6 +36,14 @@ A smart context manager and workflow automation system for Claude Code integrati
 
     [:octicons-arrow-right-24: Templates](guide/templates.md)
 
+-   :material-console:{ .lg .middle } __CLI Aliases (55+ shortcuts)__
+
+    ---
+
+    Comprehensive aliases for Claude Code CLI and Gemini CLI integrated with R workflows
+
+    [:octicons-arrow-right-24: CLI Aliases](guide/cli-aliases.md)
+
 </div>
 
 ## Features
@@ -97,6 +105,8 @@ Works seamlessly with:
 - Quarto project workflows (`qp`, `qr`, `qc`)
 - Git workflows (`gst`, `ga`, `gcmsg`)
 - Modern CLI tools (`bat`, `eza`, `fd`, `rg`)
+- **Claude Code CLI** - 34 aliases for R development and code review
+- **Gemini CLI** - 15 aliases for web research and general assistance
 - Existing CLAUDE.md files in your projects
 
 ## License

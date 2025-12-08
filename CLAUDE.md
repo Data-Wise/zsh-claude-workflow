@@ -29,6 +29,7 @@ Provide seamless integration between zsh workflows and Claude Code by:
 | **Skill Management** 🆕 | Activate/manage Claude skills per project | ✅ v1.3 |
 | **R Package Setup** 🆕 | One-command R package initialization | ✅ v1.3 |
 | **claude-r-dev Bridge** 🆕 | Integration with claude-r-dev profiles | ✅ v1.3 |
+| **CLI Tool Aliases** 🆕 | 55+ aliases for Claude Code & Gemini CLI | ✅ v1.3 |
 | **Documentation Site** | MkDocs with Material theme + GitHub Pages | ✅ Complete |
 | **GitHub Integration** | Issue/PR templates, workflows, metadata | ✅ Complete |
 
@@ -529,6 +530,48 @@ Integrates with:
 - Git workflows (gst, ga, gcmsg)
 - Modern CLI tools (bat, eza, fd, rg)
 
+### With CLI Tool Aliases 🆕
+
+**Location**: `~/.config/zsh/.zshrc`
+
+Comprehensive aliases for AI-powered CLI tools:
+
+**Claude Code CLI (34 shortcuts)**:
+```bash
+# Basic: cc, ccp, ccc, ccr, ccl
+# Models: ccs (sonnet), cco (opus), cch (haiku)
+# Permissions: ccplan, ccauto, ccyolo
+# R-specific: ccrdoc, ccrtest, ccrfix, ccrstyle, etc.
+# Functions: ccask, ccfile, ccrdiff, ccrpkg
+```
+
+**Gemini CLI (15 shortcuts)**:
+```bash
+# Basic: gm, gmi, gmpi
+# Power: gmy (yolo), gms (sandbox), gmd (debug), gmr (resume)
+# Web search: gmw, gmws (functions)
+# Management: gmm (mcp), gme (extensions)
+```
+
+**Integration Examples**:
+```bash
+# R package development with Claude
+rload && ccrtest            # Load package, generate tests
+rcheck && ccrfix            # Check package, fix issues
+ccrdiff                     # Review changes before commit
+
+# Web research with Gemini
+gmw "latest R best practices 2025"
+gmws "CRAN submission checklist"
+```
+
+**Reference Guides**:
+- `~/claude-cli-aliases-reference.md` - Complete Claude CLI reference
+- `~/gemini-aliases-reference.md` - Complete Gemini CLI reference
+- `docs/guide/cli-aliases.md` - Documentation site guide
+
+**Total**: 55+ productivity shortcuts for AI-powered development
+
 ---
 
 ## File Organization
@@ -733,6 +776,14 @@ print_header "Section Header"
   - Quarto project skill template
   - Symlink-based activation for easy management
 - ✅ Full integration with existing .zshrc functions (rdev, rpkg, qwork, etc.)
+- ✅ **CLI Tool Aliases (2025-12-08)**:
+  - 34 Claude Code CLI aliases and functions (cc, ccp, ccrpkg, ccrdiff, etc.)
+  - 15 Gemini CLI aliases and functions (gm, gmw, gmws, gmy, etc.)
+  - R-specific workflows (ccrdoc, ccrtest, ccrfix, ccrstyle)
+  - Smart functions with context awareness (ccrpkg, ccrdiff)
+  - Complete reference guides (~/claude-cli-aliases-reference.md, ~/gemini-aliases-reference.md)
+  - Documentation guide (docs/guide/cli-aliases.md)
+  - Total: 55+ productivity shortcuts for AI-powered development
 - 🎯 **New Capabilities:**
   - `workflow-run dev` - Run development workflow for any project type
   - `rpkg-setup mypackage --type statistical` - One-command R package setup
@@ -966,8 +1017,8 @@ The documentation is organized into:
 
 ---
 
-**Last Updated**: 2025-12-07
-**Current Version**: v1.3
+**Last Updated**: 2025-12-08
+**Current Version**: v1.3 (with CLI aliases)
 **Project Status**: Production Ready
 **Documentation**: Complete (Web + MkDocs)
 **Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
