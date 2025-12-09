@@ -39,7 +39,7 @@ Provide seamless integration between zsh workflows and Claude Code by:
 
 ```bash
 # Test commands
-cd ~/code/zsh-claude-workflow
+cd ~/projects/dev-tools/zsh-claude-workflow
 ./commands/proj-type .                # Test project detection
 ./commands/claude-ctx .               # Test context gathering
 
@@ -393,7 +393,7 @@ git push origin feature/my-feature
 
 1. **Create command script**:
 ```bash
-vim ~/code/zsh-claude-workflow/commands/new-command
+vim ~/projects/dev-tools/zsh-claude-workflow/commands/new-command
 ```
 
 2. **Template**:
@@ -420,7 +420,7 @@ main "$@"
 
 3. **Make executable**:
 ```bash
-chmod +x ~/code/zsh-claude-workflow/commands/new-command
+chmod +x ~/projects/dev-tools/zsh-claude-workflow/commands/new-command
 ```
 
 4. **Test**:
@@ -465,7 +465,7 @@ elif is_r_package "$dir"; then
 
 1. **Create template file**:
 ```bash
-vim ~/code/zsh-claude-workflow/templates/CLAUDE-python.md
+vim ~/projects/dev-tools/zsh-claude-workflow/templates/CLAUDE-python.md
 ```
 
 2. **Use placeholders**:
@@ -588,7 +588,7 @@ These files are meant to be edited by users:
 - `~/.zshrc` - Shell configuration
 - `~/.zsh_plugins.txt` - Plugin list
 - `~/.p10k.zsh` - Powerlevel10k theme
-- `~/code/zsh-claude-workflow/config/defaults.conf` - Project config
+- `~/projects/dev-tools/zsh-claude-workflow/config/defaults.conf` - Project config
 
 ### Project CLAUDE.md Files
 
@@ -932,7 +932,7 @@ bat lib/project-detector.sh            # View detection logic
 mkdocs serve                           # Preview docs locally
 mkdocs build                           # Build documentation site
 bat docs/index.md                      # View landing page
-tree ~/code/zsh-claude-workflow        # View structure
+tree ~/projects/dev-tools/zsh-claude-workflow        # View structure
 
 # Testing
 cd ~/R-packages/active/rmediation && proj-type
