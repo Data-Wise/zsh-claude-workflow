@@ -880,6 +880,10 @@ print_header "Section Header"
 ## Related Projects
 
 This project integrates with:
+- **claude-statistical-research-mcp** (v0.7.0) - MCP server with 16 tools + 17 skills
+  - R tools: r_execute, r_session, r_inspect, r_test, r_check, r_plot, r_preview, r_document, r_coverage
+  - Literature: arxiv_search, crossref_lookup, bibtex, zotero, lit_note_create
+  - Skills: 17 A-grade skills in mathematical/, implementation/, writing/, research/
 - **User's R package workflow** (~/R-packages/active/*)
 - **Quarto projects** (~/quarto-projects/*)
 - **Claude Code** (claude-code CLI)
