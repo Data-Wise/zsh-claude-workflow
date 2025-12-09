@@ -827,9 +827,36 @@ print_header "Section Header"
 
 ### Planned Features
 
-📋 **Comprehensive Roadmap:** See `plans/file-project-management-optimization.md` for detailed brainstorm
+📋 **Comprehensive Roadmap:** See planning documents in `plans/`
 
-**v1.4 - Smart Project Navigation (Planned)**
+**v1.4 - Claude Commands Redesign + Smart Navigation (Planned)**
+
+🆕 **Claude Commands Coordination** (NEW - 2025-12-09):
+- See `plans/claude-commands-redesign.md` for full specification
+- 5-category hybrid structure: research/, teach/, math/, code/, write/
+- 34 total commands (9 existing + 25 new)
+- Multi-project coordination with MCP server and examark
+- zsh-claude-workflow becomes source of truth for commands
+- New directories: `claude-commands/`, `integrations/`
+
+**Command Categories:**
+| Category | Commands | Purpose |
+|----------|----------|---------|
+| research/ | 8 | Literature, manuscripts, simulations |
+| teach/ | 9 | Exams, rubrics, lectures (examark integration) |
+| math/ | 4 | Proofs, derivations (shared) |
+| code/ | 8 | R packages, docs, releases (shared) |
+| write/ | 5 | Drafting, abstracts, editing (shared) |
+
+**Implementation Tasks:**
+- [ ] Create `claude-commands/` directory structure
+- [ ] Migrate 9 existing commands from `~/.claude/commands/`
+- [ ] Create priority new commands (exam, rubric, derive, revision)
+- [ ] Create `integrations/` with examark-bridge.sh
+- [ ] Update `install.sh` to symlink commands
+- [ ] Test full integration
+
+**Smart Project Navigation** (from original v1.4 plan):
 - Smart project switching with context loading (`pj` command)
 - Intelligent file navigation with bookmarks
 - File organization automation
