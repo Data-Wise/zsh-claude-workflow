@@ -334,7 +334,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../optimization/plugins/" class="md-tabs__link">
+        <a href="../../optimization/zdotdir-setup/" class="md-tabs__link">
           
   
   
@@ -712,6 +712,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Quick Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v13-commands-workflows-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.3 Commands (Workflows &amp; Skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -727,10 +755,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-a-new-r-package" class="md-nav__link">
+  <a href="#setting-up-a-new-r-package-v13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting Up a New R Package
+        Setting Up a New R Package (v1.3)
       
     </span>
   </a>
@@ -1090,6 +1118,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/cli-aliases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Aliases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1239,6 +1295,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/zdotdir-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZDOTDIR Setup (2025)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1750,6 +1834,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Quick Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v13-commands-workflows-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v1.3 Commands (Workflows &amp; Skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1765,10 +1877,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-a-new-r-package" class="md-nav__link">
+  <a href="#setting-up-a-new-r-package-v13" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting Up a New R Package
+        Setting Up a New R Package (v1.3)
       
     </span>
   </a>
@@ -1924,6 +2036,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>proj-claude
 </code></pre></div>
 <h2 id="quick-command-reference">Quick Command Reference</h2>
+<h3 id="core-commands">Core Commands</h3>
 <table>
 <thead>
 <tr>
@@ -1965,21 +2078,56 @@
 </tr>
 </tbody>
 </table>
+<h3 id="v13-commands-workflows-skills">v1.3 Commands (Workflows &amp; Skills)</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>workflow-run</code></td>
+<td>Run automated workflows (dev, test, deploy)</td>
+</tr>
+<tr>
+<td><code>rpkg-setup</code></td>
+<td>Smart R package initialization</td>
+</tr>
+<tr>
+<td><code>skill-activate</code></td>
+<td>Manage Claude skills for projects</td>
+</tr>
+</tbody>
+</table>
 <h2 id="common-workflows">Common Workflows</h2>
-<h3 id="setting-up-a-new-r-package">Setting Up a New R Package</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpackage
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ptype<span class="w">              </span><span class="c1"># Check project type</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>cinit<span class="w">              </span><span class="c1"># Create CLAUDE.md</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>vim<span class="w"> </span>CLAUDE.md<span class="w">      </span><span class="c1"># Customize it</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>pclaude<span class="w">            </span><span class="c1"># Start working with Claude</span>
-</code></pre></div>
+<h3 id="setting-up-a-new-r-package-v13">Setting Up a New R Package (v1.3)</h3>
+<p><strong>New way (all-in-one):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Create complete R package setup with workflows</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>rpkg-setup<span class="w"> </span>mypackage<span class="w"> </span>--type<span class="w"> </span>statistical
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Auto-activate recommended skills</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/mypackage
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>skill-activate<span class="w"> </span>auto
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Run development workflow</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>workflow-run<span class="w"> </span>dev
+</code></pre></div></p>
+<p><strong>Traditional way:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpackage
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ptype<span class="w">              </span><span class="c1"># Check project type</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>cinit<span class="w">              </span><span class="c1"># Create CLAUDE.md</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>vim<span class="w"> </span>CLAUDE.md<span class="w">      </span><span class="c1"># Customize it</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>pclaude<span class="w">            </span><span class="c1"># Start working with Claude</span>
+</code></pre></div></p>
 <h3 id="quick-status-check">Quick Status Check</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ptype<span class="w">              </span><span class="c1"># Quick overview</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ptype<span class="w">              </span><span class="c1"># Quick overview</span>
 </code></pre></div>
 <h3 id="view-project-documentation">View Project Documentation</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pinfo<span class="w">              </span><span class="c1"># Full project context</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cshow<span class="w">              </span><span class="c1"># Claude instructions</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pinfo<span class="w">              </span><span class="c1"># Full project context</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>cshow<span class="w">              </span><span class="c1"># Claude instructions</span>
 </code></pre></div>
 <h2 id="tips-tricks">Tips &amp; Tricks</h2>
 <div class="admonition tip">
@@ -2016,19 +2164,25 @@
 <p>This helps you understand project status at a glance.</p>
 <h2 id="test-examples">Test Examples</h2>
 <p>Try these commands to test the system:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Test on active packages</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ptype
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/medfit<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pinfo
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/probmed<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cctx
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># Test on Quarto projects</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">cd</span><span class="w"> </span>~/quarto-projects/extensions/unm-revealjs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ptype
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Test creating CLAUDE.md</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>test-project<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>test-project
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Package: testpkg&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>DESCRIPTION
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>cinit
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>cat<span class="w"> </span>CLAUDE.md
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Test on active packages</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ptype
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/medfit<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pinfo
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/probmed<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cctx
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># Test on Quarto projects</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">cd</span><span class="w"> </span>~/quarto-projects/extensions/unm-revealjs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ptype
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># Test v1.3 features</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>workflow-run<span class="w"> </span>list<span class="w">           </span><span class="c1"># List available workflows</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>skill-activate<span class="w"> </span>available<span class="w">    </span><span class="c1"># Show available skills</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>workflow-run<span class="w"> </span>dev<span class="w"> </span>--dry-run<span class="w">  </span><span class="c1"># Preview workflow</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># Test creating CLAUDE.md</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>test-project<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>test-project
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Package: testpkg&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>DESCRIPTION
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>cinit
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>cat<span class="w"> </span>CLAUDE.md
 </code></pre></div>
 <h2 id="next-steps">Next Steps</h2>
 <ul>

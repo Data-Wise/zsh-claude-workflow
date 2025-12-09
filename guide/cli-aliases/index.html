@@ -1,0 +1,3529 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Smart context manager and workflow automation system for Claude Code integration with zsh">
+      
+      
+        <meta name="author" content="Data-Wise">
+      
+      
+        <link rel="canonical" href="https://data-wise.github.io/zsh-claude-workflow/guide/cli-aliases/">
+      
+      
+        <link rel="prev" href="../context-management/">
+      
+      
+        <link rel="next" href="../../migration/antidote/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>CLI Aliases - zsh-claude-workflow</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cli-tool-aliases-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="zsh-claude-workflow" class="md-header__button md-logo" aria-label="zsh-claude-workflow" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zsh-claude-workflow
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CLI Aliases
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Data-Wise/zsh-claude-workflow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Data-Wise/zsh-claude-workflow
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../commands/overview/" class="md-tabs__link">
+          
+  
+  
+  Commands
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../project-types/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../migration/antidote/" class="md-tabs__link">
+          
+  
+  
+  Migration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../optimization/zdotdir-setup/" class="md-tabs__link">
+          
+  
+  
+  Optimization
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/contributing/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/aliases-reference/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="zsh-claude-workflow" class="md-nav__button md-logo" aria-label="zsh-claude-workflow" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zsh-claude-workflow
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Data-Wise/zsh-claude-workflow" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Data-Wise/zsh-claude-workflow
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commands
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Aliases
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Aliases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code-cli-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code CLI Aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Claude Code CLI Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-specific-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R-Specific Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-development-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Development Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smart Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Smart Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ccask-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccask &lt;question&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccfile-file-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccfile &lt;file&gt; [prompt]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccrdiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccrdiff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccrpkg-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccrpkg &lt;context&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-r-package-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete R Package Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemini-cli-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini CLI Aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gemini CLI Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-user-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power User Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-search-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Search Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP &amp; Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Combinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zsh-claude-workflow-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zsh-claude-workflow Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-new-r-package-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: New R Package Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-bug-fix-with-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Bug Fix with Claude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-research-with-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Research with Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-code-review-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Code Review Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daily-r-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily R Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safe Experimentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-choose-the-right-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Choose the Right Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-appropriate-permission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Use Appropriate Permission Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-leverage-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Leverage Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integrate-with-existing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integrate with Existing Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-use-model-selection-wisely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Use Model Selection Wisely
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Guides
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Card
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#most-used-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Used Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aliases-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aliases Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudegemini-not-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude/Gemini Not Installed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Migration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migration/antidote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Antidote Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Optimization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/zdotdir-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZDOTDIR Setup (2025)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/branch-protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Branch Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/aliases-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aliases Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/optimization-applied/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimization Applied
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/organization-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Organization Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/test-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Test Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code-cli-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code CLI Aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Claude Code CLI Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-specific-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R-Specific Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-development-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Development Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smart Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Smart Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ccask-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccask &lt;question&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccfile-file-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccfile &lt;file&gt; [prompt]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccrdiff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccrdiff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ccrpkg-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ccrpkg &lt;context&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-r-package-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete R Package Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemini-cli-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini CLI Aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gemini CLI Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-user-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power User Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-search-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Search Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP &amp; Extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Combinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zsh-claude-workflow-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zsh-claude-workflow Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-new-r-package-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: New R Package Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-bug-fix-with-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Bug Fix with Claude
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-research-with-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Research with Gemini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-code-review-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Code Review Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daily-r-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily R Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safe Experimentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-choose-the-right-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Choose the Right Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-appropriate-permission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Use Appropriate Permission Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-leverage-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Leverage Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integrate-with-existing-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integrate with Existing Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-use-model-selection-wisely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Use Model Selection Wisely
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Guides
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Card
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#most-used-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most Used Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aliases-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aliases Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudegemini-not-installed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude/Gemini Not Installed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cli-tool-aliases-guide">CLI Tool Aliases Guide</h1>
+<p>Comprehensive reference for Claude Code CLI and Gemini CLI aliases integrated into your zsh workflow.</p>
+<p><strong>Last Updated:</strong> 2025-12-08</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Your shell configuration includes <strong>47+ productivity aliases</strong> for AI-powered CLI tools:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Aliases</th>
+<th>Functions</th>
+<th>Total</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude Code CLI</strong></td>
+<td>30 aliases</td>
+<td>4 functions</td>
+<td>34 shortcuts</td>
+<td>R package development, code review</td>
+</tr>
+<tr>
+<td><strong>Gemini CLI</strong></td>
+<td>13 aliases</td>
+<td>2 functions</td>
+<td>15 shortcuts</td>
+<td>Web research, general assistance</td>
+</tr>
+<tr>
+<td><strong>zsh-claude-workflow</strong></td>
+<td>6 aliases</td>
+<td>-</td>
+<td>6 shortcuts</td>
+<td>Project context management</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="claude-code-cli-aliases">Claude Code CLI Aliases</h2>
+<h3 id="basic-commands">Basic Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cc</code></td>
+<td><code>claude</code></td>
+<td>Interactive mode (default)</td>
+</tr>
+<tr>
+<td><code>ccp</code></td>
+<td><code>claude -p</code></td>
+<td>Print mode (non-interactive output)</td>
+</tr>
+<tr>
+<td><code>ccc</code></td>
+<td><code>claude -c</code></td>
+<td>Continue last conversation</td>
+</tr>
+<tr>
+<td><code>ccr</code></td>
+<td><code>claude -r</code></td>
+<td>Resume with interactive picker</td>
+</tr>
+<tr>
+<td><code>ccl</code></td>
+<td><code>claude --resume latest</code></td>
+<td>Resume latest session</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cc<span class="w">                           </span><span class="c1"># Start interactive Claude session</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ccp<span class="w"> </span><span class="s2">&quot;Explain async/await&quot;</span><span class="w">    </span><span class="c1"># Get quick answer and exit</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ccc<span class="w">                          </span><span class="c1"># Continue where you left off</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ccr<span class="w">                          </span><span class="c1"># Pick session to resume</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ccl<span class="w">                          </span><span class="c1"># Resume most recent</span>
+</code></pre></div></p>
+<h3 id="model-selection">Model Selection</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ccs</code></td>
+<td><code>claude --model sonnet</code></td>
+<td>Use Sonnet (balanced, default)</td>
+</tr>
+<tr>
+<td><code>cco</code></td>
+<td><code>claude --model opus</code></td>
+<td>Use Opus (most capable)</td>
+</tr>
+<tr>
+<td><code>cch</code></td>
+<td><code>claude --model haiku</code></td>
+<td>Use Haiku (fastest)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to use which:</strong>
+- <strong>Opus</strong> - Complex logic, architecture decisions, difficult bugs
+- <strong>Sonnet</strong> - Daily development, most tasks (default)
+- <strong>Haiku</strong> - Quick questions, simple fixes, syntax checks</p>
+<h3 id="permission-modes">Permission Modes</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ccplan</code></td>
+<td><code>claude --permission-mode plan</code></td>
+<td>Plan mode (review first)</td>
+</tr>
+<tr>
+<td><code>ccauto</code></td>
+<td><code>claude --permission-mode acceptEdits</code></td>
+<td>Auto-accept edits only</td>
+</tr>
+<tr>
+<td><code>ccyolo</code></td>
+<td><code>claude --permission-mode bypassPermissions</code></td>
+<td>Bypass all permissions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Safety levels:</strong>
+- <code>ccplan</code> - Safest, review everything
+- <code>ccauto</code> - Safe for file edits, asks for commands
+- <code>ccyolo</code> - Dangerous, only use in safe environments</p>
+<h3 id="r-specific-workflows">R-Specific Workflows</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ccrdoc</code></td>
+<td>Generate roxygen2 documentation</td>
+</tr>
+<tr>
+<td><code>ccrtest</code></td>
+<td>Generate testthat tests</td>
+</tr>
+<tr>
+<td><code>ccrfix</code></td>
+<td>Fix R CMD check issues</td>
+</tr>
+<tr>
+<td><code>ccrrefactor</code></td>
+<td>Refactor to tidyverse style</td>
+</tr>
+<tr>
+<td><code>ccrexplain</code></td>
+<td>Explain R code</td>
+</tr>
+<tr>
+<td><code>ccroptimize</code></td>
+<td>Optimize R code performance</td>
+</tr>
+<tr>
+<td><code>ccrstyle</code></td>
+<td>Apply tidyverse style guide</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># In R/myfunction.R</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ccrdoc<span class="w">                      </span><span class="c1"># Generate roxygen2 docs</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ccrtest<span class="w">                     </span><span class="c1"># Generate tests</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>ccrfix<span class="w">                      </span><span class="c1"># Fix check issues</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ccrstyle<span class="w">                    </span><span class="c1"># Apply tidyverse style</span>
+</code></pre></div></p>
+<h3 id="common-development-tasks">Common Development Tasks</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ccfix</code></td>
+<td>Fix bugs</td>
+</tr>
+<tr>
+<td><code>ccreview</code></td>
+<td>Code review</td>
+</tr>
+<tr>
+<td><code>cctest</code></td>
+<td>Generate tests</td>
+</tr>
+<tr>
+<td><code>ccdoc</code></td>
+<td>Generate documentation</td>
+</tr>
+<tr>
+<td><code>ccexplain</code></td>
+<td>Explain code</td>
+</tr>
+<tr>
+<td><code>ccrefactor</code></td>
+<td>Refactor code</td>
+</tr>
+<tr>
+<td><code>ccoptimize</code></td>
+<td>Optimize performance</td>
+</tr>
+<tr>
+<td><code>ccsecurity</code></td>
+<td>Security review</td>
+</tr>
+</tbody>
+</table>
+<h3 id="smart-functions">Smart Functions</h3>
+<h4 id="ccask-question"><code>ccask &lt;question&gt;</code></h4>
+<p>Quick question to Claude (print mode).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ccask<span class="w"> </span><span class="s2">&quot;How do I handle missing data in R?&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ccask<span class="w"> </span><span class="s2">&quot;What&#39;s the best way to vectorize this loop?&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ccask<span class="w"> </span><span class="s2">&quot;Explain CRAN submission process&quot;</span>
+</code></pre></div>
+<h4 id="ccfile-file-prompt"><code>ccfile &lt;file&gt; [prompt]</code></h4>
+<p>Analyze a file with Claude.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ccfile<span class="w"> </span>R/myfunction.R<span class="w">                    </span><span class="c1"># Explain this file</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ccfile<span class="w"> </span>R/myfunction.R<span class="w"> </span><span class="s2">&quot;review for bugs&quot;</span><span class="w">  </span><span class="c1"># Custom prompt</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ccfile<span class="w"> </span>tests/testthat/test-foo.R<span class="w"> </span><span class="s2">&quot;improve these tests&quot;</span>
+</code></pre></div>
+<h4 id="ccrdiff"><code>ccrdiff</code></h4>
+<p>Review uncommitted R package changes with Claude.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># After making changes</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ccrdiff<span class="w">                     </span><span class="c1"># Review all uncommitted changes</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Use in workflow</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>vim<span class="w"> </span>R/myfunction.R<span class="w">          </span><span class="c1"># Make changes</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>ccrdiff<span class="w">                     </span><span class="c1"># Review before commit</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w">     </span><span class="c1"># Commit if looks good</span>
+</code></pre></div>
+<h4 id="ccrpkg-context"><code>ccrpkg &lt;context&gt;</code></h4>
+<p>Smart R package helper - understands you're in an R package.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;help me write a vignette for mediation analysis&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;review my DESCRIPTION file for CRAN submission&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;suggest tests for my main functions&quot;</span>
+</code></pre></div>
+<p><strong>Auto-detects:</strong>
+- Package name from DESCRIPTION
+- Sets R package context automatically
+- Provides package-specific help</p>
+<h3 id="complete-r-package-workflow">Complete R Package Workflow</h3>
+<p><strong>Traditional:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>rload<span class="w">                       </span><span class="c1"># Load package</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>rtest<span class="w">                       </span><span class="c1"># Run tests</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>rdoc<span class="w">                        </span><span class="c1"># Generate docs</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>rcheck<span class="w">                      </span><span class="c1"># Check package</span>
+</code></pre></div></p>
+<p><strong>Enhanced with Claude:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rload<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrtest<span class="w">            </span><span class="c1"># Generate new tests</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>rtest<span class="w"> </span><span class="o">||</span><span class="w"> </span>ccrfix<span class="w">             </span><span class="c1"># Fix failing tests</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>rdoc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrdoc<span class="w">              </span><span class="c1"># Enhance documentation</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>rcheck<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrfix<span class="w">            </span><span class="c1"># Fix check issues</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ccrdiff<span class="w">                     </span><span class="c1"># Review before commit</span>
+</code></pre></div></p>
+<hr />
+<h2 id="gemini-cli-aliases">Gemini CLI Aliases</h2>
+<h3 id="basic-commands_1">Basic Commands</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gm</code></td>
+<td><code>gemini</code></td>
+<td>Quick launch interactive mode</td>
+</tr>
+<tr>
+<td><code>gmi</code></td>
+<td><code>gemini</code></td>
+<td>Interactive mode (explicit)</td>
+</tr>
+<tr>
+<td><code>gmpi</code></td>
+<td><code>gemini -i</code></td>
+<td>Prompt then stay interactive</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gm<span class="w">                                    </span><span class="c1"># Start interactive session</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>gemini<span class="w"> </span><span class="s2">&quot;Explain quantum computing&quot;</span><span class="w">   </span><span class="c1"># One-shot question</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>gmpi<span class="w"> </span><span class="s2">&quot;What&#39;s in this directory?&quot;</span><span class="w">     </span><span class="c1"># Ask, then continue chatting</span>
+</code></pre></div></p>
+<h3 id="power-user-modes">Power User Modes</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gmy</code></td>
+<td><code>gemini --yolo</code></td>
+<td>Auto-approve all actions (YOLO mode)</td>
+</tr>
+<tr>
+<td><code>gms</code></td>
+<td><code>gemini --sandbox</code></td>
+<td>Run in sandbox (safe mode)</td>
+</tr>
+<tr>
+<td><code>gmd</code></td>
+<td><code>gemini --debug</code></td>
+<td>Enable debug mode</td>
+</tr>
+<tr>
+<td><code>gmr</code></td>
+<td><code>gemini --resume latest</code></td>
+<td>Resume latest session</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>gmy<span class="w"> </span><span class="s2">&quot;Install these packages&quot;</span><span class="w">     </span><span class="c1"># Auto-approves all actions</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>gms<span class="w"> </span><span class="s2">&quot;Test this risky command&quot;</span><span class="w">    </span><span class="c1"># Safe sandbox environment</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>gmd<span class="w"> </span><span class="s2">&quot;Debug this issue&quot;</span><span class="w">           </span><span class="c1"># Debug output enabled</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>gmr<span class="w">                              </span><span class="c1"># Continue from where you left off</span>
+</code></pre></div></p>
+<h3 id="web-search-functions">Web Search Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gmw &lt;query&gt;</code></td>
+<td>Search the web (adds "Search the web for: " prefix)</td>
+</tr>
+<tr>
+<td><code>gmws &lt;query&gt;</code></td>
+<td>Find and summarize (adds "Find and summarize information about: " prefix)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>gmw<span class="w"> </span>latest<span class="w"> </span>Node.js<span class="w"> </span>features<span class="w">         </span><span class="c1"># Searches web</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>gmws<span class="w"> </span>React<span class="w"> </span><span class="m">19</span><span class="w"> </span>updates<span class="w">               </span><span class="c1"># Summarizes findings</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Direct (no alias needed)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>gemini<span class="w"> </span><span class="s2">&quot;What are the latest AI developments?&quot;</span><span class="w">  </span><span class="c1"># Auto-detects need for web search</span>
+</code></pre></div></p>
+<p><strong>How Web Search Works:</strong>
+- Gemini CLI automatically uses the <code>google_web_search</code> tool when needed
+- You don't need to explicitly request web search for most queries
+- Use <code>gmw</code> when you want to be explicit about searching the web</p>
+<h3 id="mcp-extensions">MCP &amp; Extensions</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gmm</code></td>
+<td><code>gemini mcp</code></td>
+<td>MCP server management</td>
+</tr>
+<tr>
+<td><code>gme</code></td>
+<td><code>gemini extensions</code></td>
+<td>Extension management</td>
+</tr>
+<tr>
+<td><code>gmei</code></td>
+<td><code>gemini extensions install</code></td>
+<td>Install extension</td>
+</tr>
+<tr>
+<td><code>gmel</code></td>
+<td><code>gemini --list-extensions</code></td>
+<td>List all extensions</td>
+</tr>
+<tr>
+<td><code>gmeu</code></td>
+<td><code>gemini extensions update</code></td>
+<td>Update extensions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="session-management">Session Management</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gmls</code></td>
+<td><code>gemini --list-sessions</code></td>
+<td>List available sessions</td>
+</tr>
+<tr>
+<td><code>gmds</code></td>
+<td><code>gemini --delete-session</code></td>
+<td>Delete session by index</td>
+</tr>
+<tr>
+<td><code>gmr</code></td>
+<td><code>gemini --resume latest</code></td>
+<td>Resume latest session</td>
+</tr>
+</tbody>
+</table>
+<h3 id="useful-combinations">Useful Combinations</h3>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gmys</code></td>
+<td><code>gemini --yolo --sandbox</code></td>
+<td>YOLO mode in sandbox</td>
+</tr>
+<tr>
+<td><code>gmyd</code></td>
+<td><code>gemini --yolo --debug</code></td>
+<td>YOLO with debug output</td>
+</tr>
+<tr>
+<td><code>gmsd</code></td>
+<td><code>gemini --sandbox --debug</code></td>
+<td>Sandbox with debug</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="zsh-claude-workflow-commands">zsh-claude-workflow Commands</h2>
+<p>Project context management commands from the zsh-claude-workflow system.</p>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ptype</code></td>
+<td><code>proj-type</code></td>
+<td>Show project type and status</td>
+</tr>
+<tr>
+<td><code>pinfo</code></td>
+<td><code>proj-info</code></td>
+<td>Full project details</td>
+</tr>
+<tr>
+<td><code>cctx</code></td>
+<td><code>claude-ctx</code></td>
+<td>Show Claude instruction files</td>
+</tr>
+<tr>
+<td><code>cinit</code></td>
+<td><code>claude-init</code></td>
+<td>Create CLAUDE.md from template</td>
+</tr>
+<tr>
+<td><code>cshow</code></td>
+<td><code>claude-show</code></td>
+<td>Display CLAUDE.md</td>
+</tr>
+<tr>
+<td><code>pclaude</code></td>
+<td><code>proj-claude</code></td>
+<td>Open Claude Code with context</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>ptype<span class="w">                       </span><span class="c1"># Check project type</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>cctx<span class="w">                        </span><span class="c1"># Show Claude context files</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>pclaude<span class="w">                     </span><span class="c1"># Launch Claude with context</span>
+</code></pre></div></p>
+<p>See <a href="../../commands/overview/">Commands Overview</a> for detailed documentation.</p>
+<hr />
+<h2 id="integration-examples">Integration Examples</h2>
+<h3 id="example-1-new-r-package-function">Example 1: New R Package Function</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 1. Create function</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>rnewfun<span class="w"> </span>calculate_mediation
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># 2. Write code</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>vim<span class="w"> </span>R/calculate_mediation.R
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># 3. Generate docs</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>ccrdoc
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># 4. Generate tests</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>ccrtest
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># 5. Check</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>rcheck<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrfix
+</code></pre></div>
+<h3 id="example-2-bug-fix-with-claude">Example 2: Bug Fix with Claude</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 1. Test fails</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>rtest<span class="w">                       </span><span class="c1"># See failure</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># 2. Get help</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;test is failing, help debug&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 3. Fix</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>vim<span class="w"> </span>R/myfunction.R
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># 4. Verify</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>rtest
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># 5. Review</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>ccrdiff
+</code></pre></div>
+<h3 id="example-3-research-with-gemini">Example 3: Research with Gemini</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Quick web research</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>gmw<span class="w"> </span><span class="s2">&quot;latest R package development best practices 2025&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Summarize findings</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>gmws<span class="w"> </span><span class="s2">&quot;R CMD check best practices&quot;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Interactive session</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>gm
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>&gt;<span class="w"> </span>Research<span class="w"> </span>CRAN<span class="w"> </span>submission<span class="w"> </span>requirements
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>&gt;<span class="w"> </span>What<span class="w"> </span>are<span class="w"> </span>common<span class="w"> </span>reasons<span class="w"> </span><span class="k">for</span><span class="w"> </span>rejection?
+</code></pre></div>
+<h3 id="example-4-code-review-workflow">Example 4: Code Review Workflow</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Before submitting PR</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>ccrdiff<span class="w">                     </span><span class="c1"># Review changes with Claude</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>ccsecurity<span class="w">                  </span><span class="c1"># Security check</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;anything missing for this PR?&quot;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># Quick Gemini check</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>gmw<span class="w"> </span><span class="s2">&quot;R package CRAN submission checklist&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="workflow-patterns">Workflow Patterns</h2>
+<h3 id="daily-r-development">Daily R Development</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Morning: Start new feature</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/mypackage
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>ptype<span class="w">                       </span><span class="c1"># Orient yourself</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>rload<span class="w">                       </span><span class="c1"># Load package</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;help me implement feature X&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># During: Develop with Claude</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>vim<span class="w"> </span>R/newfunction.R<span class="w">         </span><span class="c1"># Write code</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>ccrdoc<span class="w">                      </span><span class="c1"># Generate docs</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>ccrtest<span class="w">                     </span><span class="c1"># Generate tests</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="c1"># Evening: Check and review</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>rcheck<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrfix<span class="w">            </span><span class="c1"># Fix any issues</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>ccrdiff<span class="w">                     </span><span class="c1"># Review changes</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w">     </span><span class="c1"># Commit</span>
+</code></pre></div>
+<h3 id="quick-questions">Quick Questions</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Use Claude for code-specific questions</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>ccask<span class="w"> </span><span class="s2">&quot;how to use map() with multiple arguments?&quot;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Use Gemini for web research</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>gmw<span class="w"> </span><span class="s2">&quot;latest tidyverse best practices&quot;</span>
+</code></pre></div>
+<h3 id="safe-experimentation">Safe Experimentation</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Try risky operations safely</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>gms<span class="w"> </span><span class="s2">&quot;refactor this complex function&quot;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Auto-approve known-safe operations</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>gmy<span class="w"> </span><span class="s2">&quot;run standard test suite&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-choose-the-right-tool">1. Choose the Right Tool</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Tool</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R package code</td>
+<td>Claude (<code>cc</code>, <code>ccrpkg</code>)</td>
+<td>Deep code understanding</td>
+</tr>
+<tr>
+<td>Web research</td>
+<td>Gemini (<code>gmw</code>, <code>gmws</code>)</td>
+<td>Web search integration</td>
+</tr>
+<tr>
+<td>Quick question</td>
+<td>Claude (<code>ccask</code>)</td>
+<td>Fast, focused answers</td>
+</tr>
+<tr>
+<td>Project setup</td>
+<td>zsh-claude (<code>cinit</code>, <code>ptype</code>)</td>
+<td>Context management</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-use-appropriate-permission-modes">2. Use Appropriate Permission Modes</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>✅<span class="w"> </span>ccplan<span class="w"> </span><span class="s2">&quot;refactor this module&quot;</span><span class="w">   </span><span class="c1"># Review changes first</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>✅<span class="w"> </span>ccauto<span class="w"> </span><span class="s2">&quot;update docs&quot;</span><span class="w">             </span><span class="c1"># Safe auto-approval</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>⚠️<span class="w">  </span>ccyolo<span class="w"> </span><span class="s2">&quot;run tests&quot;</span><span class="w">              </span><span class="c1"># Only in safe environments</span>
+</code></pre></div>
+<h3 id="3-leverage-context">3. Leverage Context</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Good - provides context</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;help with this package&quot;</span><span class="w">    </span><span class="c1"># Knows package name</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>ccrdiff<span class="w">                            </span><span class="c1"># Reviews uncommitted changes</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1"># Less good - no context</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>cc<span class="w"> </span><span class="s2">&quot;help with R&quot;</span><span class="w">                   </span><span class="c1"># Generic</span>
+</code></pre></div>
+<h3 id="4-integrate-with-existing-workflow">4. Integrate with Existing Workflow</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Don&#39;t replace - enhance</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>rload<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrtest<span class="w">                   </span><span class="c1"># Keep rload, add ccrtest</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>rcheck<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ccrfix<span class="w">                   </span><span class="c1"># Keep rcheck, add ccrfix</span>
+</code></pre></div>
+<h3 id="5-use-model-selection-wisely">5. Use Model Selection Wisely</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>cch<span class="w"> </span><span class="s2">&quot;quick syntax check&quot;</span><span class="w">           </span><span class="c1"># Fast</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>ccs<span class="w"> </span><span class="s2">&quot;implement feature&quot;</span><span class="w">            </span><span class="c1"># Balanced</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>cco<span class="w"> </span><span class="s2">&quot;complex algorithm design&quot;</span><span class="w">     </span><span class="c1"># Thorough</span>
+</code></pre></div>
+<hr />
+<h2 id="configuration-files">Configuration Files</h2>
+<h3 id="location">Location</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>~/.config/zsh/.zshrc<span class="w">                </span><span class="c1"># All aliases defined here</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span>Lines<span class="w"> </span><span class="m">237</span>-330:<span class="w"> </span>Claude<span class="w"> </span>CLI<span class="w"> </span>aliases
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span>Lines<span class="w"> </span><span class="m">628</span>-658:<span class="w"> </span>Gemini<span class="w"> </span>CLI<span class="w"> </span>aliases
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span>Lines<span class="w"> </span><span class="m">609</span>-621:<span class="w"> </span>zsh-claude-workflow
+</code></pre></div>
+<h3 id="reference-guides">Reference Guides</h3>
+<p>Comprehensive reference guides available at:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>~/claude-cli-aliases-reference.md<span class="w">   </span><span class="c1"># Claude CLI complete reference</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>~/gemini-aliases-reference.md<span class="w">       </span><span class="c1"># Gemini CLI complete reference</span>
+</code></pre></div></p>
+<hr />
+<h2 id="quick-reference-card">Quick Reference Card</h2>
+<h3 id="most-used-commands">Most Used Commands</h3>
+<p><strong>Claude Code:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cc<span class="w">                          </span><span class="c1"># Interactive</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>ccp<span class="w"> </span><span class="s2">&quot;question&quot;</span><span class="w">             </span><span class="c1"># Quick answer</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>ccrpkg<span class="w"> </span><span class="s2">&quot;context-aware&quot;</span><span class="w">     </span><span class="c1"># R package help</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>ccrdiff<span class="w">                    </span><span class="c1"># Review changes</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>ccrtest<span class="w">                    </span><span class="c1"># Generate tests</span>
+</code></pre></div></p>
+<p><strong>Gemini CLI:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>gm<span class="w">                         </span><span class="c1"># Interactive</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>gmw<span class="w"> </span><span class="s2">&quot;search query&quot;</span><span class="w">         </span><span class="c1"># Web search</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>gmws<span class="w"> </span><span class="s2">&quot;topic&quot;</span><span class="w">              </span><span class="c1"># Summarize</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>gmr<span class="w">                        </span><span class="c1"># Resume</span>
+</code></pre></div></p>
+<p><strong>Project Context:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>ptype<span class="w">                      </span><span class="c1"># Check project</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>cctx<span class="w">                       </span><span class="c1"># Show context</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>cinit<span class="w">                      </span><span class="c1"># Create CLAUDE.md</span>
+</code></pre></div></p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="aliases-not-found">Aliases Not Found</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># Re-source configuration</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">source</span><span class="w"> </span>~/.config/zsh/.zshrc
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="c1"># Verify alias exists</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="nb">type</span><span class="w"> </span>ccask
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="nb">type</span><span class="w"> </span>gmw
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="c1"># Check if function is defined</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>which<span class="w"> </span>ccrpkg
+</code></pre></div>
+<h3 id="functions-not-working">Functions Not Working</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Test function directly</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>zsh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;source ~/.config/zsh/.zshrc &amp;&amp; ccask&#39;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># Check for errors</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>ccask<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+</code></pre></div>
+<h3 id="claudegemini-not-installed">Claude/Gemini Not Installed</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Check installation</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>which<span class="w"> </span>claude
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>which<span class="w"> </span>gemini
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="c1"># Install if missing (example)</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>brew<span class="w"> </span>install<span class="w"> </span>claude-cli
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>pip<span class="w"> </span>install<span class="w"> </span>gemini-cli
+</code></pre></div>
+<hr />
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><a href="../../commands/reference/">Command Reference</a> - Full command documentation</li>
+<li><a href="../../getting-started/quickstart/">Quick Start</a> - Getting started guide</li>
+<li><a href="../context-management/">Context Management</a> - Managing Claude context</li>
+<li><a href="../project-types/">Project Types</a> - Understanding project detection</li>
+</ul>
+<hr />
+<h2 id="status">Status</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Count</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude CLI Aliases</td>
+<td>30</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td>Claude CLI Functions</td>
+<td>4</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td>Gemini CLI Aliases</td>
+<td>13</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td>Gemini CLI Functions</td>
+<td>2</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td>zsh-claude Aliases</td>
+<td>6</td>
+<td>✅ Active</td>
+</tr>
+<tr>
+<td><strong>Total Shortcuts</strong></td>
+<td><strong>55</strong></td>
+<td>✅ All Working</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reference Guides:</strong> Complete and up-to-date (2025-12-08)</p>
+<hr />
+<p><strong>Pro Tip:</strong> Keep the reference guides handy for detailed usage:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>bat<span class="w"> </span>~/claude-cli-aliases-reference.md
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>bat<span class="w"> </span>~/gemini-aliases-reference.md
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Data-Wise" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

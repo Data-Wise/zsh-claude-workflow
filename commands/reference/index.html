@@ -334,7 +334,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../optimization/plugins/" class="md-tabs__link">
+        <a href="../../optimization/zdotdir-setup/" class="md-tabs__link">
           
   
   
@@ -827,6 +827,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#workflow-skills-management-v13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow &amp; Skills Management (v1.3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow &amp; Skills Management (v1.3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workflow-run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpkg-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rpkg-setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-activate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skill-activate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aliases" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1163,6 +1213,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/cli-aliases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Aliases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1312,6 +1390,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/zdotdir-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZDOTDIR Setup (2025)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1821,6 +1927,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#workflow-skills-management-v13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow &amp; Skills Management (v1.3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow &amp; Skills Management (v1.3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workflow-run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpkg-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rpkg-setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-activate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        skill-activate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aliases" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2145,6 +2301,136 @@
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>proj-claude
 </code></pre></div></p>
 <hr />
+<h2 id="workflow-skills-management-v13">Workflow &amp; Skills Management (v1.3)</h2>
+<h3 id="workflow-run"><code>workflow-run</code></h3>
+<p>Universal workflow dispatcher for running automated workflows.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>workflow-run<span class="w"> </span><span class="o">[</span>workflow-name<span class="o">]</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Workflow Names:</strong>
+- <code>dev</code> - Run development workflow for current project type
+- <code>test</code> - Run testing workflow
+- <code>deploy</code> - Run deployment workflow
+- <code>list</code> - List available workflows for current project
+- <code>info &lt;name&gt;</code> - Show workflow details</p>
+<p><strong>Options:</strong>
+- <code>-h, --help</code> - Show help message
+- <code>-c, --continue</code> - Continue on errors (don't stop at first failure)
+- <code>-i, --info</code> - Show workflow info without running
+- <code>--dry-run</code> - Show what would be executed without running</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Run development workflow</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>workflow-run<span class="w"> </span>dev
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Run tests</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>workflow-run<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># List available workflows</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>workflow-run<span class="w"> </span>list
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Show workflow details</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>workflow-run<span class="w"> </span>info<span class="w"> </span>dev
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Run with continue-on-error</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>workflow-run<span class="w"> </span>dev<span class="w"> </span>--continue
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="c1"># Dry run (preview)</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>workflow-run<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--dry-run
+</code></pre></div></p>
+<p><strong>Available Workflows:</strong>
+- R Packages: <code>dev</code>, <code>test</code>, <code>pre-commit</code>, <code>build</code>, <code>check</code>
+- Quarto Projects: <code>preview</code>, <code>render</code>, <code>publish</code>
+- Custom: Create <code>.workflows/</code> directory in project</p>
+<hr />
+<h3 id="rpkg-setup"><code>rpkg-setup</code></h3>
+<p>Smart R package initialization with integrated workflows and claude-r-dev support.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>rpkg-setup<span class="w"> </span>&lt;package-name&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Options:</strong>
+- <code>-t, --type TYPE</code> - Package type: <code>standard</code>, <code>statistical</code>, <code>data-analysis</code>, <code>shiny</code> (default: <code>standard</code>)
+- <code>--tier TIER</code> - Storage tier: <code>active</code>, <code>stable</code>, <code>scratch</code> (default: <code>active</code>)
+- <code>--claude-r-dev</code> - Install claude-r-dev configuration
+- <code>--no-claude-r-dev</code> - Skip claude-r-dev installation (default: auto-detect)
+- <code>--profiles PROFILES</code> - Comma-separated claude-r-dev profiles (default: auto-selected)
+- <code>--skills</code> - Activate recommended Claude skills
+- <code>--no-skills</code> - Don't activate skills (default: activate if available)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Create standard R package</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>rpkg-setup<span class="w"> </span>mypackage
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Create statistical methods package</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>rpkg-setup<span class="w"> </span>causalmed<span class="w"> </span>--type<span class="w"> </span>statistical
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Create in stable tier</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>rpkg-setup<span class="w"> </span>dataviz<span class="w"> </span>--type<span class="w"> </span>data-analysis<span class="w"> </span>--tier<span class="w"> </span>stable
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># Create with custom profiles</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>rpkg-setup<span class="w"> </span>analysis<span class="w"> </span>--profiles<span class="w"> </span>base,data-analysis
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="c1"># Create without claude-r-dev</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>rpkg-setup<span class="w"> </span>simple<span class="w"> </span>--no-claude-r-dev
+</code></pre></div></p>
+<p><strong>Package Types:</strong>
+- <code>standard</code> - Standard R package (default)
+- <code>statistical</code> - Statistical methods and causal inference
+- <code>data-analysis</code> - Data analysis and visualization
+- <code>shiny</code> - Shiny web applications</p>
+<p><strong>What It Does:</strong>
+1. Creates R package structure in appropriate tier directory
+2. Installs claude-r-dev configuration (if available)
+3. Activates recommended Claude skills
+4. Creates CLAUDE.md from template
+5. Initializes git repository
+6. Sets up development workflows</p>
+<hr />
+<h3 id="skill-activate"><code>skill-activate</code></h3>
+<p>Manage Claude skills for the current project.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>skill-activate<span class="w"> </span><span class="o">[</span>command<span class="o">]</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Commands:</strong>
+- <code>&lt;skill-name&gt;</code> - Activate a skill for current project
+- <code>list</code> - List active skills for current project
+- <code>deactivate &lt;name&gt;</code> - Deactivate a skill
+- <code>show &lt;name&gt;</code> - Show skill details
+- <code>auto</code> - Auto-activate recommended skills for project type
+- <code>available</code> - List all available user-level skills</p>
+<p><strong>Options:</strong>
+- <code>-f, --force</code> - Force activation (override existing)
+- <code>-h, --help</code> - Show help message</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Activate R package development skill</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>skill-activate<span class="w"> </span>r-package-development
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Auto-activate recommended skills</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>skill-activate<span class="w"> </span>auto
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># List active skills</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>skill-activate<span class="w"> </span>list
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="c1"># Show available skills</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>skill-activate<span class="w"> </span>available
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="c1"># Show skill details</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>skill-activate<span class="w"> </span>show<span class="w"> </span>r-package-development
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="c1"># Deactivate a skill</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>skill-activate<span class="w"> </span>deactivate<span class="w"> </span>simulation
+</code></pre></div></p>
+<p><strong>How Skills Work:</strong>
+- Skills are stored in <code>~/.claude/skills/</code> (user-level)
+- Activated via symlinks to <code>.claude/skills/</code> in project
+- Allows shared skills across all projects
+- Supports project-specific overrides
+- Easy activation/deactivation without copying files</p>
+<p><strong>Common Skills:</strong>
+- <code>r-package-development</code> - R package development best practices
+- <code>statistical-simulation</code> - Statistical simulation workflows
+- <code>quarto-publishing</code> - Quarto document publishing
+- <code>manuscript-writing</code> - Academic manuscript writing</p>
+<hr />
 <h2 id="aliases">Aliases</h2>
 <p>For convenience, shorter aliases are available:</p>
 <table>
@@ -2191,60 +2477,60 @@
 <hr />
 <h2 id="workflows">Workflows</h2>
 <h3 id="setting-up-a-new-r-package">Setting up a new R package</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Navigate to package</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpackage
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Check project type</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>ptype
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># Create CLAUDE.md</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>cinit
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># Edit CLAUDE.md</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>vim<span class="w"> </span>CLAUDE.md
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># View context</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>cctx
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c1"># Open Claude Code</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>pclaude
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Navigate to package</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpackage
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Check project type</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>ptype
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># Create CLAUDE.md</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>cinit
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="c1"># Edit CLAUDE.md</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>vim<span class="w"> </span>CLAUDE.md
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="c1"># View context</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>cctx
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="c1"># Open Claude Code</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>pclaude
 </code></pre></div>
 <h3 id="working-with-existing-project">Working with existing project</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Navigate to project</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Check what we have</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>ptype
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># View full info</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>pinfo
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Show Claude instructions</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>cshow
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Start working with Claude</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>pclaude
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Navigate to project</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Check what we have</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>ptype
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># View full info</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>pinfo
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># Show Claude instructions</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>cshow
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="c1"># Start working with Claude</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>pclaude
 </code></pre></div>
 <h3 id="migrating-project-from-local-to-cloud">Migrating project from local to cloud</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Before moving</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/mypackage
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>pinfo
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Note the CLAUDE.md exists</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>cshow
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># After moving to Google Drive</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># CLAUDE.md stays with the project!</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Before moving</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/mypackage
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>pinfo
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1"># Note the CLAUDE.md exists</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>cshow
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1"># After moving to Google Drive</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1"># CLAUDE.md stays with the project!</span>
 </code></pre></div>
 <hr />
 <h2 id="integration-with-existing-workflow">Integration with Existing Workflow</h2>
 <p>These commands work seamlessly with your existing R package development workflow:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># R package development</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>ptype<span class="w">              </span><span class="c1"># Check project status</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>rdev<span class="w">               </span><span class="c1"># Run R package checks (existing alias)</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>rpkgcommit<span class="w"> </span><span class="s2">&quot;msg&quot;</span><span class="w">   </span><span class="c1"># Commit with validation (existing alias)</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>pclaude<span class="w">            </span><span class="c1"># Get Claude&#39;s help</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># R package development</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>ptype<span class="w">              </span><span class="c1"># Check project status</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>rdev<span class="w">               </span><span class="c1"># Run R package checks (existing alias)</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>rpkgcommit<span class="w"> </span><span class="s2">&quot;msg&quot;</span><span class="w">   </span><span class="c1"># Commit with validation (existing alias)</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>pclaude<span class="w">            </span><span class="c1"># Get Claude&#39;s help</span>
 </code></pre></div>
 <hr />
 <h2 id="tips">Tips</h2>
@@ -2259,9 +2545,9 @@
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="command-not-found">Command not found</h3>
 <p>Make sure you've run the installation:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>~/code/zsh-claude-workflow
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>./install.sh
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">cd</span><span class="w"> </span>~/code/zsh-claude-workflow
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>./install.sh
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
 </code></pre></div></p>
 <h3 id="project-type-not-detected">Project type not detected</h3>
 <p>Supported types:
@@ -2270,7 +2556,7 @@
 - Research: requires <code>main.tex</code> or <code>literature/</code> directory</p>
 <h3 id="claudemd-template-not-found">CLAUDE.md template not found</h3>
 <p>Check that templates exist:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ls<span class="w"> </span>~/code/zsh-claude-workflow/templates/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>ls<span class="w"> </span>~/code/zsh-claude-workflow/templates/
 </code></pre></div></p>
 <p>Should see: <code>CLAUDE-rpkg.md</code>, <code>CLAUDE-quarto.md</code>, <code>CLAUDE-research.md</code></p>
 <hr />

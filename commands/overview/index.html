@@ -334,7 +334,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../optimization/plugins/" class="md-tabs__link">
+        <a href="../../optimization/zdotdir-setup/" class="md-tabs__link">
           
   
   
@@ -732,6 +732,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow-skills-management-v13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Workflow &amp; Skills Management (v1.3)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -765,6 +776,17 @@
     <span class="md-ellipsis">
       
         Claude Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-skills-v13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow &amp; Skills (v1.3)
       
     </span>
   </a>
@@ -1041,6 +1063,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/cli-aliases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Aliases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1190,6 +1240,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/zdotdir-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZDOTDIR Setup (2025)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1632,6 +1710,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow-skills-management-v13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Workflow &amp; Skills Management (v1.3)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1665,6 +1754,17 @@
     <span class="md-ellipsis">
       
         Claude Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-skills-v13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow &amp; Skills (v1.3)
       
     </span>
   </a>
@@ -1780,7 +1880,7 @@
 
 
 <h1 id="commands-overview">Commands Overview</h1>
-<p>zsh-claude-workflow provides six main commands for project detection and Claude Code integration.</p>
+<p>zsh-claude-workflow provides nine main commands for project detection, Claude Code integration, and workflow automation.</p>
 <h2 id="command-categories">Command Categories</h2>
 <h3 id="project-detection">🔍 Project Detection</h3>
 <p>Commands for understanding your project structure:</p>
@@ -1838,6 +1938,34 @@
 </tr>
 </tbody>
 </table>
+<h3 id="workflow-skills-management-v13">🚀 Workflow &amp; Skills Management (v1.3)</h3>
+<p>Commands for automation and skill management:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Alias</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>workflow-run</code></td>
+<td>-</td>
+<td>Run automated workflows (dev, test, deploy)</td>
+</tr>
+<tr>
+<td><code>rpkg-setup</code></td>
+<td>-</td>
+<td>Smart R package initialization</td>
+</tr>
+<tr>
+<td><code>skill-activate</code></td>
+<td>-</td>
+<td>Manage Claude skills for projects</td>
+</tr>
+</tbody>
+</table>
 <h2 id="quick-examples">Quick Examples</h2>
 <h3 id="project-detection_1">Project Detection</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Quick type check</span>
@@ -1859,6 +1987,16 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Launch Claude Code</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>proj-claude
 </code></pre></div>
+<h3 id="workflow-skills-v13">Workflow &amp; Skills (v1.3)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Run development workflow</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>workflow-run<span class="w"> </span>dev
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Create R package with workflows</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>rpkg-setup<span class="w"> </span>mypackage<span class="w"> </span>--type<span class="w"> </span>statistical
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Activate Claude skills</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>skill-activate<span class="w"> </span>auto
+</code></pre></div>
 <h2 id="command-design-philosophy">Command Design Philosophy</h2>
 <p>All commands follow these principles:</p>
 <ol>
@@ -1871,32 +2009,32 @@
 <h2 id="common-patterns">Common Patterns</h2>
 <h3 id="working-with-current-directory">Working with Current Directory</h3>
 <p>All commands work in the current directory by default:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>proj-type<span class="w">          </span><span class="c1"># Works on current directory</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>claude-ctx<span class="w">         </span><span class="c1"># Works on current directory</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/rmediation
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>proj-type<span class="w">          </span><span class="c1"># Works on current directory</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>claude-ctx<span class="w">         </span><span class="c1"># Works on current directory</span>
 </code></pre></div>
 <h3 id="working-with-specific-directory">Working with Specific Directory</h3>
 <p>Pass a directory path as the first argument:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>proj-type<span class="w"> </span>~/R-packages/active/medfit
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>claude-ctx<span class="w"> </span>~/quarto-projects/book
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>proj-type<span class="w"> </span>~/R-packages/active/medfit
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>claude-ctx<span class="w"> </span>~/quarto-projects/book
 </code></pre></div>
 <h3 id="combining-commands">Combining Commands</h3>
 <p>Commands are designed to be used together:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># New project workflow</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpkg
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>proj-type<span class="w">          </span><span class="c1"># Verify detection</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>claude-init<span class="w">        </span><span class="c1"># Create CLAUDE.md</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>claude-show<span class="w">        </span><span class="c1"># Review it</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>proj-claude<span class="w">        </span><span class="c1"># Start coding</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># New project workflow</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>~/R-packages/active/newpkg
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>proj-type<span class="w">          </span><span class="c1"># Verify detection</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>claude-init<span class="w">        </span><span class="c1"># Create CLAUDE.md</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>claude-show<span class="w">        </span><span class="c1"># Review it</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>proj-claude<span class="w">        </span><span class="c1"># Start coding</span>
 </code></pre></div>
 <h2 id="aliases">Aliases</h2>
 <p>Short aliases are available for faster typing:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ptype<span class="w">              </span><span class="c1"># Instead of proj-type</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pinfo<span class="w">              </span><span class="c1"># Instead of proj-info</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cctx<span class="w">               </span><span class="c1"># Instead of claude-ctx</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>cinit<span class="w">              </span><span class="c1"># Instead of claude-init</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>cshow<span class="w">              </span><span class="c1"># Instead of claude-show</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>pclaude<span class="w">            </span><span class="c1"># Instead of proj-claude</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ptype<span class="w">              </span><span class="c1"># Instead of proj-type</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pinfo<span class="w">              </span><span class="c1"># Instead of proj-info</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cctx<span class="w">               </span><span class="c1"># Instead of claude-ctx</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>cinit<span class="w">              </span><span class="c1"># Instead of claude-init</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>cshow<span class="w">              </span><span class="c1"># Instead of claude-show</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>pclaude<span class="w">            </span><span class="c1"># Instead of proj-claude</span>
 </code></pre></div>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
