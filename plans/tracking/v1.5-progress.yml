@@ -1,0 +1,161 @@
+# v1.5 Progress Tracking
+# Updated: 2025-12-09
+# Use: plan-status v1.5
+
+version: "1.5"
+name: "Multi-Project Operations"
+target_date: "2026-01"
+status: "planning"  # planning | in_progress | complete
+
+# Overall metrics
+metrics:
+  total_features: 10
+  completed: 0
+  in_progress: 0
+  planned: 10
+  progress_percent: 0
+
+# Feature tracking
+features:
+  - id: project-index-lib
+    name: "lib/project-index.sh"
+    priority: high
+    effort_days: 0.5
+    status: planned  # planned | in_progress | complete | blocked
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Core library for indexing projects"
+
+  - id: pj-index
+    name: "pj-index command"
+    priority: high
+    effort_days: 0.5
+    status: planned
+    depends_on: [project-index-lib]
+    started: null
+    completed: null
+    notes: "CLI for managing project index"
+
+  - id: pj-status
+    name: "pj-status command"
+    priority: high
+    effort_days: 1
+    status: planned
+    depends_on: [pj-index]
+    started: null
+    completed: null
+    notes: "Dashboard showing all projects"
+
+  - id: multi-project-lib
+    name: "lib/multi-project.sh"
+    priority: high
+    effort_days: 0.5
+    status: planned
+    depends_on: [project-index-lib]
+    started: null
+    completed: null
+    notes: "Library for bulk operations"
+
+  - id: pj-run
+    name: "pj-run command"
+    priority: high
+    effort_days: 1
+    status: planned
+    depends_on: [multi-project-lib]
+    started: null
+    completed: null
+    notes: "Run commands across projects"
+
+  - id: pj-search
+    name: "pj-search command"
+    priority: medium
+    effort_days: 1
+    status: planned
+    depends_on: [pj-index]
+    started: null
+    completed: null
+    notes: "Global project search"
+
+  - id: tier
+    name: "tier command"
+    priority: medium
+    effort_days: 1
+    status: planned
+    depends_on: [pj-index]
+    started: null
+    completed: null
+    notes: "Storage tier management"
+
+  - id: organize
+    name: "organize command"
+    priority: low
+    effort_days: 2
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "File organization automation"
+
+  - id: branch-sync
+    name: "branch-sync command"
+    priority: medium
+    effort_days: 0.5
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Sync dev/main branches"
+
+  - id: docs-audit
+    name: "docs-audit command"
+    priority: medium
+    effort_days: 0.5
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Audit documentation coverage"
+
+# Milestones
+milestones:
+  - name: "Core Index System"
+    features: [project-index-lib, pj-index]
+    target: "Week 1"
+    status: pending
+
+  - name: "Dashboard & Bulk Ops"
+    features: [pj-status, multi-project-lib, pj-run]
+    target: "Week 2"
+    status: pending
+
+  - name: "Search & Organization"
+    features: [pj-search, tier, organize]
+    target: "Week 3"
+    status: pending
+
+  - name: "Utilities"
+    features: [branch-sync, docs-audit]
+    target: "Week 4"
+    status: pending
+
+# Success criteria
+success_criteria:
+  - criterion: "pj-status shows all projects with git status"
+    met: false
+  - criterion: "pj-run rpkg git status works on all R packages"
+    met: false
+  - criterion: "pj-run devtools git status works on all dev-tools"
+    met: false
+  - criterion: "pj-run all --dirty git status shows all dirty repos"
+    met: false
+  - criterion: "pj-search finds matches across all project types"
+    met: false
+  - criterion: "tier list shows projects by storage tier"
+    met: false
+  - criterion: "Project index includes 16+ projects"
+    met: false
+  - criterion: "Project index rebuilds in < 5 seconds"
+    met: false
+  - criterion: "All commands have --help output"
+    met: false

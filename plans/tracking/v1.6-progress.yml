@@ -1,0 +1,104 @@
+# v1.6 Progress Tracking
+# Updated: 2025-12-09
+# Use: plan-status v1.6
+
+version: "1.6"
+name: "Workflow Automation"
+target_date: "2026-02"
+status: "planning"
+metrics:
+  total_features: 7
+  completed: 1
+  in_progress: 0
+  planned: 7
+  progress_percent: 14
+features:
+  - id: session-management
+    name: "session command"
+    priority: high
+    effort_days: 2
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Save/restore session state between Claude conversations"
+  - id: release-create
+    name: "release-create workflow"
+    priority: high
+    effort_days: 2
+    status: planned
+    depends_on: [pr-cycle]
+    started: null
+    completed: null
+    notes: "Full release automation: commit, PR, merge, deploy, tag"
+  - id: pr-cycle
+    name: "pr-cycle automation"
+    priority: high
+    effort_days: 1.5
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Create PR, wait for checks, merge, sync branches"
+  - id: plan-status-cmd
+    name: "plan-status command"
+    priority: medium
+    effort_days: 1
+    status: complete
+    depends_on: []
+    started: "2025-12-09"
+    completed: "2025-12-09"
+    notes: "Track implementation progress against plans"
+  - id: health-check
+    name: "health-check dashboard"
+    priority: medium
+    effort_days: 1.5
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Project health score: tests, docs, git, deps"
+  - id: watch-command
+    name: "watch file watcher"
+    priority: medium
+    effort_days: 2
+    status: planned
+    depends_on: []
+    started: null
+    completed: null
+    notes: "Auto-run commands on file changes"
+  - id: auto-commit
+    name: "auto-commit system"
+    priority: low
+    effort_days: 2
+    status: planned
+    depends_on: [watch-command]
+    started: null
+    completed: null
+    notes: "Auto-commit after inactivity with smart messages"
+milestones:
+  - name: "Session & Planning"
+    features: [session-management, plan-status-cmd]
+    target: "Week 1"
+    status: in_progress
+  - name: "Release Automation"
+    features: [pr-cycle, release-create]
+    target: "Week 2-3"
+    status: pending
+  - name: "Monitoring & Automation"
+    features: [health-check, watch-command, auto-commit]
+    target: "Week 4-5"
+    status: pending
+success_criteria:
+  - criterion: "Session state persists between Claude conversations"
+    met: false
+  - criterion: "release-create v1.x handles full release workflow"
+    met: false
+  - criterion: "pr-cycle automates PR creation to merge"
+    met: false
+  - criterion: "plan-status shows implementation progress"
+    met: true
+  - criterion: "health-check provides project health score"
+    met: false
+  - criterion: "watch command triggers on file changes"
+    met: false

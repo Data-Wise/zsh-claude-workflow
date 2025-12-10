@@ -1,0 +1,416 @@
+#!/usr/bin/env zsh
+# plan-status - Show project roadmap and version progress
+#
+# Usage:
+#   plan-status              # Show overall roadmap
+#   plan-status v1.5         # Show specific version progress
+#   plan-status --update v1.5 feature-id status  # Update feature status
+#   plan-status --gantt      # Show Gantt-style timeline
+#
+# Requires: yq (YAML parser) - install with: brew install yq
+
+SCRIPT_DIR="${0:A:h}"
+PLANS_DIR="${SCRIPT_DIR}/../plans"
+TRACKING_DIR="${PLANS_DIR}/tracking"
+
+# Colors
+autoload -U colors && colors
+
+# ============================================
+# UTILITY FUNCTIONS
+# ============================================
+
+print_header() {
+    echo ""
+    echo "${fg[cyan]}═══════════════════════════════════════════════════════════${reset_color}"
+    echo "${fg[cyan]}  $1${reset_color}"
+    echo "${fg[cyan]}═══════════════════════════════════════════════════════════${reset_color}"
+}
+
+print_subheader() {
+    echo ""
+    echo "${fg[yellow]}─── $1 ───${reset_color}"
+}
+
+progress_bar() {
+    local percent=$1
+    local width=20
+    local filled=$((percent * width / 100))
+    local empty=$((width - filled))
+
+    printf "["
+    printf "${fg[green]}%${filled}s${reset_color}" | tr ' ' '█'
+    printf "${fg[white]}%${empty}s${reset_color}" | tr ' ' '░'
+    printf "] %3d%%" "$percent"
+}
+
+status_icon() {
+    case "$1" in
+        complete|completed) echo "${fg[green]}✓${reset_color}" ;;
+        in_progress) echo "${fg[yellow]}●${reset_color}" ;;
+        planned|pending) echo "${fg[white]}○${reset_color}" ;;
+        blocked) echo "${fg[red]}✗${reset_color}" ;;
+        *) echo "?" ;;
+    esac
+}
+
+priority_color() {
+    case "$1" in
+        high) echo "${fg[red]}$1${reset_color}" ;;
+        medium) echo "${fg[yellow]}$1${reset_color}" ;;
+        low) echo "${fg[green]}$1${reset_color}" ;;
+        *) echo "$1" ;;
+    esac
+}
+
+# ============================================
+# CHECK DEPENDENCIES
+# ============================================
+
+check_yq() {
+    if ! command -v yq &> /dev/null; then
+        echo "${fg[red]}Error: yq not found${reset_color}"
+        echo "Install with: ${fg[yellow]}brew install yq${reset_color}"
+        exit 1
+    fi
+}
+
+# ============================================
+# SHOW OVERALL ROADMAP
+# ============================================
+
+show_roadmap() {
+    print_header "zsh-claude-workflow Roadmap"
+
+    echo ""
+    echo "${fg[white]}Current Version:${reset_color} v1.4.1"
+    echo "${fg[white]}Last Updated:${reset_color} 2025-12-09"
+    echo ""
+
+    # Timeline
+    print_subheader "Timeline"
+    echo ""
+    echo "  2025-12       2026-01       2026-02       2026-03"
+    echo "      |-------------|-------------|-------------|"
+    echo "      ${fg[green]}v1.4.1${reset_color}        v1.5          v1.6          v1.7"
+    echo "      ${fg[green]}(current)${reset_color}     Multi-Proj    Workflow      Advanced"
+    echo "                    Operations    Automation    Features"
+    echo ""
+
+    # Version progress
+    print_subheader "Version Progress"
+    echo ""
+
+    # v1.0-1.4
+    printf "  v1.0-1.4  "
+    progress_bar 100
+    echo " ${fg[green]}Complete${reset_color}"
+
+    # v1.5
+    local v15_progress=0
+    if [[ -f "$TRACKING_DIR/v1.5-progress.yml" ]]; then
+        v15_progress=$(yq '.metrics.progress_percent' "$TRACKING_DIR/v1.5-progress.yml" 2>/dev/null || echo 0)
+    fi
+    printf "  v1.5      "
+    progress_bar $v15_progress
+    echo " Multi-Project Ops"
+
+    # v1.6
+    printf "  v1.6      "
+    progress_bar 0
+    echo " Workflow Automation"
+
+    # v1.7
+    printf "  v1.7      "
+    progress_bar 0
+    echo " Advanced Features"
+
+    echo ""
+
+    # Quick stats
+    print_subheader "Quick Stats"
+    echo ""
+    echo "  Commands:     10 shell + 34 Claude slash commands"
+    echo "  Libraries:    8 core libraries"
+    echo "  Templates:    4 project templates"
+    echo "  Skills:       2 skill templates"
+    echo ""
+
+    # Next steps
+    print_subheader "Next Steps"
+    echo ""
+    echo "  1. Run ${fg[yellow]}plan-status v1.5${reset_color} to see v1.5 details"
+    echo "  2. Start with ${fg[yellow]}lib/project-index.sh${reset_color}"
+    echo "  3. Use ${fg[yellow]}plan-status --update${reset_color} to track progress"
+    echo ""
+}
+
+# ============================================
+# SHOW VERSION PROGRESS
+# ============================================
+
+show_version_progress() {
+    local version="$1"
+    local tracking_file="$TRACKING_DIR/${version}-progress.yml"
+
+    if [[ ! -f "$tracking_file" ]]; then
+        echo "${fg[red]}Error: No tracking file for $version${reset_color}"
+        echo "Expected: $tracking_file"
+        exit 1
+    fi
+
+    check_yq
+
+    local vname=$(yq '.name' "$tracking_file")
+    local vtarget=$(yq '.target_date' "$tracking_file")
+    local vstatus=$(yq '.status' "$tracking_file")
+    local vtotal=$(yq '.metrics.total_features' "$tracking_file")
+    local vcompleted=$(yq '.metrics.completed' "$tracking_file")
+    local vin_progress=$(yq '.metrics.in_progress' "$tracking_file")
+    local vprogress=$(yq '.metrics.progress_percent' "$tracking_file")
+
+    print_header "$version - $vname"
+
+    echo ""
+    echo "  ${fg[white]}Target:${reset_color}      $vtarget"
+    echo "  ${fg[white]}Status:${reset_color}      $vstatus"
+    echo ""
+
+    # Progress bar
+    printf "  ${fg[white]}Progress:${reset_color}    "
+    progress_bar $vprogress
+    echo ""
+    echo ""
+    echo "  ${fg[green]}Completed:${reset_color}   $vcompleted / $vtotal"
+    echo "  ${fg[yellow]}In Progress:${reset_color} $vin_progress"
+    echo ""
+
+    # Features table
+    print_subheader "Features"
+    echo ""
+    printf "  ${fg[white]}%-25s %-10s %-8s %s${reset_color}\n" "Feature" "Priority" "Effort" "Status"
+    echo "  ─────────────────────────────────────────────────────────"
+
+    local feature_count=$(yq '.features | length' "$tracking_file")
+    for ((i=0; i<feature_count; i++)); do
+        local fname=$(yq ".features[$i].name" "$tracking_file")
+        local fpriority=$(yq ".features[$i].priority" "$tracking_file")
+        local feffort=$(yq ".features[$i].effort_days" "$tracking_file")
+        local fstatus=$(yq ".features[$i].status" "$tracking_file")
+
+        local icon=$(status_icon "$fstatus")
+        local pcolor=$(priority_color "$fpriority")
+
+        printf "  $icon %-24s %-10s %-8s %s\n" "$fname" "$pcolor" "${feffort}d" "$fstatus"
+    done
+    echo ""
+
+    # Milestones
+    print_subheader "Milestones"
+    echo ""
+
+    local milestone_count=$(yq '.milestones | length' "$tracking_file")
+    for ((i=0; i<milestone_count; i++)); do
+        local mname=$(yq ".milestones[$i].name" "$tracking_file")
+        local mtarget=$(yq ".milestones[$i].target" "$tracking_file")
+        local mstatus=$(yq ".milestones[$i].status" "$tracking_file")
+
+        local icon=$(status_icon "$mstatus")
+        printf "  $icon %-30s %s\n" "$mname" "($mtarget)"
+    done
+    echo ""
+
+    # Success criteria
+    print_subheader "Success Criteria"
+    echo ""
+
+    local criteria_count=$(yq '.success_criteria | length' "$tracking_file")
+    for ((i=0; i<criteria_count; i++)); do
+        local ctext=$(yq ".success_criteria[$i].criterion" "$tracking_file")
+        local cmet=$(yq ".success_criteria[$i].met" "$tracking_file")
+
+        if [[ "$cmet" == "true" ]]; then
+            echo "  ${fg[green]}✓${reset_color} $ctext"
+        else
+            echo "  ${fg[white]}○${reset_color} $ctext"
+        fi
+    done
+    echo ""
+}
+
+# ============================================
+# SHOW GANTT CHART
+# ============================================
+
+show_gantt() {
+    print_header "Project Gantt Chart"
+
+    echo ""
+    echo "  ${fg[white]}Week:${reset_color}        1    2    3    4    5    6    7    8"
+    echo "              ────┼────┼────┼────┼────┼────┼────┼────"
+    echo ""
+
+    # v1.5 features
+    echo "  ${fg[cyan]}v1.5 Multi-Project Operations${reset_color}"
+    echo "  project-index  ${fg[green]}████${reset_color}░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+    echo "  pj-index       ${fg[green]}████${reset_color}░░░░░░░░░░░░░░░░░░░░░░░░░░░░"
+    echo "  pj-status      ░░░░${fg[yellow]}████████${reset_color}░░░░░░░░░░░░░░░░░░░░"
+    echo "  pj-run         ░░░░${fg[yellow]}████████${reset_color}░░░░░░░░░░░░░░░░░░░░"
+    echo "  pj-search      ░░░░░░░░░░░░${fg[blue]}████████${reset_color}░░░░░░░░░░░░"
+    echo "  tier           ░░░░░░░░░░░░${fg[blue]}████████${reset_color}░░░░░░░░░░░░"
+    echo "  organize       ░░░░░░░░░░░░░░░░░░░░${fg[magenta]}████████${reset_color}░░░░"
+    echo ""
+
+    # v1.6 features
+    echo "  ${fg[cyan]}v1.6 Workflow Automation${reset_color}"
+    echo "  session        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░${fg[white]}████████${reset_color}"
+    echo "  release-create ░░░░░░░░░░░░░░░░░░░░░░░░░░░░${fg[white]}████████${reset_color}"
+    echo "  plan-status    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░${fg[white]}████${reset_color}░░░░"
+    echo ""
+
+    # Legend
+    echo "  ${fg[white]}Legend:${reset_color}"
+    echo "    ${fg[green]}████${reset_color} Week 1-2 (Core)    ${fg[yellow]}████${reset_color} Week 2-3 (Dashboard)"
+    echo "    ${fg[blue]}████${reset_color} Week 3-4 (Search)   ${fg[magenta]}████${reset_color} Week 4+ (Extras)"
+    echo ""
+}
+
+# ============================================
+# UPDATE FEATURE STATUS
+# ============================================
+
+update_feature() {
+    local version="$1"
+    local feature_id="$2"
+    local new_status="$3"
+    local tracking_file="$TRACKING_DIR/${version}-progress.yml"
+
+    if [[ ! -f "$tracking_file" ]]; then
+        echo "${fg[red]}Error: No tracking file for $version${reset_color}"
+        exit 1
+    fi
+
+    check_yq
+
+    # Validate status
+    case "$new_status" in
+        planned|in_progress|complete|blocked) ;;
+        *)
+            echo "${fg[red]}Error: Invalid status '$new_status'${reset_color}"
+            echo "Valid: planned, in_progress, complete, blocked"
+            exit 1
+            ;;
+    esac
+
+    # Find feature index
+    local feature_count=$(yq '.features | length' "$tracking_file")
+    local found=false
+
+    for ((i=0; i<feature_count; i++)); do
+        local fid=$(yq ".features[$i].id" "$tracking_file")
+        if [[ "$fid" == "$feature_id" ]]; then
+            found=true
+
+            # Update status
+            yq -i ".features[$i].status = \"$new_status\"" "$tracking_file"
+
+            # Set timestamps
+            if [[ "$new_status" == "in_progress" ]]; then
+                yq -i ".features[$i].started = \"$(date +%Y-%m-%d)\"" "$tracking_file"
+            elif [[ "$new_status" == "complete" ]]; then
+                yq -i ".features[$i].completed = \"$(date +%Y-%m-%d)\"" "$tracking_file"
+            fi
+
+            break
+        fi
+    done
+
+    if [[ "$found" == "false" ]]; then
+        echo "${fg[red]}Error: Feature '$feature_id' not found${reset_color}"
+        exit 1
+    fi
+
+    # Recalculate metrics
+    local completed=$(yq '[.features[] | select(.status == "complete")] | length' "$tracking_file")
+    local in_progress=$(yq '[.features[] | select(.status == "in_progress")] | length' "$tracking_file")
+    local total=$(yq '.features | length' "$tracking_file")
+    local progress=$((completed * 100 / total))
+
+    yq -i ".metrics.completed = $completed" "$tracking_file"
+    yq -i ".metrics.in_progress = $in_progress" "$tracking_file"
+    yq -i ".metrics.progress_percent = $progress" "$tracking_file"
+
+    echo "${fg[green]}✓${reset_color} Updated ${fg[yellow]}$feature_id${reset_color} to ${fg[cyan]}$new_status${reset_color}"
+    echo ""
+    show_version_progress "$version"
+}
+
+# ============================================
+# HELP
+# ============================================
+
+show_help() {
+    cat << 'EOF'
+plan-status - Show project roadmap and version progress
+
+Usage:
+  plan-status                    Show overall roadmap
+  plan-status <version>          Show version progress (e.g., v1.5)
+  plan-status --gantt            Show Gantt-style timeline
+  plan-status --update <version> <feature-id> <status>
+                                 Update feature status
+
+Status values:
+  planned      Not started yet
+  in_progress  Currently being worked on
+  complete     Finished
+  blocked      Blocked by dependency
+
+Examples:
+  plan-status                    # Overall roadmap
+  plan-status v1.5               # v1.5 progress
+  plan-status --gantt            # Visual timeline
+  plan-status --update v1.5 project-index-lib in_progress
+  plan-status --update v1.5 pj-status complete
+
+Tracking files:
+  plans/tracking/v1.5-progress.yml
+  plans/tracking/v1.6-progress.yml
+EOF
+}
+
+# ============================================
+# MAIN
+# ============================================
+
+main() {
+    case "$1" in
+        -h|--help)
+            show_help
+            ;;
+        --gantt)
+            show_gantt
+            ;;
+        --update)
+            if [[ -z "$2" || -z "$3" || -z "$4" ]]; then
+                echo "${fg[red]}Error: --update requires version, feature-id, and status${reset_color}"
+                echo "Usage: plan-status --update v1.5 feature-id status"
+                exit 1
+            fi
+            update_feature "$2" "$3" "$4"
+            ;;
+        v*)
+            show_version_progress "$1"
+            ;;
+        "")
+            show_roadmap
+            ;;
+        *)
+            echo "${fg[red]}Unknown option: $1${reset_color}"
+            show_help
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
