@@ -1,0 +1,280 @@
+#!/usr/bin/env zsh
+# docs-check - Comprehensive documentation validation and deployment
+#
+# Usage:
+#   docs-check [options] [directory]
+#
+# Options:
+#   -q, --quick       Skip link validation and preview
+#   -s, --skip-deploy Skip deployment (validation only)
+#   -v, --verbose     Show detailed output
+#   -e, --external    Check external links (slow)
+#   --strict          Use strict mode for build
+#   -h, --help        Show this help
+#
+# Examples:
+#   docs-check                    # Full check in current directory
+#   docs-check --quick            # Quick validation only
+#   docs-check --skip-deploy      # Check without deploying
+#   docs-check ~/project          # Check specific directory
+
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+CONFIG_DIR="${SCRIPT_DIR}/../config"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/project-detector.sh"
+source "$LIB_DIR/docs-validator.sh"
+
+# Load configuration
+[[ -f "$CONFIG_DIR/docs-check.conf" ]] && source "$CONFIG_DIR/docs-check.conf"
+
+# Default options
+QUICK_MODE=false
+SKIP_DEPLOY=false
+VERBOSE=false
+CHECK_EXTERNAL=false
+STRICT_BUILD=false
+TARGET_DIR=""
+PREVIEW_PID=""
+
+# Show help
+show_help() {
+    cat << 'EOF'
+docs-check - Documentation validation and deployment tool
+
+USAGE:
+    docs-check [options] [directory]
+
+OPTIONS:
+    -q, --quick       Skip link validation and preview
+    -s, --skip-deploy Skip deployment (validation only)
+    -v, --verbose     Show detailed output
+    -e, --external    Check external links (slow)
+    --strict          Use strict mode for build
+    -h, --help        Show this help
+
+CHECKS PERFORMED:
+    1. Project type detection (mkdocs, pkgdown, quarto, npm)
+    2. Version sync across files (package.json, CLAUDE.md, etc.)
+    3. Badge validation (static vs dynamic)
+    4. Link validation (internal, optionally external)
+    5. Build test
+    6. Local preview (unless --quick)
+    7. Deployment (unless --skip-deploy)
+
+EXAMPLES:
+    docs-check                    # Full check in current directory
+    docs-check --quick            # Quick validation only
+    docs-check -s                 # Check without deploying
+    docs-check ~/project          # Check specific directory
+    docs-check -q -s              # Fastest: just validation
+EOF
+}
+
+# Parse arguments
+parse_args() {
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -q|--quick)
+                QUICK_MODE=true
+                shift
+                ;;
+            -s|--skip-deploy)
+                SKIP_DEPLOY=true
+                shift
+                ;;
+            -v|--verbose)
+                VERBOSE=true
+                shift
+                ;;
+            -e|--external)
+                CHECK_EXTERNAL=true
+                shift
+                ;;
+            --strict)
+                STRICT_BUILD=true
+                shift
+                ;;
+            -h|--help)
+                show_help
+                exit 0
+                ;;
+            -*)
+                print_error "Unknown option: $1"
+                show_help
+                exit 1
+                ;;
+            *)
+                TARGET_DIR="$1"
+                shift
+                ;;
+        esac
+    done
+}
+
+# Cleanup on exit
+cleanup() {
+    if [[ -n "$PREVIEW_PID" ]]; then
+        stop_preview "$PREVIEW_PID"
+    fi
+}
+trap cleanup EXIT
+
+# Main function
+main() {
+    parse_args "$@"
+
+    local dir="${TARGET_DIR:-$PWD}"
+    cd "$dir" || {
+        print_error "Cannot access directory: $dir"
+        exit 1
+    }
+
+    local project_name=$(basename "$dir")
+    local docs_type=$(detect_docs_type)
+    local docs_dir=$(get_docs_dir "$docs_type")
+
+    # Header
+    echo ""
+    echo "╭────────────────────────────────────────────────────────╮"
+    echo "│              Documentation Check                        │"
+    printf "│  %-52s  │\n" "$project_name ($docs_type)"
+    echo "╰────────────────────────────────────────────────────────╯"
+    echo ""
+
+    local has_errors=false
+    local has_warnings=false
+
+    # Phase 1: Version Sync Check
+    print_header "📋 Version Sync"
+    if ! check_version_sync "$dir" "$docs_type"; then
+        has_warnings=true
+    fi
+
+    # Phase 2: Badge Validation
+    print_header "🏷️  Badge Validation"
+    if ! check_badges "README.md"; then
+        has_warnings=true
+    fi
+
+    # Phase 3: Link Validation (skip if --quick)
+    if [[ "$QUICK_MODE" != "true" ]]; then
+        print_header "🔗 Link Validation"
+        if ! validate_links "$docs_dir" "$dir" "$CHECK_EXTERNAL"; then
+            has_errors=true
+        fi
+    else
+        print_info "Skipping link validation (--quick mode)"
+    fi
+
+    # Phase 4: Build Test
+    print_header "🔨 Build Test"
+    local build_output
+    build_output=$(run_docs_build "$docs_type" "$STRICT_BUILD" 2>&1)
+    local build_status=$?
+
+    if [[ $build_status -eq 0 ]]; then
+        print_success "Build successful"
+        if [[ "$VERBOSE" == "true" ]] && [[ -n "$build_output" ]]; then
+            echo "$build_output" | head -20
+        fi
+        # Check for warnings in output
+        if echo "$build_output" | grep -qi "warning"; then
+            local warning_count=$(echo "$build_output" | grep -ci "warning")
+            print_warning "$warning_count warning(s) in build output"
+            has_warnings=true
+        fi
+    else
+        print_error "Build failed"
+        echo "$build_output" | tail -20
+        has_errors=true
+    fi
+
+    # Phase 5: Preview (skip if --quick or build failed)
+    if [[ "$QUICK_MODE" != "true" ]] && [[ "$has_errors" != "true" ]]; then
+        print_header "🌐 Local Preview"
+
+        PREVIEW_PID=$(start_preview "$docs_type" 8000)
+
+        if [[ -n "$PREVIEW_PID" ]]; then
+            sleep 2  # Give server time to start
+            print_success "Preview server running at http://localhost:8000"
+            print_info "Press Enter when ready to continue..."
+            read -r
+            stop_preview "$PREVIEW_PID"
+            PREVIEW_PID=""
+        else
+            print_warning "Could not start preview server"
+        fi
+    fi
+
+    # Phase 6: Summary
+    print_header "📊 Summary"
+
+    if [[ "$has_errors" == "true" ]]; then
+        print_error "Validation failed - fix errors before deploying"
+    elif [[ "$has_warnings" == "true" ]]; then
+        print_warning "Validation passed with warnings"
+    else
+        print_success "All checks passed"
+    fi
+
+    # Phase 7: Deployment
+    if [[ "$SKIP_DEPLOY" != "true" ]] && [[ "$has_errors" != "true" ]]; then
+        print_header "📦 Deployment"
+
+        echo ""
+        echo "Ready to deploy documentation?"
+        echo ""
+        echo "  1) Yes, deploy now"
+        echo "  2) No, cancel"
+        echo "  3) Generate report only"
+        echo ""
+        printf "Choice [1-3]: "
+        read -r choice
+
+        case "$choice" in
+            1)
+                print_info "Deploying..."
+                if deploy_docs "$docs_type"; then
+                    print_success "Deployment complete!"
+
+                    # Monitor GitHub Actions if available
+                    if [[ -f ".github/workflows/docs.yml" ]]; then
+                        print_info "Monitoring GitHub Actions..."
+                        monitor_gh_actions "docs.yml" 180 15
+                    fi
+                else
+                    print_error "Deployment failed"
+                    has_errors=true
+                fi
+                ;;
+            2)
+                print_info "Deployment cancelled"
+                ;;
+            3)
+                generate_report "$project_name" "$docs_type"
+                ;;
+            *)
+                print_info "Invalid choice, skipping deployment"
+                ;;
+        esac
+    elif [[ "$SKIP_DEPLOY" == "true" ]]; then
+        print_info "Deployment skipped (--skip-deploy)"
+    fi
+
+    echo ""
+
+    # Exit code
+    if [[ "$has_errors" == "true" ]]; then
+        exit 1
+    elif [[ "$has_warnings" == "true" ]]; then
+        exit 0
+    else
+        exit 0
+    fi
+}
+
+main "$@"

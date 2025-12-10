@@ -750,7 +750,23 @@ print_header "Section Header"
 
 ## Version History
 
-### v1.3 (2025-12-07) - Current Release
+### v1.4 (2025-12-09) - Current Release
+- ✅ **Claude Commands Redesign Complete**
+  - 5-category hybrid structure: research/, teach/, math/, code/, write/
+  - 17 commands implemented (9 migrated + 8 new)
+  - Directory `claude-commands/` created as source of truth
+  - Integration bridges in `integrations/`
+- ✅ **docs-check Shell Command**
+  - New `commands/docs-check` - comprehensive documentation validator
+  - New `lib/docs-validator.sh` - validation library
+  - New `config/docs-check.conf` - configuration
+  - New `scripts/extract-links.awk` - link extraction helper
+  - Features: version sync, badge validation, link checking, build testing
+  - Supports: MkDocs, pkgdown, Quarto, npm projects
+- 📦 Commands: 10 total (1 new shell command), Libraries: 8 total (1 new)
+- 📦 Claude Commands: 17 total in `claude-commands/` directory
+
+### v1.3 (2025-12-07)
 - ✅ **Phase 1 Foundation: Workflow Integration System**
 - ✅ Created 4 new libraries:
   - `workflow-dispatcher.sh` - Universal workflow dispatch with YAML support
@@ -829,38 +845,31 @@ print_header "Section Header"
 
 📋 **Comprehensive Roadmap:** See planning documents in `plans/`
 
-**v1.4 - Claude Commands Redesign + Smart Navigation (Planned)**
+**v1.4 - Claude Commands Redesign (COMPLETED 2025-12-09)**
 
-🆕 **Claude Commands Coordination** (NEW - 2025-12-09):
+✅ **Claude Commands Coordination** - DONE:
 - See `plans/claude-commands-redesign.md` for full specification
 - 5-category hybrid structure: research/, teach/, math/, code/, write/
-- 34 total commands (9 existing + 25 new)
+- 17 commands implemented (see `claude-commands/` directory)
 - Multi-project coordination with MCP server and examark
-- zsh-claude-workflow becomes source of truth for commands
-- New directories: `claude-commands/`, `integrations/`
+- zsh-claude-workflow is now source of truth for commands
+- New directories: `claude-commands/`, `integrations/`, `scripts/`
 
-**Command Categories:**
-| Category | Commands | Purpose |
-|----------|----------|---------|
-| research/ | 8 | Literature, manuscripts, simulations |
-| teach/ | 9 | Exams, rubrics, lectures (examark integration) |
-| math/ | 4 | Proofs, derivations (shared) |
-| code/ | 8 | R packages, docs, releases (shared) |
-| write/ | 5 | Drafting, abstracts, editing (shared) |
+**Implemented Commands (17 total):**
+| Category | Count | Commands |
+|----------|-------|----------|
+| research/ | 5 | cite, lit-gap, manuscript, revision, sim-design |
+| teach/ | 5 | exam, rubric, lecture, homework, solution |
+| math/ | 2 | proof, derive |
+| code/ | 3 | docs-check, ecosystem-health, rpkg-check |
+| write/ | 3 | abstract, cover-letter, draft |
 
-**Implementation Tasks:**
-- [ ] Create `claude-commands/` directory structure
-- [ ] Migrate 9 existing commands from `~/.claude/commands/`
-- [ ] Create priority new commands (exam, rubric, derive, revision)
-- [ ] Create `integrations/` with examark-bridge.sh
-- [ ] Update `install.sh` to symlink commands
-- [ ] Test full integration
-
-**Smart Project Navigation** (from original v1.4 plan):
-- Smart project switching with context loading (`pj` command)
-- Intelligent file navigation with bookmarks
-- File organization automation
-- Advanced search and filtering
+**Remaining (Future):**
+- quiz, syllabus, feedback, canvas (teach/)
+- method-scout, hypothesis, analysis-plan (research/)
+- release, debug, refactor, test-gen, demo (code/)
+- response, edit (write/)
+- notation, example (math/)
 
 **v1.5 - Multi-Project Operations (Planned)**
 - Bulk operations across project sets
@@ -1048,8 +1057,8 @@ The documentation is organized into:
 
 ---
 
-**Last Updated**: 2025-12-08
-**Current Version**: v1.3 (with CLI aliases)
+**Last Updated**: 2025-12-09
+**Current Version**: v1.4 (Claude Commands + docs-check)
 **Project Status**: Production Ready
 **Documentation**: Complete (Web + MkDocs)
 **Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
