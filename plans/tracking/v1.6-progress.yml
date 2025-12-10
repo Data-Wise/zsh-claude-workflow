@@ -1,4 +1,4 @@
-# v1.6 Progress Tracking
+# v1.6 Progress Tracking (Lean Scope)
 # Updated: 2025-12-09
 # Use: plan-status v1.6
 
@@ -6,31 +6,36 @@ version: "1.6"
 name: "Workflow Automation"
 target_date: "2026-02"
 status: "planning"
+
+# Scope revised 2025-12-09: Reduced from 7 to 4 high-value features
+# Removed: watch, auto-commit, health-check (low value or risky)
+# plan-status already complete
+
 metrics:
-  total_features: 7
+  total_features: 4
   completed: 1
   in_progress: 0
-  planned: 7
-  progress_percent: 14
+  planned: 3
+  progress_percent: 25
+
 features:
-  - id: session-management
-    name: "session command"
+  - id: session
+    name: "session management"
     priority: high
     effort_days: 2
     status: planned
     depends_on: []
     started: null
     completed: null
-    notes: "Save/restore session state between Claude conversations"
-  - id: release-create
-    name: "release-create workflow"
-    priority: high
-    effort_days: 2
-    status: planned
-    depends_on: [pr-cycle]
-    started: null
-    completed: null
-    notes: "Full release automation: commit, PR, merge, deploy, tag"
+    notes: "Save/restore session state for Claude continuity"
+    files:
+      - lib/session-manager.sh
+      - commands/session
+    subcommands:
+      - "session save - Save current work state"
+      - "session restore - Restore for new Claude session"
+      - "session handoff - Create handoff document"
+
   - id: pr-cycle
     name: "pr-cycle automation"
     priority: high
@@ -40,7 +45,22 @@ features:
     started: null
     completed: null
     notes: "Create PR, wait for checks, merge, sync branches"
-  - id: plan-status-cmd
+    files:
+      - commands/pr-cycle
+
+  - id: release-create
+    name: "release-create workflow"
+    priority: high
+    effort_days: 2
+    status: planned
+    depends_on: [pr-cycle]
+    started: null
+    completed: null
+    notes: "Full release: commit, PR, merge, deploy, tag, release notes"
+    files:
+      - commands/release-create
+
+  - id: plan-status
     name: "plan-status command"
     priority: medium
     effort_days: 1
@@ -48,57 +68,39 @@ features:
     depends_on: []
     started: "2025-12-09"
     completed: "2025-12-09"
-    notes: "Track implementation progress against plans"
-  - id: health-check
-    name: "health-check dashboard"
-    priority: medium
-    effort_days: 1.5
-    status: planned
-    depends_on: []
-    started: null
-    completed: null
-    notes: "Project health score: tests, docs, git, deps"
-  - id: watch-command
-    name: "watch file watcher"
-    priority: medium
-    effort_days: 2
-    status: planned
-    depends_on: []
-    started: null
-    completed: null
-    notes: "Auto-run commands on file changes"
-  - id: auto-commit
-    name: "auto-commit system"
-    priority: low
-    effort_days: 2
-    status: planned
-    depends_on: [watch-command]
-    started: null
-    completed: null
-    notes: "Auto-commit after inactivity with smart messages"
+    notes: "Track implementation progress - DONE"
+    files:
+      - commands/plan-status
+      - plans/tracking/*.yml
+
 milestones:
-  - name: "Session & Planning"
-    features: [session-management, plan-status-cmd]
+  - name: "Session Continuity"
+    features: [session, plan-status]
     target: "Week 1"
     status: in_progress
+
   - name: "Release Automation"
     features: [pr-cycle, release-create]
     target: "Week 2-3"
     status: pending
-  - name: "Monitoring & Automation"
-    features: [health-check, watch-command, auto-commit]
-    target: "Week 4-5"
-    status: pending
+
 success_criteria:
-  - criterion: "Session state persists between Claude conversations"
+  - criterion: "session save captures branch, uncommitted files, context"
     met: false
-  - criterion: "release-create v1.x handles full release workflow"
+  - criterion: "session restore provides context for new Claude session"
     met: false
-  - criterion: "pr-cycle automates PR creation to merge"
+  - criterion: "pr-cycle creates PR and waits for CI"
+    met: false
+  - criterion: "release-create handles full release workflow"
     met: false
   - criterion: "plan-status shows implementation progress"
     met: true
-  - criterion: "health-check provides project health score"
-    met: false
-  - criterion: "watch command triggers on file changes"
-    met: false
+
+# Deferred features (moved to backlog)
+deferred:
+  - id: watch
+    reason: "Editors already handle file watching"
+  - id: auto-commit
+    reason: "Risky behavior, most prefer manual commits"
+  - id: health-check
+    reason: "Nice but not critical, can add later"

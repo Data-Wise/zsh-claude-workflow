@@ -1,101 +1,73 @@
-# v1.5 Progress Tracking
+# v1.5 Progress Tracking (Lean Scope)
 # Updated: 2025-12-09
 # Use: plan-status v1.5
 
 version: "1.5"
 name: "Multi-Project Operations"
 target_date: "2026-01"
-status: "planning"  # planning | in_progress | complete
+status: "planning"
 
-# Overall metrics
+# Scope revised 2025-12-09: Reduced from 10 to 6 high-value features
+# Removed: tier, organize, docs-audit (low value)
+# Removed: project-index-lib, multi-project-lib (merged into commands)
+
 metrics:
-  total_features: 10
+  total_features: 6
   completed: 0
   in_progress: 0
-  planned: 10
+  planned: 6
   progress_percent: 0
 
-# Feature tracking
 features:
-  - id: project-index-lib
-    name: "lib/project-index.sh"
-    priority: high
-    effort_days: 0.5
-    status: planned  # planned | in_progress | complete | blocked
-    depends_on: []
-    started: null
-    completed: null
-    notes: "Core library for indexing projects"
-
   - id: pj-index
     name: "pj-index command"
     priority: high
-    effort_days: 0.5
-    status: planned
-    depends_on: [project-index-lib]
-    started: null
-    completed: null
-    notes: "CLI for managing project index"
-
-  - id: pj-status
-    name: "pj-status command"
-    priority: high
     effort_days: 1
-    status: planned
-    depends_on: [pj-index]
-    started: null
-    completed: null
-    notes: "Dashboard showing all projects"
-
-  - id: multi-project-lib
-    name: "lib/multi-project.sh"
-    priority: high
-    effort_days: 0.5
-    status: planned
-    depends_on: [project-index-lib]
-    started: null
-    completed: null
-    notes: "Library for bulk operations"
-
-  - id: pj-run
-    name: "pj-run command"
-    priority: high
-    effort_days: 1
-    status: planned
-    depends_on: [multi-project-lib]
-    started: null
-    completed: null
-    notes: "Run commands across projects"
-
-  - id: pj-search
-    name: "pj-search command"
-    priority: medium
-    effort_days: 1
-    status: planned
-    depends_on: [pj-index]
-    started: null
-    completed: null
-    notes: "Global project search"
-
-  - id: tier
-    name: "tier command"
-    priority: medium
-    effort_days: 1
-    status: planned
-    depends_on: [pj-index]
-    started: null
-    completed: null
-    notes: "Storage tier management"
-
-  - id: organize
-    name: "organize command"
-    priority: low
-    effort_days: 2
     status: planned
     depends_on: []
     started: null
     completed: null
-    notes: "File organization automation"
+    notes: "Project indexing: scan dirs, maintain database, list/add/remove"
+    files:
+      - lib/project-index.sh
+      - commands/pj-index
+
+  - id: pj-status
+    name: "pj-status dashboard"
+    priority: high
+    effort_days: 1.5
+    status: planned
+    depends_on: [pj-index]
+    started: null
+    completed: null
+    notes: "Show git status of ALL projects at once - killer feature"
+    files:
+      - commands/pj-status
+
+  - id: pj-run
+    name: "pj-run bulk operations"
+    priority: high
+    effort_days: 1.5
+    status: planned
+    depends_on: [pj-index]
+    started: null
+    completed: null
+    notes: "Run commands across projects: pj-run rpkg git pull"
+    files:
+      - lib/multi-project.sh
+      - commands/pj-run
+
+  - id: pj-search
+    name: "pj-search global search"
+    priority: medium
+    effort_days: 1
+    status: planned
+    depends_on: [pj-index]
+    started: null
+    completed: null
+    notes: "Search code across all projects with ripgrep + fzf"
+    files:
+      - commands/pj-search
 
   - id: branch-sync
     name: "branch-sync command"
@@ -105,57 +77,57 @@ features:
     depends_on: []
     started: null
     completed: null
-    notes: "Sync dev/main branches"
+    notes: "Sync dev/main branches after PR merge"
+    files:
+      - commands/branch-sync
 
-  - id: docs-audit
-    name: "docs-audit command"
+  - id: pj-jump
+    name: "pj (jump to project)"
     priority: medium
     effort_days: 0.5
     status: planned
-    depends_on: []
+    depends_on: [pj-index]
     started: null
     completed: null
-    notes: "Audit documentation coverage"
+    notes: "Quick jump to project: pj rmediation"
+    files:
+      - commands/pj
 
-# Milestones
 milestones:
-  - name: "Core Index System"
-    features: [project-index-lib, pj-index]
+  - name: "Core Index & Dashboard"
+    features: [pj-index, pj-status]
     target: "Week 1"
     status: pending
 
-  - name: "Dashboard & Bulk Ops"
-    features: [pj-status, multi-project-lib, pj-run]
+  - name: "Bulk Operations"
+    features: [pj-run, pj-search]
     target: "Week 2"
     status: pending
 
-  - name: "Search & Organization"
-    features: [pj-search, tier, organize]
+  - name: "Utilities"
+    features: [branch-sync, pj-jump]
     target: "Week 3"
     status: pending
 
-  - name: "Utilities"
-    features: [branch-sync, docs-audit]
-    target: "Week 4"
-    status: pending
-
-# Success criteria
 success_criteria:
+  - criterion: "pj-index lists 16+ projects from all directories"
+    met: false
   - criterion: "pj-status shows all projects with git status"
     met: false
   - criterion: "pj-run rpkg git status works on all R packages"
     met: false
   - criterion: "pj-run devtools git status works on all dev-tools"
     met: false
-  - criterion: "pj-run all --dirty git status shows all dirty repos"
-    met: false
   - criterion: "pj-search finds matches across all project types"
     met: false
-  - criterion: "tier list shows projects by storage tier"
+  - criterion: "branch-sync syncs dev with main in one command"
     met: false
-  - criterion: "Project index includes 16+ projects"
-    met: false
-  - criterion: "Project index rebuilds in < 5 seconds"
-    met: false
-  - criterion: "All commands have --help output"
-    met: false
+
+# Deferred features (moved to backlog)
+deferred:
+  - id: tier
+    reason: "Manual mv works fine, low usage frequency"
+  - id: organize
+    reason: "Manual cleanup is rare, complex rules engine"
+  - id: docs-audit
+    reason: "One-time task, can do manually"
