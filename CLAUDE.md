@@ -763,8 +763,8 @@ print_header "Section Header"
   - New `scripts/extract-links.awk` - link extraction helper
   - Features: version sync, badge validation, link checking, build testing
   - Supports: MkDocs, pkgdown, Quarto, npm projects
-- 📦 Commands: 10 total (1 new shell command), Libraries: 8 total (1 new)
-- 📦 Claude Commands: 17 total in `claude-commands/` directory
+- 📦 Shell Commands: 10 total (1 new), Libraries: 8 total (1 new)
+- 📦 Claude Slash Commands: 34 total in `claude-commands/` directory (ALL COMPLETE)
 
 ### v1.3 (2025-12-07)
 - ✅ **Phase 1 Foundation: Workflow Integration System**
@@ -855,21 +855,14 @@ print_header "Section Header"
 - zsh-claude-workflow is now source of truth for commands
 - New directories: `claude-commands/`, `integrations/`, `scripts/`
 
-**Implemented Commands (17 total):**
+**Implemented Commands (34 total - ALL COMPLETE):**
 | Category | Count | Commands |
 |----------|-------|----------|
-| research/ | 5 | cite, lit-gap, manuscript, revision, sim-design |
-| teach/ | 5 | exam, rubric, lecture, homework, solution |
-| math/ | 2 | proof, derive |
-| code/ | 3 | docs-check, ecosystem-health, rpkg-check |
-| write/ | 3 | abstract, cover-letter, draft |
-
-**Remaining (Future):**
-- quiz, syllabus, feedback, canvas (teach/)
-- method-scout, hypothesis, analysis-plan (research/)
-- release, debug, refactor, test-gen, demo (code/)
-- response, edit (write/)
-- notation, example (math/)
+| research/ | 8 | cite, lit-gap, manuscript, revision, sim-design, method-scout, hypothesis, analysis-plan |
+| teach/ | 9 | exam, rubric, lecture, homework, solution, quiz, syllabus, feedback, canvas |
+| math/ | 4 | proof, derive, notation, example |
+| code/ | 8 | docs-check, ecosystem-health, rpkg-check, release, debug, refactor, test-gen, demo |
+| write/ | 5 | abstract, cover-letter, draft, response, edit |
 
 **v1.5 - Multi-Project Operations (Planned)**
 - Bulk operations across project sets

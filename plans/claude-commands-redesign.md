@@ -405,27 +405,24 @@ Draft point-by-point responses to peer review.
 6. [x] Test installation via manual symlink creation
 7. [x] Create integration bridges (examark-bridge.sh, mcp-bridge.sh)
 
-### Implemented Commands (17 total)
+### Implemented Commands (34 total - ALL COMPLETE)
 
 | Category | Count | Commands |
 |----------|-------|----------|
-| research | 5 | cite, lit-gap, manuscript, revision, sim-design |
-| teach | 5 | exam, rubric, lecture, homework, solution |
-| math | 2 | proof, derive |
-| code | 3 | docs-check, ecosystem-health, rpkg-check |
-| write | 3 | abstract, cover-letter, draft |
+| research | 8 | cite, lit-gap, manuscript, revision, sim-design, method-scout, hypothesis, analysis-plan |
+| teach | 9 | exam, rubric, lecture, homework, solution, quiz, syllabus, feedback, canvas |
+| math | 4 | proof, derive, notation, example |
+| code | 8 | docs-check, ecosystem-health, rpkg-check, release, debug, refactor, test-gen, demo |
+| write | 5 | abstract, cover-letter, draft, response, edit |
 
-### Remaining (Future)
+### Remaining (Future Enhancements)
 
-- [ ] Create remaining planned commands (17 more per original plan)
-- [ ] Add more teaching commands: quiz, syllabus, feedback, canvas
-- [ ] Add more research commands: method-scout, hypothesis, analysis-plan
-- [ ] Add more code commands: release, debug, refactor, test-gen, demo
-- [ ] Add more write commands: response, edit
-- [ ] Add more math commands: notation, example
-- [ ] Update zsh-claude-workflow CLAUDE.md with v1.4 release notes
+All 34 planned commands are now implemented. Future work:
+- [ ] Add examark integration tests for teach/ commands
+- [ ] Create command usage documentation in docs/
+- [ ] Add more specialized commands based on user feedback
 
 ---
 
 **Author**: Claude Code
-**Status**: Phase 1 Complete - Core Implementation Done
+**Status**: COMPLETE - All 34 Commands Implemented (2025-12-09)
