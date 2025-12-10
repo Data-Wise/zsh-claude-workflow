@@ -967,27 +967,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#codeecosystem-health" class="md-nav__link">
+    <nav class="md-nav" aria-label="/code/rpkg-check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-cran-submission-check" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /code/ecosystem-health
+        Complete Example: CRAN Submission Check
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#codedocs-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        /code/docs-check
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1011,27 +1006,44 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#coderefactor" class="md-nav__link">
+    <nav class="md-nav" aria-label="/code/debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-closure-error" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /code/refactor
+        Complete Example: Closure Error
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#codetest-gen" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#the-fix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /code/test-gen
+        The Fix
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1922,27 +1934,22 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#codeecosystem-health" class="md-nav__link">
+    <nav class="md-nav" aria-label="/code/rpkg-check">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-cran-submission-check" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /code/ecosystem-health
+        Complete Example: CRAN Submission Check
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#codedocs-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        /code/docs-check
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1966,27 +1973,44 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#coderefactor" class="md-nav__link">
+    <nav class="md-nav" aria-label="/code/debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-closure-error" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /code/refactor
+        Complete Example: Closure Error
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#codetest-gen" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#the-fix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /code/test-gen
+        The Fix
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2144,30 +2168,107 @@
 - Test coverage
 - Documentation completeness
 - CRAN policy compliance</p>
-<hr />
-<h2 id="codeecosystem-health">/code/ecosystem-health</h2>
-<p>Check health of multiple related packages.</p>
-<p><strong>Use for:</strong>
-- Package suite maintenance
-- Dependency compatibility
-- Cross-package testing
-- Release coordination</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/code/ecosystem-health &quot;Check all packages in ~/R-packages/active/&quot;
+<h3 id="complete-example-cran-submission-check">Complete Example: CRAN Submission Check</h3>
+<p><strong>Request:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/code/rpkg-check &quot;Full CRAN submission check for my mediation package&quot;
 </code></pre></div></p>
-<hr />
-<h2 id="codedocs-check">/code/docs-check</h2>
-<p>Validate documentation before deployment.</p>
-<p><strong>Use for:</strong>
-- Pre-deployment checks
-- Version sync verification
-- Link validation
-- Build testing</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/code/docs-check &quot;Validate docs before GitHub Pages deployment&quot;
-</code></pre></div></p>
-<p><strong>Also available as shell command:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docs-check<span class="w"> </span>--quick<span class="w"> </span>--skip-deploy
+<p><strong>Generated Report:</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gu">## R Package Check: rmediation</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gu">### Summary</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>| Check | Status | Details |
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>|-------|--------|---------|
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>| R CMD check | ⚠️ 1 NOTE | Package size |
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>| Test coverage | ✅ 94% | Target: 80% |
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>| Documentation | ✅ Complete | All exports documented |
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>| CRAN policy | ✅ Compliant | No issues |
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="gu">### R CMD check Output</span>
+</code></pre></div>
+* using R version 4.3.2
+* checking DESCRIPTION meta-information ... OK
+* checking dependencies in R code ... OK
+* checking R code for possible problems ... OK
+* checking examples ... OK
+* checking tests ... OK</p>
+<p>Status: 1 NOTE</p>
+<p>NOTE: installed size is 5.2Mb
+  sub-directories of 1Mb or more: libs 4.1Mb
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>**Recommendation:** NOTE about compiled code size is acceptable for CRAN.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>### Test Coverage
+</code></pre></div>
+rmediation Coverage: 94.2%
+R/mediate.R: 96%
+R/bootstrap.R: 92%
+R/montecarlo.R: 95%
+R/utils.R: 89%</p>
+<p>Missing coverage:
+- R/utils.R:45-48 (edge case: empty data)
+- R/bootstrap.R:112 (error handler)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>### Documentation Check
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>| File | Status |
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>|------|--------|
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>| DESCRIPTION | ✅ Complete |
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>| NAMESPACE | ✅ 12 exports |
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>| man/*.Rd | ✅ All functions documented |
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>| NEWS.md | ✅ Current version |
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>| README.md | ✅ Badges valid |
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>| vignettes/ | ✅ 2 vignettes build |
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>### CRAN Policy Compliance
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>✅ No `:::.` calls
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>✅ No modification of .GlobalEnv
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>✅ No calls to `installed.packages()`
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>✅ Examples run &lt; 5s each
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>✅ Tests run &lt; 60s total
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>✅ No CRAN-only dependencies
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>### Action Items
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>1. **Optional:** Add tests for edge cases (lines 45-48 in utils.R)
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>2. **Ready to submit** - No blocking issues
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>### Submission Command
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>```r
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>devtools::submit_cran()
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>---
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>## /code/ecosystem-health
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Check health of multiple related packages.
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>**Use for:**
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>- Package suite maintenance
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>- Dependency compatibility
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>- Cross-package testing
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>- Release coordination
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>**Example:**
+</code></pre></div>
+/code/ecosystem-health "Check all packages in ~/R-packages/active/"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>---
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>## /code/docs-check
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Validate documentation before deployment.
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>**Use for:**
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>- Pre-deployment checks
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>- Version sync verification
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>- Link validation
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>- Build testing
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>**Example:**
+</code></pre></div>
+/code/docs-check "Validate docs before GitHub Pages deployment"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>**Also available as shell command:**
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>```bash
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>docs-check --quick --skip-deploy
 </code></pre></div></p>
 <p><strong>Checks performed:</strong>
 - Version sync across files
@@ -2184,7 +2285,7 @@
 - npm publishing
 - GitHub releases</p>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/code/release &quot;Help me release v1.2.0 of my R package&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/code/release &quot;Help me release v1.2.0 of my R package&quot;
 </code></pre></div></p>
 <p><strong>Workflow:</strong>
 1. Version bump
@@ -2201,7 +2302,7 @@
 - Reproduction steps
 - Fix suggestions</p>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/code/debug &quot;Help me fix: object of type &#39;closure&#39; is not subsettable&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/code/debug &quot;Help me fix: object of type &#39;closure&#39; is not subsettable&quot;
 </code></pre></div></p>
 <p><strong>MCP Integration:</strong> <code>r_execute</code>, <code>r_inspect</code> tools</p>
 <p><strong>Process:</strong>
@@ -2210,39 +2311,243 @@
 3. Diagnose root cause
 4. Suggest fix
 5. Verify solution</p>
-<hr />
-<h2 id="coderefactor">/code/refactor</h2>
-<p>Guidance for improving code structure.</p>
-<p><strong>Use for:</strong>
-- Code cleanup
-- DRY improvements
-- Readability enhancements
-- Performance optimization</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/code/refactor &quot;Simplify this 100-line function into smaller pieces&quot;
+<h3 id="complete-example-closure-error">Complete Example: Closure Error</h3>
+<p><strong>Request:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/code/debug &quot;Error in my_function$result: object of type &#39;closure&#39; is not subsettable&quot;
 </code></pre></div></p>
-<p><strong>Common refactorings:</strong>
-- Extract function
-- Rename for clarity
-- Simplify conditionals
-- Remove duplication</p>
-<hr />
-<h2 id="codetest-gen">/code/test-gen</h2>
-<p>Generate comprehensive test cases.</p>
-<p><strong>Use for:</strong>
-- Unit tests
-- Edge case coverage
-- Regression tests
-- Integration tests</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>/code/test-gen &quot;Generate tests for my calculate_effect_size function&quot;
+<p><strong>Generated Debugging Session:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gu">## Debugging: &quot;object of type &#39;closure&#39; is not subsettable&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gu">### Understanding the Error</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>This error occurs when you try to use <span class="sb">`$`</span> or <span class="sb">`[[`</span> on a <span class="gs">**function**</span> instead of a list/data.frame.
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>&quot;Closure&quot; is R&#39;s term for a function. You&#39;re treating a function like a data structure.
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="gu">### Common Causes</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="k">1.</span> <span class="gs">**Forgot to call the function:**</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="sb">   ```r</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">   </span><span class="c1"># Wrong - my_function is a function, not its result</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">   </span><span class="n">my_function</span><span class="o">$</span><span class="n">result</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">   </span><span class="c1"># Right - call the function first</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">   </span><span class="nf">my_function</span><span class="p">()</span><span class="o">$</span><span class="n">result</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="sb">   ```</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="k">2.</span> <span class="gs">**Variable shadowed by function name:**</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="sb">   ```r</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">   </span><span class="c1"># You have both:</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">   </span><span class="n">mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="c1"># Your function</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">   </span><span class="n">mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">                     </span><span class="c1"># Overwrote with vector</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">   </span><span class="c1"># Later R finds the function &#39;mean&#39; from base, not your vector</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">   </span><span class="n">mean</span><span class="o">$</span><span class="n">something</span><span class="w">  </span><span class="c1"># Error!</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="sb">   ```</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="k">3.</span> <span class="gs">**Typo in object name:**</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="sb">   ```r</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">   </span><span class="n">results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">   </span><span class="n">result</span><span class="o">$</span><span class="n">a</span><span class="w">  </span><span class="c1"># Typo! &#39;result&#39; might be a function</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="sb">   ```</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="gu">### Diagnosis Steps</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="gs">**Step 1:**</span> Check what the object actually is:
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>```r
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>class(my_function)
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="gh"># [1] &quot;function&quot;  &lt;- This is the problem</span>
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>typeof(my_function)
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="gh"># [1] &quot;closure&quot;</span>
+</code></pre></div>
+<p><strong>Step 2:</strong> Find where it was defined:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># In RStudio: Ctrl+F to search for &quot;my_function &lt;-&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># Or check your environment</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nf">ls</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;my_function&quot;</span><span class="p">)</span>
 </code></pre></div></p>
-<p><strong>MCP Integration:</strong> <code>r_test</code> tool</p>
-<p><strong>Test categories:</strong>
-- Happy path (normal usage)
-- Edge cases (empty, single, max)
-- Error handling (invalid input)
-- Special values (NA, NULL, Inf)</p>
+<p><strong>Step 3:</strong> Check if you meant to call it:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># If my_function() returns a list:</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">my_function</span><span class="p">()</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">result</span><span class="o">$</span><span class="n">value</span><span class="w">  </span><span class="c1"># Now works</span>
+</code></pre></div></p>
+<h3 id="the-fix">The Fix</h3>
+<p>Based on typical patterns, try:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Instead of:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">my_function</span><span class="o">$</span><span class="n">result</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Use:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nf">my_function</span><span class="p">()</span><span class="o">$</span><span class="n">result</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Or store the result first:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="n">output</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">my_function</span><span class="p">()</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">output</span><span class="o">$</span><span class="n">result</span>
+</code></pre></div>
+<h3 id="prevention">Prevention</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Use explicit variable names to avoid confusion</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">calculate_stats</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1"># Function</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">stats_result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">calculate_stats</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w">    </span><span class="c1"># Result</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">stats_result</span><span class="o">$</span><span class="n">mean</span><span class="w">                         </span><span class="c1"># Access</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>---
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>## /code/refactor
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>Guidance for improving code structure.
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>**Use for:**
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>- Code cleanup
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>- DRY improvements
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>- Readability enhancements
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>- Performance optimization
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>**Example:**
+</code></pre></div>
+/code/refactor "Simplify this 100-line function into smaller pieces"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>**Common refactorings:**
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>- Extract function
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>- Rename for clarity
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>- Simplify conditionals
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>- Remove duplication
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>---
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>## /code/test-gen
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>Generate comprehensive test cases.
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>**Use for:**
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>- Unit tests
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>- Edge case coverage
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>- Regression tests
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>- Integration tests
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>**Example:**
+</code></pre></div>
+/code/test-gen "Generate tests for my calculate_effect_size function"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>**MCP Integration:** `r_test` tool
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>**Test categories:**
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>- Happy path (normal usage)
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>- Edge cases (empty, single, max)
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>- Error handling (invalid input)
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>- Special values (NA, NULL, Inf)
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>### Complete Example: Effect Size Tests
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>**Request:**
+</code></pre></div>
+/code/test-gen "Generate comprehensive tests for calculate_cohens_d()"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>**Generated Tests:**
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>```r
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a># tests/testthat/test-cohens-d.R
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>test_that(&quot;calculate_cohens_d returns correct value for known data&quot;, {
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>  # Known example: d = 0.5 (medium effect)
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>  group1 &lt;- c(100, 102, 98, 101, 99)
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>  group2 &lt;- c(105, 107, 103, 106, 104)
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>  result &lt;- calculate_cohens_d(group1, group2)
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>  expect_type(result, &quot;double&quot;)
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>  expect_length(result, 1)
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>  expect_equal(result, 2.0, tolerance = 0.01)
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>})
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>test_that(&quot;calculate_cohens_d handles equal means&quot;,
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>{
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>  group1 &lt;- c(1, 2, 3, 4, 5)
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>  group2 &lt;- c(1, 2, 3, 4, 5)
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>  result &lt;- calculate_cohens_d(group1, group2)
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>  expect_equal(result, 0)
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>})
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>test_that(&quot;calculate_cohens_d handles negative effect&quot;, {
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>  group1 &lt;- c(10, 11, 12)
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>  group2 &lt;- c(5, 6, 7)
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>  result &lt;- calculate_cohens_d(group1, group2)
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>  expect_lt(result, 0)  # Negative when group1 &gt; group2
+<a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>})
+<a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>
+<a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a># Edge cases
+<a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>test_that(&quot;calculate_cohens_d handles minimum valid input&quot;, {
+<a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>  # n = 2 per group (minimum for SD calculation)
+<a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>  group1 &lt;- c(1, 2)
+<a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>  group2 &lt;- c(3, 4)
+<a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>
+<a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>  expect_no_error(calculate_cohens_d(group1, group2))
+<a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>})
+<a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>
+<a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>test_that(&quot;calculate_cohens_d handles unequal group sizes&quot;, {
+<a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>  group1 &lt;- c(1, 2, 3)
+<a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>  group2 &lt;- c(4, 5, 6, 7, 8)
+<a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>
+<a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a>  expect_no_error(calculate_cohens_d(group1, group2))
+<a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>})
+<a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a>
+<a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a># Error handling
+<a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>test_that(&quot;calculate_cohens_d errors on single observation&quot;, {
+<a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>  expect_error(
+<a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>    calculate_cohens_d(c(1), c(2, 3)),
+<a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>    &quot;at least 2 observations&quot;
+<a id="__codelineno-19-59" name="__codelineno-19-59" href="#__codelineno-19-59"></a>  )
+<a id="__codelineno-19-60" name="__codelineno-19-60" href="#__codelineno-19-60"></a>})
+<a id="__codelineno-19-61" name="__codelineno-19-61" href="#__codelineno-19-61"></a>
+<a id="__codelineno-19-62" name="__codelineno-19-62" href="#__codelineno-19-62"></a>test_that(&quot;calculate_cohens_d errors on empty input&quot;, {
+<a id="__codelineno-19-63" name="__codelineno-19-63" href="#__codelineno-19-63"></a>  expect_error(
+<a id="__codelineno-19-64" name="__codelineno-19-64" href="#__codelineno-19-64"></a>    calculate_cohens_d(numeric(0), c(1, 2)),
+<a id="__codelineno-19-65" name="__codelineno-19-65" href="#__codelineno-19-65"></a>    &quot;empty&quot;
+<a id="__codelineno-19-66" name="__codelineno-19-66" href="#__codelineno-19-66"></a>  )
+<a id="__codelineno-19-67" name="__codelineno-19-67" href="#__codelineno-19-67"></a>})
+<a id="__codelineno-19-68" name="__codelineno-19-68" href="#__codelineno-19-68"></a>
+<a id="__codelineno-19-69" name="__codelineno-19-69" href="#__codelineno-19-69"></a>test_that(&quot;calculate_cohens_d errors on non-numeric input&quot;, {
+<a id="__codelineno-19-70" name="__codelineno-19-70" href="#__codelineno-19-70"></a>  expect_error(
+<a id="__codelineno-19-71" name="__codelineno-19-71" href="#__codelineno-19-71"></a>    calculate_cohens_d(c(&quot;a&quot;, &quot;b&quot;), c(1, 2)),
+<a id="__codelineno-19-72" name="__codelineno-19-72" href="#__codelineno-19-72"></a>    &quot;numeric&quot;
+<a id="__codelineno-19-73" name="__codelineno-19-73" href="#__codelineno-19-73"></a>  )
+<a id="__codelineno-19-74" name="__codelineno-19-74" href="#__codelineno-19-74"></a>})
+<a id="__codelineno-19-75" name="__codelineno-19-75" href="#__codelineno-19-75"></a>
+<a id="__codelineno-19-76" name="__codelineno-19-76" href="#__codelineno-19-76"></a># Special values
+<a id="__codelineno-19-77" name="__codelineno-19-77" href="#__codelineno-19-77"></a>test_that(&quot;calculate_cohens_d handles NA values&quot;, {
+<a id="__codelineno-19-78" name="__codelineno-19-78" href="#__codelineno-19-78"></a>  group1 &lt;- c(1, 2, NA, 4)
+<a id="__codelineno-19-79" name="__codelineno-19-79" href="#__codelineno-19-79"></a>  group2 &lt;- c(5, 6, 7, 8)
+<a id="__codelineno-19-80" name="__codelineno-19-80" href="#__codelineno-19-80"></a>
+<a id="__codelineno-19-81" name="__codelineno-19-81" href="#__codelineno-19-81"></a>  # Default: na.rm = FALSE should error or return NA
+<a id="__codelineno-19-82" name="__codelineno-19-82" href="#__codelineno-19-82"></a>
+<a id="__codelineno-19-83" name="__codelineno-19-83" href="#__codelineno-19-83"></a>  expect_true(is.na(calculate_cohens_d(group1, group2)))
+<a id="__codelineno-19-84" name="__codelineno-19-84" href="#__codelineno-19-84"></a>
+<a id="__codelineno-19-85" name="__codelineno-19-85" href="#__codelineno-19-85"></a>  # With na.rm = TRUE
+<a id="__codelineno-19-86" name="__codelineno-19-86" href="#__codelineno-19-86"></a>  result &lt;- calculate_cohens_d(group1, group2, na.rm = TRUE)
+<a id="__codelineno-19-87" name="__codelineno-19-87" href="#__codelineno-19-87"></a>  expect_false(is.na(result))
+<a id="__codelineno-19-88" name="__codelineno-19-88" href="#__codelineno-19-88"></a>})
+<a id="__codelineno-19-89" name="__codelineno-19-89" href="#__codelineno-19-89"></a>
+<a id="__codelineno-19-90" name="__codelineno-19-90" href="#__codelineno-19-90"></a>test_that(&quot;calculate_cohens_d handles Inf values&quot;, {
+<a id="__codelineno-19-91" name="__codelineno-19-91" href="#__codelineno-19-91"></a>  group1 &lt;- c(1, 2, Inf)
+<a id="__codelineno-19-92" name="__codelineno-19-92" href="#__codelineno-19-92"></a>  group2 &lt;- c(4, 5, 6)
+<a id="__codelineno-19-93" name="__codelineno-19-93" href="#__codelineno-19-93"></a>
+<a id="__codelineno-19-94" name="__codelineno-19-94" href="#__codelineno-19-94"></a>  expect_warning(
+<a id="__codelineno-19-95" name="__codelineno-19-95" href="#__codelineno-19-95"></a>    calculate_cohens_d(group1, group2),
+<a id="__codelineno-19-96" name="__codelineno-19-96" href="#__codelineno-19-96"></a>    &quot;infinite&quot;
+<a id="__codelineno-19-97" name="__codelineno-19-97" href="#__codelineno-19-97"></a>  )
+<a id="__codelineno-19-98" name="__codelineno-19-98" href="#__codelineno-19-98"></a>})
+<a id="__codelineno-19-99" name="__codelineno-19-99" href="#__codelineno-19-99"></a>
+<a id="__codelineno-19-100" name="__codelineno-19-100" href="#__codelineno-19-100"></a>test_that(&quot;calculate_cohens_d handles zero variance&quot;, {
+<a id="__codelineno-19-101" name="__codelineno-19-101" href="#__codelineno-19-101"></a>  # All same values = SD of 0
+<a id="__codelineno-19-102" name="__codelineno-19-102" href="#__codelineno-19-102"></a>  group1 &lt;- c(5, 5, 5)
+<a id="__codelineno-19-103" name="__codelineno-19-103" href="#__codelineno-19-103"></a>  group2 &lt;- c(10, 10, 10)
+<a id="__codelineno-19-104" name="__codelineno-19-104" href="#__codelineno-19-104"></a>
+<a id="__codelineno-19-105" name="__codelineno-19-105" href="#__codelineno-19-105"></a>  expect_warning(
+<a id="__codelineno-19-106" name="__codelineno-19-106" href="#__codelineno-19-106"></a>    result &lt;- calculate_cohens_d(group1, group2),
+<a id="__codelineno-19-107" name="__codelineno-19-107" href="#__codelineno-19-107"></a>    &quot;zero variance&quot;
+<a id="__codelineno-19-108" name="__codelineno-19-108" href="#__codelineno-19-108"></a>  )
+<a id="__codelineno-19-109" name="__codelineno-19-109" href="#__codelineno-19-109"></a>  expect_equal(result, Inf)  # Or handle differently
+<a id="__codelineno-19-110" name="__codelineno-19-110" href="#__codelineno-19-110"></a>})
+</code></pre></div></p>
 <hr />
 <h2 id="codedemo">/code/demo</h2>
 <p>Create code demonstrations and examples.</p>
@@ -2252,7 +2557,7 @@
 - Conference presentations
 - Documentation examples</p>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/code/demo &quot;Create a demo of linear regression in R for beginners&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>/code/demo &quot;Create a demo of linear regression in R for beginners&quot;
 </code></pre></div></p>
 <p><strong>MCP Integration:</strong> <code>r_execute</code>, <code>r_plot</code> tools</p>
 <p><strong>Demo types:</strong>
@@ -2263,35 +2568,35 @@
 <hr />
 <h2 id="workflows">Workflows</h2>
 <h3 id="r-package-development">R Package Development</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>1. /code/test-gen &quot;write tests for new function&quot;
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>2. /code/rpkg-check &quot;run package checks&quot;
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>3. /code/docs-check &quot;validate documentation&quot;
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>4. /code/release &quot;prepare release&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>1. /code/test-gen &quot;write tests for new function&quot;
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>2. /code/rpkg-check &quot;run package checks&quot;
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>3. /code/docs-check &quot;validate documentation&quot;
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>4. /code/release &quot;prepare release&quot;
 </code></pre></div>
 <h3 id="bug-fixing">Bug Fixing</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1. /code/debug &quot;diagnose the issue&quot;
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2. /code/test-gen &quot;add regression test&quot;
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>3. /code/rpkg-check &quot;verify fix&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>1. /code/debug &quot;diagnose the issue&quot;
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>2. /code/test-gen &quot;add regression test&quot;
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>3. /code/rpkg-check &quot;verify fix&quot;
 </code></pre></div>
 <h3 id="code-improvement">Code Improvement</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1. /code/refactor &quot;improve code structure&quot;
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2. /code/test-gen &quot;ensure tests cover changes&quot;
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3. /code/demo &quot;update examples&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>1. /code/refactor &quot;improve code structure&quot;
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>2. /code/test-gen &quot;ensure tests cover changes&quot;
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>3. /code/demo &quot;update examples&quot;
 </code></pre></div>
 <hr />
 <h2 id="shell-command-docs-check">Shell Command: docs-check</h2>
 <p>The <code>/code/docs-check</code> command has a corresponding shell command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Quick validation</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docs-check<span class="w"> </span>--quick<span class="w"> </span>--skip-deploy
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Full check with deployment</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>docs-check
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># Options</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>docs-check<span class="w"> </span>--help
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>docs-check<span class="w"> </span>--verbose
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>docs-check<span class="w"> </span>--external<span class="w">  </span><span class="c1"># Check external links</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>docs-check<span class="w"> </span>--strict<span class="w">    </span><span class="c1"># Strict build mode</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Quick validation</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>docs-check<span class="w"> </span>--quick<span class="w"> </span>--skip-deploy
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># Full check with deployment</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>docs-check
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1"># Options</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>docs-check<span class="w"> </span>--help
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>docs-check<span class="w"> </span>--verbose
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>docs-check<span class="w"> </span>--external<span class="w">  </span><span class="c1"># Check external links</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>docs-check<span class="w"> </span>--strict<span class="w">    </span><span class="c1"># Strict build mode</span>
 </code></pre></div>
 
 

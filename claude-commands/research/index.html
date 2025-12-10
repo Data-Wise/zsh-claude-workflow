@@ -927,38 +927,77 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#researchmethod-scout" class="md-nav__link">
+    <nav class="md-nav" aria-label="/research/sim-design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-mediation-method-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /research/method-scout
+        Complete Example: Mediation Method Comparison
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#researchhypothesis" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#design-factors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /research/hypothesis
+        Design Factors
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#researchanalysis-plan" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#performance-measures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /research/analysis-plan
+        Performance Measures
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replications-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replications &amp; Precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computational-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computational Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-implementation-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R Implementation Skeleton
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1944,38 +1983,77 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#researchmethod-scout" class="md-nav__link">
+    <nav class="md-nav" aria-label="/research/sim-design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-example-mediation-method-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /research/method-scout
+        Complete Example: Mediation Method Comparison
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#researchhypothesis" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#design-factors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /research/hypothesis
+        Design Factors
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#researchanalysis-plan" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#performance-measures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /research/analysis-plan
+        Performance Measures
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replications-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replications &amp; Precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computational-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computational Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r-implementation-skeleton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        R Implementation Skeleton
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2133,7 +2211,7 @@
 <p><strong>MCP Integration:</strong> <code>publication-strategist</code> skill</p>
 <hr />
 <h2 id="researchsim-design">/research/sim-design</h2>
-<p>Design Monte Carlo simulation studies.</p>
+<p>Design Monte Carlo simulation studies following best practices (Morris et al., 2019).</p>
 <p><strong>Use for:</strong>
 - Power analysis simulations
 - Method comparison studies
@@ -2143,53 +2221,252 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/research/sim-design &quot;Compare bootstrap vs Sobel test for mediation with N=100,200,500&quot;
 </code></pre></div></p>
 <p><strong>MCP Integration:</strong> <code>simulation-architect</code> skill, <code>r_execute</code> tool</p>
-<hr />
-<h2 id="researchmethod-scout">/research/method-scout</h2>
-<p>Find statistical methods across disciplines.</p>
-<p><strong>Use for:</strong>
-- Discovering new methods
-- Cross-disciplinary solutions
-- Comparing alternative approaches
-- Finding seminal papers</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/research/method-scout &quot;Methods for causal mediation with binary outcomes&quot;
+<h3 id="complete-example-mediation-method-comparison">Complete Example: Mediation Method Comparison</h3>
+<p><strong>Request:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/research/sim-design &quot;Design a simulation comparing percentile bootstrap,
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>bias-corrected bootstrap, and Monte Carlo CI for simple mediation.
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Vary sample size (100, 250, 500) and effect size (small: a=b=0.14,
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>medium: a=b=0.39). Focus on Type I error and power.&quot;
 </code></pre></div></p>
-<p><strong>MCP Integration:</strong> <code>cross-disciplinary-ideation</code>, <code>method-transfer</code> skills</p>
-<hr />
-<h2 id="researchhypothesis">/research/hypothesis</h2>
-<p>Formulate clear, testable hypotheses.</p>
-<p><strong>Use for:</strong>
-- Research question refinement
-- H0/H1 specification
-- Directional vs. non-directional
-- Pre-registration preparation</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/research/hypothesis &quot;Social support affects depression through coping mechanisms&quot;
-</code></pre></div></p>
-<hr />
-<h2 id="researchanalysis-plan">/research/analysis-plan</h2>
-<p>Create statistical analysis plans for pre-registration.</p>
-<p><strong>Use for:</strong>
-- OSF pre-registration
-- Grant proposals
-- IRB submissions
-- Registered reports</p>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>/research/analysis-plan &quot;Create SAP for a 3-wave longitudinal mediation study&quot;
+<p><strong>Generated Design:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gu">## Simulation Study: Bootstrap Methods for Mediation</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="gu">### Aims</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Compare three CI methods for the indirect effect (ab):
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">1.</span> Percentile bootstrap (PERC)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">2.</span> Bias-corrected bootstrap (BC)
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">3.</span> Monte Carlo CI (MC)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="gu">### Data-Generating Process</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>```r
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="gh"># Simple mediation: X → M → Y</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>generate_data &lt;- function(n, a, b, c_prime = 0) {
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  X &lt;- rnorm(n)
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  M &lt;- a * X + rnorm(n)
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  Y &lt;- b * M + c_prime * X + rnorm(n)
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>  data.frame(X = X, M = M, Y = Y)
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>}
+</code></pre></div>
+<h3 id="design-factors">Design Factors</h3>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Levels</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample size (N)</td>
+<td>3</td>
+<td>100, 250, 500</td>
+</tr>
+<tr>
+<td>Effect size</td>
+<td>2</td>
+<td>Small (a=b=0.14), Medium (a=b=0.39)</td>
+</tr>
+<tr>
+<td>True effect</td>
+<td>2</td>
+<td>Null (a=0 OR b=0), Non-null</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total cells:</strong> 3 × 2 × 2 = 12</p>
+<h3 id="performance-measures">Performance Measures</h3>
+<ul>
+<li><strong>Type I error rate</strong>: Target α = 0.05, acceptable [0.025, 0.075]</li>
+<li><strong>Power</strong>: P(reject H₀ | H₁ true)</li>
+<li><strong>CI coverage</strong>: Target 95%, acceptable [92.5%, 97.5%]</li>
+<li><strong>CI width</strong>: Average width across replications</li>
+</ul>
+<h3 id="replications-precision">Replications &amp; Precision</h3>
+<ul>
+<li>R = 2,000 replications per cell</li>
+<li>Bootstrap samples: B = 5,000 per replication</li>
+<li>MCSE for Type I error at α=0.05: √(0.05×0.95/2000) = 0.005</li>
+</ul>
+<h3 id="computational-requirements">Computational Requirements</h3>
+<ul>
+<li>Estimated time: ~4 hours on 8-core machine</li>
+<li>Parallel execution recommended</li>
+<li>Checkpoint every 500 replications</li>
+</ul>
+<h3 id="r-implementation-skeleton">R Implementation Skeleton</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nf">library</span><span class="p">(</span><span class="n">lavaan</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nf">library</span><span class="p">(</span><span class="n">boot</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">run_simulation</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2000</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="n">results</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">replicate</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">dat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">generate_data</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1"># Fit model</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;m ~ a*x; y ~ b*m + c*x&#39;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="n">fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sem</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">dat</span><span class="p">)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="c1"># Get indirect effect CIs</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="n">perc_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">bootstrap_mediation</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;perc&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="n">bc_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">bootstrap_mediation</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bca&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="n">mc_ci</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">monte_carlo_ci</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="n">perc_ci</span><span class="p">,</span><span class="w"> </span><span class="n">bc_ci</span><span class="p">,</span><span class="w"> </span><span class="n">mc_ci</span><span class="p">)</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="n">simplify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">  </span><span class="nf">summarize_results</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="n">true_ab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>---
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>## /research/method-scout
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Find statistical methods across disciplines.
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>**Use for:**
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>- Discovering new methods
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>- Cross-disciplinary solutions
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>- Comparing alternative approaches
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>- Finding seminal papers
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>**Example:**
+</code></pre></div>
+/research/method-scout "Methods for causal mediation with binary outcomes"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>**MCP Integration:** `cross-disciplinary-ideation`, `method-transfer` skills
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>---
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>## /research/hypothesis
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>Formulate clear, testable hypotheses.
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>**Use for:**
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>- Research question refinement
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>- H0/H1 specification
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>- Directional vs. non-directional
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>- Pre-registration preparation
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>**Example:**
+</code></pre></div>
+/research/hypothesis "Social support affects depression through coping mechanisms"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>---
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>## /research/analysis-plan
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Create statistical analysis plans for pre-registration.
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>**Use for:**
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>- OSF pre-registration
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>- Grant proposals
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>- IRB submissions
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>- Registered reports
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>**Example:**
+</code></pre></div>
+/research/analysis-plan "Create SAP for a 3-wave longitudinal mediation study"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>### Complete Example: OSF Pre-Registration
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>**Request:**
+</code></pre></div>
+/research/analysis-plan "Create an OSF pre-registration for a study examining
+whether social support reduces depression through improved coping.
+3 time points, 6 months apart, expected N=300."
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>**Generated Plan:**
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>```markdown
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a># Pre-Registration: Social Support, Coping, and Depression
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>## Study Information
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>**Title**: Longitudinal Mediation of Social Support on Depression Through Coping
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>**Authors**: [Your name]
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>**Date**: 2025-01-15
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>**OSF Project**: [Link]
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>## Hypotheses
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>**H1 (Primary)**: Social support at T1 predicts lower depression at T3,
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>mediated by adaptive coping at T2.
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>- H₀: ab = 0 (no indirect effect)
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>- H₁: ab &lt; 0 (negative indirect effect)
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>**H2 (Secondary)**: The indirect effect is stronger for participants with
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>higher baseline stress.
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>## Design
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>- **Type**: Longitudinal observational, 3 waves
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>- **Timing**: Baseline (T1), 6 months (T2), 12 months (T3)
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>- **Setting**: Online survey panel
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>## Sample
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>- **Target N**: 300 (accounting for 20% attrition = 360 at T1)
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>- **Power**: 80% power to detect medium indirect effect (ab = -0.10)
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>  based on Monte Carlo simulation with 10,000 replications
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>- **Inclusion**: Adults 18+, English-speaking, no current treatment
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>## Measures
+<a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>
+<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>| Variable | Measure | Timepoints | Reliability |
+<a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a>|----------|---------|------------|-------------|
+<a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a>| Social Support (X) | MSPSS | T1 | α &gt; .85 |
+<a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a>| Coping (M) | Brief COPE | T2 | α &gt; .80 |
+<a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a>| Depression (Y) | PHQ-9 | T1, T3 | α &gt; .85 |
+<a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a>| Stress (W) | PSS-10 | T1 | α &gt; .80 |
+<a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a>
+<a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a>## Analysis Plan
+<a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a>
+<a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>### Primary Analysis
+<a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a>
+<a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a>**Model**: Longitudinal mediation with covariates
+</code></pre></div>
+M_T2 ~ a<em>X_T1 + c1</em>Y_T1 + covariates
+Y_T3 ~ b<em>M_T2 + c_prime</em>X_T1 + c2*Y_T1 + covariates
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>**Indirect effect**: ab with 95% Monte Carlo CI (20,000 draws)
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>**Software**: R 4.3+, lavaan 0.6-17
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>### Missing Data
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>- **Expected**: 15-20% by T3
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>- **Assumption**: MAR (Missing at Random)
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>- **Method**: FIML (Full Information Maximum Likelihood)
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>- **Sensitivity**: Pattern-mixture models if &gt;25% missing
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>### Decision Rules
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>| Outcome | Criterion | Interpretation |
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>|---------|-----------|----------------|
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>| Support H1 | 95% CI excludes 0, ab &lt; 0 | Mediation supported |
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>| Reject H1 | 95% CI includes 0 | No evidence of mediation |
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>| Inconclusive | ab &lt; 0 but CI wide | Underpowered |
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>### Sensitivity Analyses
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>1. **Alternative mediator timing**: Test M at T1 and T3
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>2. **Reverse causation**: Test Y_T1 → M_T2 → X_T3
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>3. **Unmeasured confounding**: Sensitivity analysis (Rho = 0.1, 0.2, 0.3)
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>## Deviations
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>Any deviations from this plan will be:
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>1. Documented in supplementary materials
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>2. Clearly labeled as exploratory
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>3. Justified with rationale
 </code></pre></div></p>
 <hr />
 <h2 id="workflows">Workflows</h2>
 <h3 id="literature-review-workflow">Literature Review Workflow</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>1. /research/lit-gap &quot;your topic&quot;
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>2. /research/cite &quot;add key references&quot;
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>3. /research/manuscript &quot;write introduction&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>1. /research/lit-gap &quot;your topic&quot;
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>2. /research/cite &quot;add key references&quot;
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>3. /research/manuscript &quot;write introduction&quot;
 </code></pre></div>
 <h3 id="publication-workflow">Publication Workflow</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>1. /research/hypothesis &quot;define hypotheses&quot;
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>2. /research/analysis-plan &quot;create pre-registration&quot;
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>3. /research/sim-design &quot;run power analysis&quot;
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>4. /research/manuscript &quot;write methods&quot;
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>5. /research/revision &quot;respond to reviewers&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>1. /research/hypothesis &quot;define hypotheses&quot;
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>2. /research/analysis-plan &quot;create pre-registration&quot;
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>3. /research/sim-design &quot;run power analysis&quot;
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>4. /research/manuscript &quot;write methods&quot;
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>5. /research/revision &quot;respond to reviewers&quot;
 </code></pre></div>
 
 
