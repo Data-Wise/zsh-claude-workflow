@@ -70,9 +70,16 @@ nav:
   - Getting Started:
     - Installation: getting-started/installation.md
     - Quick Start: getting-started/quickstart.md
-  - Commands:
+  - Shell Commands:
     - Overview: commands/overview.md
     - Reference: commands/reference.md
+  - Claude Commands:
+    - Overview: claude-commands/index.md
+    - Research: claude-commands/research.md
+    - Teaching: claude-commands/teach.md
+    - Math: claude-commands/math.md
+    - Code: claude-commands/code.md
+    - Writing: claude-commands/write.md
   - User Guide:
     - Project Types: guide/project-types.md
     - Templates: guide/templates.md
