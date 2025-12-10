@@ -44,6 +44,135 @@ Create comprehensive exams using examark format for Canvas LMS.
 - Fill-in-blank
 - Numerical
 
+### Complete Example: Statistics Midterm
+
+**Request:**
+```
+/teach/exam "Create a 20-question midterm on hypothesis testing for
+undergraduate statistics. Include 8 MC, 4 TF, 4 short answer, and
+4 computation problems. Cover: null/alternative hypotheses, Type I/II
+errors, p-values, t-tests, and confidence intervals."
+```
+
+**Generated Exam (examark format):**
+
+~~~markdown
+---
+title: "STAT 101 Midterm Exam"
+course: "Introduction to Statistics"
+date: "2025-03-15"
+time_limit: "75 minutes"
+points: 100
+instructions: |
+  - Show all work for computation problems
+  - No calculators with programming capability
+  - Formula sheet provided
+---
+
+## Part 1: Multiple Choice (24 points, 3 each)
+
+### Question 1
+The null hypothesis typically represents:
+
+- [ ] The researcher's prediction
+- [x] No effect or no difference
+- [ ] The alternative explanation
+- [ ] A significant result
+
+### Question 2
+A Type I error occurs when we:
+
+- [ ] Fail to reject a false null hypothesis
+- [x] Reject a true null hypothesis
+- [ ] Accept a true alternative hypothesis
+- [ ] Fail to reject a true null hypothesis
+
+### Question 3
+If p = 0.03 and α = 0.05, we should:
+
+- [x] Reject the null hypothesis
+- [ ] Fail to reject the null hypothesis
+- [ ] Accept the null hypothesis
+- [ ] Increase the sample size
+
+### Question 4
+A 95% confidence interval means:
+
+- [ ] 95% of sample means fall in this interval
+- [ ] There is a 95% probability the true mean is in this interval
+- [x] 95% of such intervals contain the true population parameter
+- [ ] The sample mean is 95% accurate
+
+[Questions 5-8 continue with similar format...]
+
+## Part 2: True/False (12 points, 3 each)
+
+### Question 9
+A smaller p-value provides stronger evidence against the null hypothesis.
+
+- [x] True
+- [ ] False
+
+### Question 10
+Increasing sample size always decreases the p-value.
+
+- [ ] True
+- [x] False
+
+[Questions 11-12 continue...]
+
+## Part 3: Short Answer (24 points, 6 each)
+
+### Question 13
+In your own words, explain the difference between a Type I and
+Type II error. Give a real-world example of each.
+
+> [essay]
+> Rubric: Type I definition (2pts), Type II definition (2pts),
+> appropriate examples (2pts)
+
+### Question 14
+Why is it incorrect to say "we accept the null hypothesis"
+when p > α? What should we say instead?
+
+> [essay]
+> Rubric: Explains cannot prove null (2pts), correct terminology (2pts),
+> reasoning about evidence (2pts)
+
+[Questions 15-16 continue...]
+
+## Part 4: Computation (40 points, 10 each)
+
+### Question 17
+A researcher claims the average study time is more than 15 hours/week.
+A sample of n=25 students shows x̄=17.2 hours, s=4.5 hours.
+
+a) State H₀ and H₁ (2 pts)
+b) Calculate the test statistic (3 pts)
+c) Find the p-value using the t-table (2 pts)
+d) State your conclusion at α=0.05 (3 pts)
+
+> [essay]
+> Answer:
+> a) H₀: μ ≤ 15, H₁: μ > 15
+> b) t = (17.2-15)/(4.5/√25) = 2.44
+> c) df=24, p ≈ 0.011 (one-tailed)
+> d) Reject H₀; evidence supports claim
+
+[Questions 18-20 continue with similar computation problems...]
+~~~
+
+**Bloom's Taxonomy Distribution:**
+- Remember/Understand: Questions 1-4, 9-10 (30%)
+- Apply: Questions 5-8, 17-18 (40%)
+- Analyze: Questions 11-12, 13-16, 19-20 (30%)
+
+**Canvas Export:**
+```bash
+examark midterm.md -o midterm.qti.zip
+# Import via Canvas > Settings > Import Course Content
+```
+
 ---
 
 ## /teach/quiz
