@@ -32,6 +32,7 @@ Provide seamless integration between zsh workflows and Claude Code by:
 | **CLI Tool Aliases** 🆕 | 55+ aliases for Claude Code & Gemini CLI | ✅ v1.3 |
 | **Documentation Site** | MkDocs with Material theme + GitHub Pages | ✅ Complete |
 | **GitHub Integration** | Issue/PR templates, workflows, metadata | ✅ Complete |
+| **Project Tracking** 🆕 | Roadmap progress with `plan-status` command | ✅ v1.4.1 |
 
 ---
 
@@ -51,6 +52,12 @@ cd ~/projects/dev-tools/zsh-claude-workflow
 
 # Install/update
 ./install.sh                          # Install or update
+
+# NEW v1.4.1: Project tracking
+./commands/plan-status                # Overall roadmap
+./commands/plan-status v1.5           # v1.5 progress
+./commands/plan-status --gantt        # Visual timeline
+./commands/plan-status --update v1.5 pj-index in_progress  # Update status
 
 # Documentation
 mkdocs serve                          # Preview docs locally (http://127.0.0.1:8000)
@@ -750,7 +757,29 @@ print_header "Section Header"
 
 ## Version History
 
-### v1.4 (2025-12-09) - Current Release
+### v1.4.1 (2025-12-09) - Current Release
+- ✅ **Comprehensive Documentation Examples**
+  - Added complete examples to all 5 command categories
+  - research/: sim-design, analysis-plan examples
+  - teach/: exam example with examark format
+  - math/: proof, derive, notation, example demonstrations
+  - code/: rpkg-check, debug, test-gen examples
+  - write/: abstract, cover-letter, edit examples
+  - Total: +1,045 lines of documentation
+- ✅ **Project Tracking System**
+  - New `commands/plan-status` - view/update roadmap progress
+  - New `plans/ROADMAP.md` - comprehensive project roadmap
+  - New `plans/tracking/*.yml` - YAML-based progress tracking
+  - Features: progress bars, Gantt chart, milestone tracking
+  - Use: `plan-status`, `plan-status v1.5`, `plan-status --gantt`
+- ✅ **Lean Scope Planning**
+  - v1.5 reduced: 10→6 high-value features
+  - v1.6 reduced: 7→4 high-value features
+  - v1.7 marked as optional/deferred
+- 📦 Shell Commands: 11 total (1 new: plan-status)
+- 📦 Release: https://github.com/Data-Wise/zsh-claude-workflow/releases/tag/v1.4.1
+
+### v1.4 (2025-12-09)
 - ✅ **Claude Commands Redesign Complete**
   - 5-category hybrid structure: research/, teach/, math/, code/, write/
   - 17 commands implemented (9 migrated + 8 new)
@@ -864,22 +893,27 @@ print_header "Section Header"
 | code/ | 8 | docs-check, ecosystem-health, rpkg-check, release, debug, refactor, test-gen, demo |
 | write/ | 5 | abstract, cover-letter, draft, response, edit |
 
-**v1.5 - Multi-Project Operations (Planned)**
-- Bulk operations across project sets
-- Project environment management
-- Smart file templates with detection
-- File watching and auto-actions
+**v1.5 - Multi-Project Operations (Lean Scope - 6 features)**
+Target: 2026-01 | Effort: ~6 days
+- `pj-index` - Project indexing system
+- `pj-status` - Dashboard showing all projects at once
+- `pj-run` - Bulk operations across projects
+- `pj-search` - Global code search
+- `branch-sync` - Sync dev↔main branches
+- `pj` - Quick jump to project
 
-**v1.6 - Storage & Productivity (Planned)**
-- Cloud/local sync optimization
-- Session management and restoration
-- Recent files navigation
-- Smart opener with file type detection
+**v1.6 - Workflow Automation (Lean Scope - 4 features)**
+Target: 2026-02 | Effort: ~5.5 days
+- `session` - Save/restore session state for Claude continuity
+- `pr-cycle` - PR creation to merge automation
+- `release-create` - Full release workflow
+- `plan-status` - ✅ Done (progress tracking)
 
-**Original Ideas:**
-- Multi-storage navigator
-- Ecosystem manager for package suites
-- Session management
+**v1.7 - Advanced Features (Optional/Deferred)**
+- Review after v1.6, implement only if clear need
+- Most features duplicate existing tools
+
+**Tracking:** Use `plan-status` command or see `plans/ROADMAP.md`
 
 ---
 
