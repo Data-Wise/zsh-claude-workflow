@@ -1,0 +1,266 @@
+#!/usr/bin/env zsh
+# research - Research project management command
+
+# Get script directory
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+# Source libraries
+source "$LIB_DIR/core.sh"
+source "$LIB_DIR/research-manager.sh"
+
+# ============================================
+# MAIN COMMAND
+# ============================================
+
+main() {
+    local subcommand="${1:-dashboard}"
+    shift || true
+
+    case "$subcommand" in
+        dashboard|d)
+            display_research_dashboard
+            ;;
+
+        status|s)
+            display_project_status "$@"
+            ;;
+
+        list|ls)
+            # Simple list of all projects
+            local projects=("${(@f)$(find_research_projects)}")
+            if [[ ${#projects[@]} -eq 0 ]]; then
+                print_warning "No research projects found"
+                return 1
+            fi
+
+            print_header "Research Projects (${#projects[@]} total)"
+            for project in "${projects[@]}"; do
+                local basename="${project:t}"
+                local location=$(get_project_location "$project")
+                local proj_status=$(get_project_status "$project")
+                local icon=$(get_status_icon "$proj_status")
+                local loc_icon=$(get_location_icon "$location")
+
+                echo "  $icon $basename $loc_icon"
+            done
+            ;;
+
+        locations|loc)
+            # Show research locations
+            print_header "Research Locations"
+            local locations=($(get_research_locations))
+
+            if [[ ${#locations[@]} -eq 0 ]]; then
+                print_warning "No research directories found"
+                return 1
+            fi
+
+            for loc in "${locations[@]}"; do
+                local count=$(find "$loc" -maxdepth 1 -type d ! -path "$loc" 2>/dev/null | wc -l | tr -d ' ')
+                echo "  📁 $loc"
+                echo "     Projects: $count"
+                echo
+            done
+            ;;
+
+        work|w)
+            # Start working on a project
+            local project_name="$1"
+
+            if [[ -z "$project_name" ]]; then
+                print_error "Project name required"
+                echo "Usage: research work <project-name>"
+                return 1
+            fi
+
+            # Find project
+            local projects=("${(@f)$(find_research_projects)}")
+            local project_dir=""
+
+            for proj in "${projects[@]}"; do
+                if [[ "${proj:t}" == "$project_name" ]]; then
+                    project_dir="$proj"
+                    break
+                fi
+            done
+
+            if [[ -z "$project_dir" ]]; then
+                print_error "Project not found: $project_name"
+                return 1
+            fi
+
+            print_success "Opening project: $project_name"
+            echo "  Location: $project_dir"
+            echo
+
+            # Show next actions if available
+            if [[ -f "$project_dir/_next.md" ]]; then
+                echo "${fg[cyan]}Next Actions:${reset_color}"
+                cat "$project_dir/_next.md" | head -10
+                echo
+            fi
+
+            # Change to directory
+            cd "$project_dir"
+
+            # Open in editor if EDITOR is set
+            if [[ -n "$EDITOR" ]]; then
+                print_info "Opening in $EDITOR..."
+                $EDITOR .
+            else
+                print_info "Set \$EDITOR to auto-open projects"
+                print_info "Current directory: $PWD"
+            fi
+            ;;
+
+        migrate|m)
+            # Migration helper
+            print_header "Research Migration Assistant"
+            echo
+            echo "This will help you migrate research from scattered locations to ~/research/"
+            echo
+            echo "${fg[yellow]}Step 1: Create structure${reset_color}"
+            echo "  mkdir -p ~/research/{active,planning,in-review,published,archive}"
+            echo
+            echo "${fg[yellow]}Step 2: Identify active projects${reset_color}"
+            echo "  Run: research dashboard"
+            echo "  Look for projects modified < 2 weeks"
+            echo
+            echo "${fg[yellow]}Step 3: Migrate top 3 active projects${reset_color}"
+            echo "  Example:"
+            echo "    mv ~/Dropbox/Research/project-name ~/research/active/"
+            echo
+            echo "${fg[yellow]}Step 4: Create _next.md for each${reset_color}"
+            echo "  echo '# Next Actions\n\n- [ ] ...' > ~/research/active/project-name/_next.md"
+            echo
+            echo "${fg[blue]}💡 See full migration guide:${reset_color}"
+            echo "   plans/SCATTERED_RESEARCH_CRISIS.md"
+            echo
+
+            # Ask if they want to create structure now
+            read "response?Create ~/research/ structure now? (y/n) "
+            if [[ "$response" =~ ^[Yy]$ ]]; then
+                mkdir -p ~/research/{active,planning,in-review,published,archive,collaborations}
+                print_success "Created ~/research/ structure"
+
+                # Create dashboard template
+                cat > ~/research/_dashboard.md << 'EOF'
+# Research Dashboard
+
+Last updated: $(date +%Y-%m-%d)
+
+## Active Projects (Max 3)
+
+### 1. [Project Name]
+**Status:** In progress
+**Next:** [Next action]
+**Location:** ~/research/active/project-name/
+**Deadline:** [If any]
+
+### 2. [Project Name]
+**Status:** [Status]
+**Next:** [Next action]
+
+### 3. [Project Name]
+**Status:** [Status]
+**Next:** [Next action]
+
+## In Review
+
+- [Paper name] - Submitted to [Journal] on [Date]
+
+## Planning (Future)
+
+- [Project idea 1]
+- [Project idea 2]
+
+## Blocked/Waiting
+
+- [Project] - Waiting for [reason]
+EOF
+                print_success "Created ~/research/_dashboard.md template"
+                echo
+                print_info "Next: Edit ~/research/_dashboard.md with your top 3 projects"
+            fi
+            ;;
+
+        help|h|-h|--help)
+            show_help
+            ;;
+
+        *)
+            print_error "Unknown subcommand: $subcommand"
+            show_help
+            return 1
+            ;;
+    esac
+}
+
+# ============================================
+# HELP
+# ============================================
+
+show_help() {
+    cat << 'EOF'
+research - Research project management
+
+USAGE:
+  research [subcommand] [options]
+
+SUBCOMMANDS:
+  dashboard, d          Show research dashboard (default)
+  status, s <project>   Show detailed project status
+  list, ls              List all research projects
+  locations, loc        Show research locations
+  work, w <project>     Start working on a project
+  migrate, m            Migration assistant for consolidating research
+  help, h               Show this help
+
+EXAMPLES:
+  # Show dashboard of all research
+  research dashboard
+  research d
+
+  # Show detailed status of a project
+  research status collider
+  research s pmed
+
+  # List all projects
+  research list
+  research ls
+
+  # Show where research is located
+  research locations
+
+  # Start working on a project
+  research work product-of-three
+  research w collider
+
+  # Begin migration to ~/research/
+  research migrate
+
+ORGANIZATION:
+  Recommended structure: ~/research/
+    active/         - Current work (max 3 projects)
+    planning/       - Future projects
+    in-review/      - Submitted papers
+    published/      - Completed & published
+    archive/        - Old/inactive
+
+  Each active project should have:
+    _next.md        - Clear next actions
+    manuscript/     - Paper files
+    simulations/    - R scripts
+    literature/     - Notes
+    data/           - Data files
+
+SEE ALSO:
+  plans/SCATTERED_RESEARCH_CRISIS.md  - Full migration guide
+  plans/ADHD_OPTIMIZED_RESTRUCTURE.md - Complete restructure plan
+
+EOF
+}
+
+# Run main
+main "$@"
