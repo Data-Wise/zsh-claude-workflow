@@ -757,7 +757,33 @@ print_header "Section Header"
 
 ## Version History
 
-### v1.4.1 (2025-12-09) - Current Release
+### v1.4.2 (2025-12-11) - Current Development
+- ✅ **R Package Recovery**
+  - ALL 6 packages located in Google Drive Trash
+  - Packages: medfit, probmed, rmediation, medrobust, medsim, mediationverse
+  - Recovery in progress (handed off to Claude Desktop)
+  - See: plans/R_PACKAGE_RECOVERY_PLAN.md
+- ✅ **File System Audit Complete**
+  - Comprehensive audit of research, teaching, R packages, Obsidian
+  - Research scattered across 4 locations (925 MB)
+  - Teaching duplicated across 3 clouds (6.2 GB)
+  - Home directory clean (excellent!)
+  - See: plans/FILE_SYSTEM_AUDIT_2025-12-11.md
+- ✅ **Research Management Command** (uncommitted)
+  - New command: `research` with dashboard, status, list, work, migrate
+  - New library: lib/research-manager.sh (510 lines)
+  - Multi-location project detection (Dropbox, Google Drive, OneDrive, local)
+  - ADHD-optimized with "top 3 active" focus
+  - Ready to commit after recovery complete
+- ✅ **Claude Desktop Delegation Strategy**
+  - Comprehensive strategy for delegating file operations to Desktop
+  - Full handoff plan with templates
+  - See: plans/CLAUDE_DESKTOP_DELEGATION_STRATEGY.md
+- 📦 Shell Commands: 11 total (1 new: research - uncommitted)
+- 📦 Libraries: 8 total (1 new: research-manager.sh - uncommitted)
+- 📦 Planning Docs: 27 total (4 new)
+
+### v1.4.1 (2025-12-09)
 - ✅ **Comprehensive Documentation Examples**
   - Added complete examples to all 5 command categories
   - research/: sim-design, analysis-plan examples
