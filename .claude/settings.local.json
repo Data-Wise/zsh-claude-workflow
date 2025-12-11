@@ -138,7 +138,11 @@
       "WebFetch(domain:data-wise.github.io)",
       "Bash(env -u GITHUB_TOKEN gh pr create:*)",
       "Bash(env -u GITHUB_TOKEN gh pr merge:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(./commands/docs-check:*)",
+      "Bash(awk:*)",
+      "Bash(./commands/plan-status:*)",
+      "Bash(brew install:*)"
     ],
     "deny": [],
     "ask": []
