@@ -1,10 +1,10 @@
 project: zsh-claude-workflow
 status: stable
 priority: P1
-progress: 92
+progress: 98
 version: 1.5.0
 updated: 2025-12-14
-Next: Consider multi-project operations
+Next: Test new commands after Claude Code restart
 
 # What it does
 Shell automation for Claude Code - commands, aliases, context management.
@@ -13,9 +13,27 @@ Shell automation for Claude Code - commands, aliases, context management.
 # Current state
 - Core commands: working
 - Documentation: deployed
-- Skills: 17 implemented
-- Audit commands: 4 new (git-audit, file-audit, activity-heat, morning-audit)
+- Skills: 38 total (17 MCP + 4 Anthropic docs + local)
+- Audit commands: 4 (git-audit, file-audit, activity-heat, morning-audit)
+- ADHD Proposal: ✅ Implemented (Phases 1-4 complete)
+
+# Just Completed (2025-12-14)
+- Phase 1: Cleanup (deleted backup, created archive, SKILLS-INDEX.md)
+- Phase 2: Added 4 Anthropic document skills (pdf, docx, xlsx, pptx)
+- Phase 3: Migrated Google Drive skills (no more sync dependencies)
+- Phase 4: Created 16 new commands:
+  - /hub (discovery)
+  - 6 ADHD workflow: /recap, /next, /focus, /done, /brain-dump, /stuck
+  - 5 site commands: /site-init, /site-build, /site-preview, /site-deploy, /site-check
+  - 4 github commands: /gh-pages, /gh-actions, /gh-release, /ci-status
+
+# Next Steps
+1. Restart Claude Code to load new commands
+2. Test: /hub, /recap, /next
+3. Optional: Phase 5-6 (retire zsh-claude-workflow, consolidate)
 
 # Links
 repo: https://github.com/Data-Wise/zsh-claude-workflow
 docs: https://data-wise.github.io/zsh-claude-workflow/
+proposal: plans/ADHD-COMMANDS-SKILLS-PROPOSAL-2025-12-14.md
+test-guide: ~/.claude/commands/TEST-NEW-COMMANDS.md

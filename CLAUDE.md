@@ -1123,9 +1123,9 @@ The documentation is organized into:
 
 ---
 
-**Last Updated**: 2025-12-09
-**Current Version**: v1.4 (Claude Commands + docs-check)
-**Project Status**: Production Ready
+**Last Updated**: 2025-12-14
+**Current Version**: v1.5.0 (ADHD Ecosystem Proposal)
+**Project Status**: Production Ready + Restructure Proposed
 **Documentation**: Complete (Web + MkDocs)
 **Live Docs**: https://data-wise.github.io/zsh-claude-workflow/
 **Branch Workflow**: dev (development) → main (production)
@@ -1195,5 +1195,97 @@ See **[ZDOTDIR Optimization Guide](docs/optimization/zdotdir-setup.md)** for com
    - NEW: `antidote update`
 
 See full documentation in [docs/optimization/](docs/optimization/) for details.
+
+---
+
+## ADHD-Friendly Ecosystem Restructure (v6 Proposal)
+
+**Proposal Date:** 2025-12-14
+**Proposal File:** `plans/ADHD-COMMANDS-SKILLS-PROPOSAL-2025-12-14.md`
+**Status:** ✅ Implemented (Phases 1-4 Complete)
+
+### The Problem
+
+Two domains exist but three projects create overlap:
+
+| Domain | Current State | Problem |
+|--------|---------------|---------|
+| ZSH (Shell) | zsh-configuration ✅ | Good |
+| ZSH (Shell) | zsh-claude-workflow ⚠️ | Duplicate |
+| Claude Code | ~/.claude/ ✅ | Good |
+| Claude Code | zsh-claude-workflow ⚠️ | Mixed in |
+
+### Target State: Two Projects
+
+```
+ZSH DOMAIN (zsh-configuration)     CLAUDE DOMAIN (~/.claude/)
+─────────────────────────────────  ─────────────────────────────
+• 144+ shell aliases               • 53 slash commands (8 categories)
+• 22-26 workflow functions         • 37 skills (organized)
+• ADHD helpers (js, why, win)      • settings.json (MCP, permissions)
+• Audit commands                   • statusline-p10k.sh
+• .STATUS system                   • Project detection (native)
+```
+
+### Proposed Command Inventory (53 total)
+
+| Category | Count | Commands |
+|----------|-------|----------|
+| 💻 `code/` | 12 | project-check, test-run, test-generate, test-coverage, lint-check, lint-fix, release-prep, deps-check, deps-audit, debug-trace, refactor-clean, demo-create |
+| 📖 `site/` | 5 | site-init, site-build, site-preview, site-deploy, site-check |
+| 🐙 `github/` | 4 | gh-pages, gh-actions, gh-release, ci-status |
+| 🧠 `workflow/` | 6 | recap, next, focus, done, brain-dump, stuck |
+| 🧮 `math/` | 4 | derive, example, notation, proof |
+| 🔬 `research/` | 8 | analysis-plan, cite, hypothesis, lit-gap, manuscript, method-scout, revision, sim-design |
+| 📚 `teach/` | 9 | canvas, exam, feedback, homework, lecture, quiz, rubric, solution, syllabus |
+| ✍️ `write/` | 5 | abstract, cover-letter, draft, edit, response |
+
+### Key Features
+
+**1. Context-Aware Commands**
+Commands detect project type (DESCRIPTION→R, pyproject.toml→Python, package.json→Node) and adapt behavior.
+
+**2. ADHD Workflow Loop**
+```
+/recap ──► /next ──► /focus ──► /done
+  ↑                               │
+  └───────────────────────────────┘
+```
+
+**3. .STATUS Coordination**
+Claude commands enhance existing shell functions:
+- `here()` → `/recap` (adds git history, PR status)
+- `next()` → `/next` (adds AI prioritization)
+- `endwork()` → `/done` (adds guided prompts)
+
+**4. Skill Categories (Proposed)**
+```
+~/.claude/skills/
+├── documents/     # pdf, docx, xlsx, pptx (Anthropic official)
+├── statistical/   # mathematical/, implementation/, research/, writing/
+├── teaching/      # exam generators, workflows
+├── development/   # r-package, emacs, zsh
+└── meta/          # workflows, documentation
+```
+
+### Implementation Phases
+
+| Phase | Description | Effort | Priority |
+|-------|-------------|--------|----------|
+| 1 | Cleanup (delete backup, create archive) | 30 min | ✅ REQUIRED |
+| 2 | Add Anthropic document skills | 15 min | ✅ REQUIRED |
+| 3 | Migrate Google Drive skills | 15 min | ✅ REQUIRED |
+| 4 | Create /hub discovery command | 1-2 hours | ⭐ RECOMMENDED |
+| 5 | Retire zsh-claude-workflow | ~1 hour | OPTIONAL |
+| 6 | Migrate to zsh-configuration | ~1 hour | OPTIONAL |
+
+### Key Insight
+
+The main improvements needed are:
+1. **Discoverability** via `/hub` command
+2. **Organization** via skill categories
+3. **Context-awareness** via project detection
+
+See full proposal: `plans/ADHD-COMMANDS-SKILLS-PROPOSAL-2025-12-14.md`
 
 
