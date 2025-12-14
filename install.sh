@@ -75,6 +75,12 @@ alias cinit='claude-init'
 alias cshow='claude-show'
 alias pclaude='proj-claude'
 
+# Audit commands
+alias ga='git-audit'
+alias fa='file-audit'
+alias ah='activity-heat'
+alias ma='morning-audit'
+
 EOF
 
 print_success "Added to .zshrc"

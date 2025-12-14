@@ -1,0 +1,106 @@
+#!/usr/bin/env zsh
+# git-audit - Find dirty/unpushed git repositories
+
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+source "$LIB_DIR/core.sh"
+
+# Configuration
+PROJECTS_DIR="${PROJECTS_DIR:-$HOME/projects}"
+MAX_DEPTH="${GIT_AUDIT_DEPTH:-3}"
+
+main() {
+    local show_clean=false
+    local quiet=false
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -a|--all) show_clean=true ;;
+            -q|--quiet) quiet=true ;;
+            -h|--help) show_help; return 0 ;;
+            *) PROJECTS_DIR="$1" ;;
+        esac
+        shift
+    done
+
+    [[ "$quiet" == false ]] && print_header "Git Repository Audit"
+
+    local dirty_count=0
+    local unpushed_count=0
+    local total_count=0
+
+    find "$PROJECTS_DIR" -maxdepth "$MAX_DEPTH" -name ".git" -type d 2>/dev/null | while read gitdir; do
+        local repo=$(dirname "$gitdir")
+        local repo_name=$(basename "$repo")
+        local repo_rel="${repo#$PROJECTS_DIR/}"
+        ((total_count++))
+
+        local is_dirty=false
+        local has_unpushed=false
+
+        # Check for uncommitted changes
+        if [[ -n $(git -C "$repo" status --porcelain 2>/dev/null) ]]; then
+            is_dirty=true
+            ((dirty_count++))
+        fi
+
+        # Check for unpushed commits (only if has remote)
+        if git -C "$repo" remote -v 2>/dev/null | grep -q origin; then
+            if [[ -n $(git -C "$repo" cherry -v 2>/dev/null) ]]; then
+                has_unpushed=true
+                ((unpushed_count++))
+            fi
+        fi
+
+        # Output
+        if [[ "$is_dirty" == true ]]; then
+            print_warning "${fg[yellow]}$repo_rel${reset_color} — uncommitted changes"
+            if [[ "$quiet" == false ]]; then
+                git -C "$repo" status --porcelain | head -5 | sed 's/^/    /'
+                local more=$(git -C "$repo" status --porcelain | wc -l)
+                [[ $more -gt 5 ]] && echo "    ... and $((more - 5)) more"
+            fi
+        fi
+
+        if [[ "$has_unpushed" == true ]]; then
+            print_info "${fg[blue]}$repo_rel${reset_color} — unpushed commits"
+            if [[ "$quiet" == false ]]; then
+                git -C "$repo" cherry -v | head -3 | sed 's/^/    /'
+            fi
+        fi
+
+        if [[ "$show_clean" == true && "$is_dirty" == false && "$has_unpushed" == false ]]; then
+            print_success "$repo_rel"
+        fi
+    done
+
+    echo ""
+    echo "${fg[cyan]}Summary:${reset_color} $dirty_count dirty, $unpushed_count unpushed"
+
+    [[ $dirty_count -gt 3 ]] && print_warning "Consider a cleanup commit spree!"
+}
+
+show_help() {
+    cat <<EOF
+Usage: git-audit [OPTIONS] [DIRECTORY]
+
+Find git repositories with uncommitted changes or unpushed commits.
+
+Options:
+    -a, --all     Show clean repos too
+    -q, --quiet   Minimal output (no file lists)
+    -h, --help    Show this help
+
+Environment:
+    PROJECTS_DIR      Base directory (default: ~/projects)
+    GIT_AUDIT_DEPTH   Max search depth (default: 3)
+
+Examples:
+    git-audit                    # Audit ~/projects
+    git-audit ~/code             # Audit specific directory
+    git-audit -q                 # Quick summary only
+EOF
+}
+
+main "$@"

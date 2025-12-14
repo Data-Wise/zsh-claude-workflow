@@ -337,6 +337,132 @@ skill-activate deactivate simulation
 
 ---
 
+## Workspace Audit Commands
+
+### `git-audit`
+
+Find git repositories with uncommitted changes or unpushed commits.
+
+**Usage:**
+```bash
+git-audit [OPTIONS] [DIRECTORY]
+```
+
+**Options:**
+- `-a, --all` - Show clean repos too
+- `-q, --quiet` - Minimal output (no file lists)
+- `-h, --help` - Show help
+
+**Environment:**
+- `PROJECTS_DIR` - Base directory (default: ~/projects)
+- `GIT_AUDIT_DEPTH` - Max search depth (default: 3)
+
+**Examples:**
+```bash
+# Audit ~/projects
+git-audit
+
+# Quick summary only
+git-audit -q
+
+# Audit specific directory
+git-audit ~/code
+```
+
+---
+
+### `file-audit`
+
+Find large files that may need cleanup or should be in .gitignore.
+
+**Usage:**
+```bash
+file-audit [OPTIONS] [DIRECTORY]
+```
+
+**Options:**
+- `-s, --size SIZE` - Size threshold (default: 50M)
+- `-h, --help` - Show help
+
+**Excludes:** .git, node_modules, .venv, __pycache__, renv
+
+**Examples:**
+```bash
+# Find files >50MB
+file-audit
+
+# Find files >100MB
+file-audit -s 100M
+
+# Audit data folder
+file-audit ~/data -s 10M
+```
+
+---
+
+### `activity-heat`
+
+Show activity heatmap for recent file modifications across projects.
+
+**Usage:**
+```bash
+activity-heat [OPTIONS] [DIRECTORY]
+```
+
+**Options:**
+- `-d, --days N` - Look back N days (default: 7)
+- `-n, --top N` - Show top N projects (default: 10)
+- `-h, --help` - Show help
+
+**Examples:**
+```bash
+# Last 7 days, top 10
+activity-heat
+
+# Last 30 days
+activity-heat -d 30
+
+# Top 5 only
+activity-heat -n 5
+```
+
+---
+
+### `morning-audit`
+
+Run a comprehensive daily workspace health check.
+
+**Usage:**
+```bash
+morning-audit [OPTIONS]
+```
+
+**Runs:**
+1. `git-audit` - Find dirty/unpushed repos
+2. `activity-heat` - Show recent activity
+3. `file-audit` - Find large files (in report only)
+4. `obs audit` - Check Obsidian structure (if available)
+
+**Options:**
+- `-s, --save` - Save report to ~/logs/audit/
+- `-o, --open` - Save and open report (macOS)
+- `-q, --quiet` - Minimal terminal output
+- `-h, --help` - Show help
+
+**Examples:**
+```bash
+# Quick terminal check
+morning-audit
+
+# Save markdown report
+morning-audit -s
+
+# Save and open report
+morning-audit -o
+```
+
+---
+
 ## Aliases
 
 For convenience, shorter aliases are available:
@@ -349,6 +475,10 @@ For convenience, shorter aliases are available:
 | `cinit` | `claude-init` | Quick CLAUDE.md creation |
 | `cshow` | `claude-show` | Quick CLAUDE.md display |
 | `pclaude` | `proj-claude` | Quick Claude Code launch |
+| `ga` | `git-audit` | Quick git status audit |
+| `fa` | `file-audit` | Quick large file finder |
+| `ah` | `activity-heat` | Quick activity heatmap |
+| `ma` | `morning-audit` | Quick morning audit |
 
 ---
 

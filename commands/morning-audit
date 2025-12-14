@@ -1,0 +1,127 @@
+#!/usr/bin/env zsh
+# morning-audit - Daily workspace health check
+
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+source "$LIB_DIR/core.sh"
+
+# Configuration
+LOG_DIR="${AUDIT_LOG_DIR:-$HOME/logs/audit}"
+SAVE_REPORT="${AUDIT_SAVE:-false}"
+
+main() {
+    local save_report=false
+    local open_report=false
+    local quiet=false
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -s|--save) save_report=true ;;
+            -o|--open) save_report=true; open_report=true ;;
+            -q|--quiet) quiet=true ;;
+            -h|--help) show_help; return 0 ;;
+        esac
+        shift
+    done
+
+    local date_tag=$(date "+%Y-%m-%d")
+    local report_file="$LOG_DIR/audit_report_$date_tag.md"
+
+    # Setup report file if saving
+    if [[ "$save_report" == true ]]; then
+        mkdir -p "$LOG_DIR"
+        echo "# Workspace Audit Report ($date_tag)" > "$report_file"
+        echo "Generated at: $(date)" >> "$report_file"
+        echo "" >> "$report_file"
+    fi
+
+    # Helper to tee output
+    output() {
+        if [[ "$save_report" == true ]]; then
+            echo "$1" | tee -a "$report_file"
+        else
+            echo "$1"
+        fi
+    }
+
+    echo ""
+    echo "${fg[cyan]}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset_color}"
+    echo "${fg[cyan]}  Morning Workspace Audit — $date_tag${reset_color}"
+    echo "${fg[cyan]}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset_color}"
+    echo ""
+
+    # 1. Git status
+    if [[ "$save_report" == true ]]; then
+        echo "## Git Status" >> "$report_file"
+        "$SCRIPT_DIR/git-audit" -q >> "$report_file" 2>&1
+        echo "" >> "$report_file"
+    fi
+    [[ "$quiet" == false ]] && "$SCRIPT_DIR/git-audit" -q
+
+    # 2. Activity heatmap
+    if [[ "$save_report" == true ]]; then
+        echo "## Activity Heatmap" >> "$report_file"
+        "$SCRIPT_DIR/activity-heat" -n 5 >> "$report_file" 2>&1
+        echo "" >> "$report_file"
+    fi
+    [[ "$quiet" == false ]] && "$SCRIPT_DIR/activity-heat" -n 5
+
+    # 3. Large files (only if saving or not quiet)
+    if [[ "$save_report" == true ]]; then
+        echo "## Large Files" >> "$report_file"
+        "$SCRIPT_DIR/file-audit" >> "$report_file" 2>&1
+        echo "" >> "$report_file"
+    fi
+
+    # 4. Obsidian audit (if obs command exists)
+    if command -v obs &> /dev/null; then
+        if [[ "$save_report" == true ]]; then
+            echo "## Obsidian Vault" >> "$report_file"
+            obs audit >> "$report_file" 2>&1
+            echo "" >> "$report_file"
+        fi
+        [[ "$quiet" == false ]] && obs audit
+    fi
+
+    # Summary
+    echo ""
+    echo "${fg[cyan]}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset_color}"
+
+    if [[ "$save_report" == true ]]; then
+        print_success "Report saved: $report_file"
+        if [[ "$open_report" == true && "$(uname)" == "Darwin" ]]; then
+            open "$report_file"
+        fi
+    fi
+}
+
+show_help() {
+    cat <<EOF
+Usage: morning-audit [OPTIONS]
+
+Run a comprehensive workspace health check.
+
+Runs:
+  1. git-audit    - Find dirty/unpushed repos
+  2. activity-heat - Show recent activity
+  3. file-audit   - Find large files (in report only)
+  4. obs audit    - Check Obsidian structure (if available)
+
+Options:
+    -s, --save    Save report to ~/logs/audit/
+    -o, --open    Save and open report (macOS)
+    -q, --quiet   Minimal terminal output
+    -h, --help    Show this help
+
+Environment:
+    AUDIT_LOG_DIR   Report directory (default: ~/logs/audit)
+
+Examples:
+    morning-audit           # Quick terminal check
+    morning-audit -s        # Save markdown report
+    morning-audit -o        # Save and open report
+EOF
+}
+
+main "$@"

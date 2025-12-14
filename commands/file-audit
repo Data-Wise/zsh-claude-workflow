@@ -1,0 +1,93 @@
+#!/usr/bin/env zsh
+# file-audit - Find large files that may need cleanup
+
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+source "$LIB_DIR/core.sh"
+
+# Configuration
+PROJECTS_DIR="${PROJECTS_DIR:-$HOME/projects}"
+SIZE_THRESHOLD="${FILE_AUDIT_SIZE:-50M}"
+
+main() {
+    local show_all=false
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -s|--size) SIZE_THRESHOLD="$2"; shift ;;
+            -a|--all) show_all=true ;;
+            -h|--help) show_help; return 0 ;;
+            *) PROJECTS_DIR="$1" ;;
+        esac
+        shift
+    done
+
+    print_header "Large File Audit (>$SIZE_THRESHOLD)"
+
+    local count=0
+    local total_size=0
+
+    # Exclusions: .git, node_modules, .venv, __pycache__, renv
+    find "$PROJECTS_DIR" -type f -size +${SIZE_THRESHOLD} \
+        -not -path "*/.git/*" \
+        -not -path "*/node_modules/*" \
+        -not -path "*/.venv/*" \
+        -not -path "*/__pycache__/*" \
+        -not -path "*/renv/*" \
+        2>/dev/null | while read file; do
+
+        local size=$(du -h "$file" | cut -f1)
+        local size_bytes=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null)
+        local rel_path="${file#$PROJECTS_DIR/}"
+        local ext="${file##*.}"
+
+        ((count++))
+        ((total_size += size_bytes))
+
+        # Color by file type
+        local color="white"
+        case "$ext" in
+            csv|parquet|rds|RData|feather) color="yellow" ;;  # Data files
+            zip|tar|gz|7z) color="blue" ;;                     # Archives
+            pdf|png|jpg|mp4) color="magenta" ;;                # Media
+            *) color="white" ;;
+        esac
+
+        echo "${fg[$color]}$size${reset_color}  $rel_path"
+    done
+
+    echo ""
+    if [[ $count -eq 0 ]]; then
+        print_success "No large files found (threshold: $SIZE_THRESHOLD)"
+    else
+        local human_total=$(numfmt --to=iec $total_size 2>/dev/null || echo "${total_size}B")
+        echo "${fg[cyan]}Found:${reset_color} $count files"
+        [[ $count -gt 5 ]] && print_warning "Consider archiving or adding to .gitignore"
+    fi
+}
+
+show_help() {
+    cat <<EOF
+Usage: file-audit [OPTIONS] [DIRECTORY]
+
+Find large files in projects that may need cleanup.
+
+Options:
+    -s, --size SIZE   Size threshold (default: 50M)
+    -h, --help        Show this help
+
+Excludes: .git, node_modules, .venv, __pycache__, renv
+
+Environment:
+    PROJECTS_DIR       Base directory (default: ~/projects)
+    FILE_AUDIT_SIZE    Size threshold (default: 50M)
+
+Examples:
+    file-audit                    # Find files >50MB
+    file-audit -s 100M            # Find files >100MB
+    file-audit ~/data -s 10M      # Audit data folder
+EOF
+}
+
+main "$@"

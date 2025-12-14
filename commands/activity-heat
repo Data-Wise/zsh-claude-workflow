@@ -1,0 +1,94 @@
+#!/usr/bin/env zsh
+# activity-heat - Show activity heatmap for recent file modifications
+
+SCRIPT_DIR="${0:A:h}"
+LIB_DIR="${SCRIPT_DIR}/../lib"
+
+source "$LIB_DIR/core.sh"
+
+# Configuration
+PROJECTS_DIR="${PROJECTS_DIR:-$HOME/projects}"
+DAYS="${ACTIVITY_HEAT_DAYS:-7}"
+TOP_N="${ACTIVITY_HEAT_TOP:-10}"
+
+main() {
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -d|--days) DAYS="$2"; shift ;;
+            -n|--top) TOP_N="$2"; shift ;;
+            -h|--help) show_help; return 0 ;;
+            *) PROJECTS_DIR="$1" ;;
+        esac
+        shift
+    done
+
+    print_header "Activity Heatmap (Last $DAYS Days)"
+
+    # Find recently modified files, extract project paths, count
+    find "$PROJECTS_DIR" -maxdepth 5 \
+        -name ".git" -prune -o \
+        -name "node_modules" -prune -o \
+        -name ".venv" -prune -o \
+        -name "renv" -prune -o \
+        -type f -mtime -${DAYS} -print 2>/dev/null | \
+        awk -F/ -v base="$PROJECTS_DIR" '{
+            # Extract project/subdir (2 levels deep from base)
+            n = split(base, b, "/")
+            if ($(n+1) != "" && $(n+2) != "") {
+                print $(n+1)"/"$(n+2)
+            } else if ($(n+1) != "") {
+                print $(n+1)
+            }
+        }' | sort | uniq -c | sort -rn | head -n "$TOP_N" | while read count project; do
+
+        [[ -z "$project" ]] && continue
+
+        # Create visual bar
+        local bar_len=$((count / 5))
+        [[ $bar_len -gt 20 ]] && bar_len=20
+        [[ $bar_len -lt 1 ]] && bar_len=1
+        local bar=$(printf '█%.0s' {1..$bar_len})
+
+        # Color intensity based on count
+        local color="green"
+        [[ $count -gt 20 ]] && color="yellow"
+        [[ $count -gt 50 ]] && color="red"
+
+        printf "${fg[$color]}%4d${reset_color} ${fg[blue]}%-30s${reset_color} %s\n" "$count" "$project" "$bar"
+    done
+
+    echo ""
+
+    # Show today's activity
+    local today_count=$(find "$PROJECTS_DIR" -maxdepth 5 \
+        -name ".git" -prune -o \
+        -name "node_modules" -prune -o \
+        -type f -mtime -1 -print 2>/dev/null | wc -l | tr -d ' ')
+
+    print_info "Today: $today_count files modified"
+}
+
+show_help() {
+    cat <<EOF
+Usage: activity-heat [OPTIONS] [DIRECTORY]
+
+Show which projects have the most recent file activity.
+
+Options:
+    -d, --days N    Look back N days (default: 7)
+    -n, --top N     Show top N projects (default: 10)
+    -h, --help      Show this help
+
+Environment:
+    PROJECTS_DIR         Base directory (default: ~/projects)
+    ACTIVITY_HEAT_DAYS   Days to look back (default: 7)
+    ACTIVITY_HEAT_TOP    Number of results (default: 10)
+
+Examples:
+    activity-heat                 # Last 7 days, top 10
+    activity-heat -d 30           # Last 30 days
+    activity-heat -n 5            # Top 5 only
+EOF
+}
+
+main "$@"
