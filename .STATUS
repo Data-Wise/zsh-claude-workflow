@@ -4,6 +4,7 @@ priority: P1
 progress: 92
 version: 1.5.0
 updated: 2025-12-14
+Next: Consider multi-project operations
 
 # What it does
 Shell automation for Claude Code - commands, aliases, context management.
@@ -18,9 +19,3 @@ Shell automation for Claude Code - commands, aliases, context management.
 # Links
 repo: https://github.com/Data-Wise/zsh-claude-workflow
 docs: https://data-wise.github.io/zsh-claude-workflow/
-
-# Next actions
-- none (stable)
-
-# Backlog
-- Multi-project operations
