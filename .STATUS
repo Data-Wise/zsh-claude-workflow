@@ -1,0 +1,26 @@
+project: zsh-claude-workflow
+status: stable
+priority: P1
+progress: 92
+version: 1.5.0
+updated: 2025-12-14
+
+# What it does
+Shell automation for Claude Code - commands, aliases, context management.
+137+ aliases, 26 functions, MkDocs documentation site.
+
+# Current state
+- Core commands: working
+- Documentation: deployed
+- Skills: 17 implemented
+- Audit commands: 4 new (git-audit, file-audit, activity-heat, morning-audit)
+
+# Links
+repo: https://github.com/Data-Wise/zsh-claude-workflow
+docs: https://data-wise.github.io/zsh-claude-workflow/
+
+# Next actions
+- none (stable)
+
+# Backlog
+- Multi-project operations

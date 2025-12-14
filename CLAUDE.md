@@ -33,6 +33,7 @@ Provide seamless integration between zsh workflows and Claude Code by:
 | **Documentation Site** | MkDocs with Material theme + GitHub Pages | ✅ Complete |
 | **GitHub Integration** | Issue/PR templates, workflows, metadata | ✅ Complete |
 | **Project Tracking** 🆕 | Roadmap progress with `plan-status` command | ✅ v1.4.1 |
+| **Workspace Audit** 🆕 | git-audit, file-audit, activity-heat, morning-audit | ✅ v1.5.0 |
 
 ---
 
@@ -58,6 +59,14 @@ cd ~/projects/dev-tools/zsh-claude-workflow
 ./commands/plan-status v1.5           # v1.5 progress
 ./commands/plan-status --gantt        # Visual timeline
 ./commands/plan-status --update v1.5 pj-index in_progress  # Update status
+
+# NEW v1.5.0: Workspace audit commands
+./commands/git-audit                  # Find dirty/unpushed repos
+./commands/git-audit -q               # Quick summary only
+./commands/file-audit                 # Find large files (>50MB)
+./commands/activity-heat -n 5         # Top 5 active projects
+./commands/morning-audit              # Full daily health check
+./commands/morning-audit -o           # Generate and open report
 
 # Documentation
 mkdocs serve                          # Preview docs locally (http://127.0.0.1:8000)
@@ -99,7 +108,11 @@ zsh-claude-workflow/
 │   ├── proj-claude        # 🆕 Enhanced: Open Claude Code with context
 │   ├── workflow-run 🆕    # Universal workflow dispatcher
 │   ├── rpkg-setup 🆕      # Smart R package initialization
-│   └── skill-activate 🆕  # Manage Claude skills
+│   ├── skill-activate 🆕  # Manage Claude skills
+│   ├── git-audit 🆕       # Find dirty/unpushed repos
+│   ├── file-audit 🆕      # Find large files needing cleanup
+│   ├── activity-heat 🆕   # Activity heatmap (last 7 days)
+│   └── morning-audit 🆕   # Daily workspace health check
 │
 ├── workflows/ 🆕          # YAML workflow definitions
 │   ├── rpkg/              # R package workflows
